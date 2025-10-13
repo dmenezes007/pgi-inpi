@@ -17,7 +17,8 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
       <div className="w-full max-w-md p-8 space-y-8 bg-slate-800 rounded-2xl shadow-2xl shadow-purple-500/20">
         <div className="text-center">
             <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-purple-400">
-            Programa de<br>Gestão da Inovação
+              <span className="block">Programa de</span>
+              <span className="block">Gestão da Inovação</span>
             </h1>
             <p className="mt-2 text-sm text-gray-400">Acesso Restrito</p>
         </div>

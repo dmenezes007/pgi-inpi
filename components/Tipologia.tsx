@@ -67,7 +67,7 @@ const Tipologia: React.FC = () => {
             </h1>
             <div className="bg-slate-800 p-6 rounded-lg shadow-lg mb-10 border border-slate-700">
                 <p className="text-lg leading-relaxed text-gray-300">
-                    A abordagem da gestão da inovação no INPI considerou diferentes<span className="text-purple-400 font-serif-highlight">tipos de inovação</span>, dentre aqueles entendidos como mais aderentes ao contexto institucional.
+                    A abordagem da gestão da inovação no INPI considerou diferentes<span className="text-purple-400 font-serif-highlight">tipos de inovação</span>, entendidos como mais aderentes ao contexto institucional.
                 </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
