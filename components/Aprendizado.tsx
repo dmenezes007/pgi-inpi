@@ -101,7 +101,7 @@ const Aprendizado: React.FC<AprendizadoProps> = ({ projects }) => {
                 </div>
                 <div className="w-2/3 flex flex-col">
                 {selectedProject ? (
-                     <div className="bg-slate-800 p-6 rounded-lg border border-slate-700 flex-grow overflow-y-auto animate-fade-in space-y-6">
+                    <div className="bg-slate-800 px-6 pt-6 pb-12 rounded-lg border border-slate-700 animate-fade-in space-y-6">
                         <h2 className="text-2xl font-bold text-purple-400">{selectedProject.title}</h2>
                         <div>
                             <h3 className="font-semibold text-gray-300">Escopo</h3>
@@ -131,7 +131,7 @@ const Aprendizado: React.FC<AprendizadoProps> = ({ projects }) => {
                                 <RiskMatrix risks={selectedProject.risks} />
                             </div>
                         </div>
-                     </div>
+                   </div>
                 ) : (
                     <div className="flex-grow flex items-center justify-center h-full text-center py-16 px-6 bg-slate-800 rounded-lg border-2 border-dashed border-slate-700">
                         <p className="text-gray-400">Selecione um projeto à esquerda para ver seus detalhes e aprendizados.</p>
