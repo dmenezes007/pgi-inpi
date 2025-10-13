@@ -46,6 +46,14 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
           </div>
         </form>
       </div>
+            <footer className="absolute bottom-8">
+        <img
+            // O 'src' é uma string que aponta para o arquivo na pasta 'public'
+            src="https://dmenezes007.github.io/pgi-inpi/files/imgs/logo_inpi_branco_fundo_transparente.png"
+            alt="Logo do INPI"
+            className="h-8 opacity-50"
+        />
+      </footer>
     </div>
   );
 };

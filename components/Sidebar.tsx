@@ -51,13 +51,13 @@ const Sidebar: React.FC<SidebarProps> = ({ modules, activeModule, isExpanded, on
       </nav>
 
       <div className="p-4 text-center">
-         <div className={`text-xs text-slate-500 mt-4 transition-opacity duration-300 ${isExpanded ? 'opacity-100' : 'opacity-0'}`}>
-                        <img 
-                src="https://dmenezes007.github.io/pgi-inpi/files/imgs/logo_inpi_branco_fundo_transparente.png" 
-                alt="Logo do INPI" 
-                className="h-8"
-            />
-         </div>
+         <div className={`flex justify-center text-xs text-slate-500 mt-4 transition-opacity duration-300 ${isExpanded ? 'opacity-100' : 'opacity-0'}`}>
+        <img 
+            src="https://dmenezes007.github.io/pgi-inpi/files/imgs/logo_inpi_branco_fundo_transparente.png" 
+            alt="Logo do INPI" 
+            className="h-8"
+        />
+    </div>
       </div>
     </aside>
   );
