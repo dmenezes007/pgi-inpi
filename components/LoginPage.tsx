@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import logoInpi from 'https://dmenezes007.github.io/pgi-inpi/files/imgs/logo_inpi_branco_fundo_transparente.png';
 
 interface LoginPageProps {
   onLogin: (password: string) => void;
@@ -13,39 +14,49 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-slate-900">
+    // MUDANÇA 2: Adicionar 'relative' e 'min-h-screen' para o posicionamento do rodapé
+    <div className="relative flex items-center justify-center min-h-screen bg-slate-900 p-4">
       <div className="w-full max-w-md p-8 space-y-8 bg-slate-800 rounded-2xl shadow-2xl shadow-purple-500/20">
         <div className="text-center">
             <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-purple-400">
-              <span className="block">Programa de</span>
-              <span className="block">Gestão da Inovação</span>
+                <span className="block">Programa de</span>
+                <span className="block">Gestão da Inovação</span>
             </h1>
             <p className="mt-2 text-sm text-gray-400">Acesso Restrito</p>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-          <div className="relative">
-            <input
-              id="password"
-              name="password"
-              type="password"
-              autoComplete="current-password"
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="relative block w-full px-4 py-3 text-white bg-slate-700 border border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 placeholder-gray-400"
-              placeholder="Senha"
-            />
-          </div>
-          <div>
-            <button
-              type="submit"
-              className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-800 focus:ring-purple-500 transition-all duration-300"
-            >
-              Acessar
-            </button>
-          </div>
+            <div className="relative">
+                <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    autoComplete="current-password"
+                    required
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="relative block w-full px-4 py-3 text-white bg-slate-700 border border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 placeholder-gray-400"
+                    placeholder="Senha"
+                />
+            </div>
+            <div>
+                <button
+                    type="submit"
+                    className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-800 focus:ring-purple-500 transition-all duration-300"
+                >
+                    Acessar
+                </button>
+            </div>
         </form>
       </div>
+
+      {/* MUDANÇA 3: Adicionar o rodapé com a imagem */}
+      <footer className="absolute bottom-8">
+        <img 
+            src={logoInpi} 
+            alt="Logo do INPI" 
+            className="h-8 opacity-50" 
+        />
+      </footer>
     </div>
   );
 };
