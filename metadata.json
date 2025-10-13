@@ -1,0 +1,5 @@
+{
+  "name": "Programa de Gestão da Inovação",
+  "description": "Uma aplicação web para apresentar o Programa de Gestão da Inovação do INPI, com módulos interativos e conteúdo informativo.",
+  "requestFramePermissions": []
+}
