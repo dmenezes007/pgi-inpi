@@ -178,7 +178,7 @@ const Metodologia: React.FC = () => {
                     }
                 >
                     <p>
-                        Utilizamos o método de <span className="text-purple-400 font-serif-highlight">Design Sprint</span>, adaptado ao contexto institucional, para condensar as fases de diagnóstico, ideação, prototipagem e teste em um ciclo curto de três dias. Esta abordagem permitiu a <span className="text-purple-400 font-serif-highlight">construção colaborativa</span> da política, favorecendo decisões rápidas e reduzindo os riscos de implementação.
+                        Foi tilizado o método de <span className="text-purple-400 font-serif-highlight">Design Sprint</span>, adaptado ao contexto institucional, para condensar as fases de diagnóstico, ideação, prototipagem e teste em um ciclo curto de três dias. Esta abordagem permitiu a <span className="text-purple-400 font-serif-highlight">construção colaborativa</span> da política, favorecendo decisões rápidas e reduzindo os riscos de implementação.
                     </p>
                      <p className="mt-4">
                         O processo contou com a participação ativa de <span className="font-bold text-purple-400 text-xl">16</span> participantes, a contribuição de <span className="font-bold text-purple-400 text-xl">7</span> especialistas e o envolvimento direto de <span className="font-bold text-purple-400 text-xl">3</span> decisores, garantindo uma visão plural e alinhada estrategicamente.
