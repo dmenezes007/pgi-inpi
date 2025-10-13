@@ -1,8 +1,6 @@
 import React from 'react';
 import { MODULES } from '../constants';
 import ModuleCard from './ModuleCard';
-// MUDANÇA 1: Importar a imagem do seu projeto
-import logoInpi from 'https://dmenezes007.github.io/pgi-inpi/files/imgs/logo_inpi_branco_fundo_transparente.png';
 
 interface InicioProps {
     onModuleSelect: (moduleName: string) => void;
@@ -26,14 +24,8 @@ const Inicio: React.FC<InicioProps> = ({ onModuleSelect }) => {
         {otherModules.map(moduleName => (
           <ModuleCard key={moduleName} moduleName={moduleName} onModuleSelect={onModuleSelect} />
         ))}
-
-        {/* MUDANÇA 2: Substituir o parágrafo pela imagem */}
-        <div className="flex items-center justify-center p-6 col-span-full">
-            <img 
-                src={logoInpi} 
-                alt="Logo do INPI" 
-                className="h-8" 
-            />
+        <div className="flex items-center justify-center p-6">
+          <p className="text-sm text-slate-500">© 2025 INPI</p>
         </div>
       </div>
     </div>
