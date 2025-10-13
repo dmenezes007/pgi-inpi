@@ -30,7 +30,7 @@ const AccordionItem = ({ title, icon, children, isOpen, onClick }: { title: stri
 );
 
 // Using placeholder images as per platform limitations. These can be replaced with actual image paths.
-const workshopImages = Array.from({ length: 40 }, (_, i) => `https://picsum.photos/id/${110 + i}/800/600`);
+const workshopImages = Array.from({ length: 82 }, (_, i) => `/files/imgs/Foto #${String(i + 1).padStart(2, '0')}.jpeg`);
 
 // Generate some pseudo-random but consistent rotations for the mural effect
 const rotations = [
@@ -149,7 +149,7 @@ const Metodologia: React.FC = () => {
                                     <div className="absolute inset-[3px] bg-slate-800 rounded-full"></div>
                                 </div>
                                 <img
-                                    src={src.replace('/800/600', '/200/150')}
+                                    src={src}
                                     alt={`Registro da Metaoficina ${index + 1}`}
                                     className="w-full h-full object-cover p-1.5 bg-white shadow-lg transition-transform duration-300 group-hover:scale-105"
                                     style={{ transform: rotations[index % rotations.length] }}
