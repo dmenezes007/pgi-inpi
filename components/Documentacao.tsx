@@ -13,15 +13,15 @@ const Documentacao: React.FC = () => {
 
                 <div className="space-y-4 pt-4">
                      <h2 className="text-xl font-semibold text-gray-200">Minutas para Apreciação</h2>
-                     <a href="#" onClick={e => e.preventDefault()} className="flex items-center p-4 bg-slate-700/50 rounded-lg border border-slate-600 hover:border-purple-500 hover:bg-slate-700 transition-all group">
+                     <a href="https://dmenezes007.github.io/pgi-inpi/files/docs/Minuta%20da%20Pol%C3%ADtica%20de%20Gest%C3%A3o%20da%20Inova%C3%A7%C3%A3o%20do%20INPI.docx" onClick={e => e.preventDefault()} className="flex items-center p-4 bg-slate-700/50 rounded-lg border border-slate-600 hover:border-purple-500 hover:bg-slate-700 transition-all group">
                         <svg className="w-6 h-6 mr-4 text-purple-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
                         <span className="text-gray-300 group-hover:text-white">Minuta: Política de Gestão da Inovação do INPI</span>
                     </a>
-                     <a href="#" onClick={e => e.preventDefault()} className="flex items-center p-4 bg-slate-700/50 rounded-lg border border-slate-600 hover:border-purple-500 hover:bg-slate-700 transition-all group">
+                     <a href="dmenezes007.github.io/pgi-inpi/files/docs/Minuta%20da%20Pol%C3%ADtica%20de%20Inova%C3%A7%C3%A3o%20da%20Academia%20do%20INPI.docx" onClick={e => e.preventDefault()} className="flex items-center p-4 bg-slate-700/50 rounded-lg border border-slate-600 hover:border-purple-500 hover:bg-slate-700 transition-all group">
                         <svg className="w-6 h-6 mr-4 text-purple-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
                         <span className="text-gray-300 group-hover:text-white">Minuta: Política de Inovação da Academia do INPI</span>
                     </a>
-                     <a href="#" onClick={e => e.preventDefault()} className="flex items-center p-4 bg-slate-700/50 rounded-lg border border-slate-600 hover:border-purple-500 hover:bg-slate-700 transition-all group">
+                     <a href="dmenezes007.github.io/pgi-inpi/files/docs/Minuta%20da%20Pol%C3%ADtica%20de%20Relacionamento%20da%20Academia%20do%20INPI%20com%20Funda%C3%A7%C3%B5es%20de%20Apoio.docx" onClick={e => e.preventDefault()} className="flex items-center p-4 bg-slate-700/50 rounded-lg border border-slate-600 hover:border-purple-500 hover:bg-slate-700 transition-all group">
                         <svg className="w-6 h-6 mr-4 text-purple-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
                         <span className="text-gray-300 group-hover:text-white">Minuta: Política de Relacionamento da Academia do INPI com Fundações de Apoio</span>
                     </a>
