@@ -1,5 +1,5 @@
 {
-  "name": "Portal de Gestão da Inovação",
-  "description": "Uma aplicação web para apresentar o Portal de Gestão da Inovação do INPI, com módulos interativos e conteúdo informativo.",
+  "name": "Portal da Gestão da Inovação",
+  "description": "Uma aplicação web para apresentar o Portal da Gestão da Inovação do INPI, com módulos interativos e conteúdo informativo.",
   "requestFramePermissions": []
 }
