@@ -129,7 +129,7 @@ const rotations = [
 
 
 const Metodologia: React.FC = () => {
-    const [openAccordion, setOpenAccordion] = useState<string | null>('sprint');
+    const [openAccordion, setOpenAccordion] = useState<string | null>(null);
     const [lightbox, setLightbox] = useState({ isOpen: false, index: 0 });
 
     const handleAccordionToggle = (id: string) => {
