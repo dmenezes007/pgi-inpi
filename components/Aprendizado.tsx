@@ -8,18 +8,28 @@ interface AprendizadoProps {
 const RiskMatrix: React.FC<{ risks: Risk[] }> = ({ risks }) => {
     const probabilityMap = { 'Baixa': 1, 'Média': 2, 'Alta': 3 };
     const impactMap = { 'Baixo': 1, 'Médio': 2, 'Alto': 3 };
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     return (
-        <div className="relative grid grid-cols-3 grid-rows-3 gap-1 p-4 bg-slate-900/50 rounded-lg border border-slate-700 aspect-square">
+        <div className={`relative grid grid-cols-3 grid-rows-3 gap-1 p-4 bg-slate-900/50 rounded-lg border border-slate-700 ${isMobile ? 'aspect-auto' : 'aspect-square'}`}>
             {/* Labels */}
-            <div className="absolute -left-12 top-1/2 -translate-y-1/2 text-sm text-gray-400 -rotate-90 font-semibold tracking-wider">Impacto</div>
-            <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-sm text-gray-400 font-semibold tracking-wider">Probabilidade</div>
+            <div className={`absolute -left-12 top-1/2 -translate-y-1/2 text-sm text-gray-400 -rotate-90 font-semibold tracking-wider ${isMobile ? 'hidden' : ''}`}>Impacto</div>
+            <div className={`absolute -bottom-8 left-1/2 -translate-x-1/2 text-sm text-gray-400 font-semibold tracking-wider ${isMobile ? 'hidden' : ''}`}>Probabilidade</div>
             
-            <div className="absolute text-xs text-gray-500" style={{ bottom: '16.67%', left: -35, transform: 'translateY(50%)' }}>Baixo</div>
-            <div className="absolute text-xs text-gray-500" style={{ top: '16.67%', left: -30, transform: 'translateY(-50%)' }}>Alto</div>
+            <div className={`absolute text-xs text-gray-500 ${isMobile ? 'hidden' : ''}`} style={{ bottom: '16.67%', left: -35, transform: 'translateY(50%)' }}>Baixo</div>
+            <div className={`absolute text-xs text-gray-500 ${isMobile ? 'hidden' : ''}`} style={{ top: '16.67%', left: -30, transform: 'translateY(-50%)' }}>Alto</div>
             
-            <div className="absolute text-xs text-gray-500" style={{ left: '16.67%', bottom: -20, transform: 'translateX(-50%)' }}>Baixa</div>
-            <div className="absolute text-xs text-gray-500" style={{ left: '83.33%', bottom: -20, transform: 'translateX(-50%)' }}>Alta</div>
+            <div className={`absolute text-xs text-gray-500 ${isMobile ? 'hidden' : ''}`} style={{ left: '16.67%', bottom: -20, transform: 'translateX(-50%)' }}>Baixa</div>
+            <div className={`absolute text-xs text-gray-500 ${isMobile ? 'hidden' : ''}`} style={{ left: '83.33%', bottom: -20, transform: 'translateX(-50%)' }}>Alta</div>
 
             {/* Background colors for 3x3 grid (top-to-bottom, left-to-right) */}
             {/* Top Row (Impacto Alto) */}
@@ -82,8 +92,8 @@ const Aprendizado: React.FC<AprendizadoProps> = ({ projects }) => {
             </div>
 
 
-            <div className="flex-grow flex gap-8 min-h-0">
-                <div className="w-1/3 flex flex-col">
+            <div className="flex-grow flex flex-col md:flex-row gap-8 min-h-0">
+                <div className="w-full md:w-1/3 flex flex-col">
                     <div className="bg-slate-800 p-4 rounded-lg border border-slate-700 flex-grow flex flex-col min-h-0">
                         <h2 className="text-xl font-semibold mb-4 text-gray-200 flex-shrink-0">Banco de Ideias</h2>
                         <div className="space-y-2 overflow-y-auto pr-2">
@@ -99,7 +109,7 @@ const Aprendizado: React.FC<AprendizadoProps> = ({ projects }) => {
                         </div>
                     </div>
                 </div>
-                <div className="w-2/3 flex flex-col">
+                <div className="w-full md:w-2/3 flex flex-col">
                 {selectedProject ? (
                     <div className="bg-slate-800 px-6 pt-6 pb-12 rounded-lg border border-slate-700 animate-fade-in space-y-6">
                         <h2 className="text-2xl font-bold text-purple-400">{selectedProject.title}</h2>

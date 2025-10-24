@@ -5,20 +5,27 @@ interface SidebarProps {
   modules: string[];
   activeModule: string;
   isExpanded: boolean;
+  isMobileOpen: boolean;
   onModuleSelect: (moduleName: string) => void;
   onToggle: () => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ modules, activeModule, isExpanded, onModuleSelect, onToggle }) => {
+const Sidebar: React.FC<SidebarProps> = ({ modules, activeModule, isExpanded, isMobileOpen, onModuleSelect, onToggle }) => {
+  const sidebarClasses = `sidebar bg-slate-800 flex flex-col shadow-lg transition-all duration-300 ease-in-out ${
+    isMobileOpen ? 'expanded' : ''
+  } ${
+    isExpanded ? 'w-64' : 'w-20'
+  }`;
+
   return (
-    <aside className={`bg-slate-800 flex flex-col shadow-lg transition-all duration-300 ease-in-out ${isExpanded ? 'w-64' : 'w-20'}`}>
-      <div className={`p-6 flex items-center ${isExpanded ? 'justify-between' : 'justify-center'}`}>
+    <aside className={sidebarClasses}>
+      <div className={`p-6 pt-16 flex items-center ${isExpanded ? 'justify-between' : 'justify-center'}`}>
         {isExpanded && (
           <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-purple-400">
             PGI
           </div>
         )}
-         <button onClick={onToggle} className="p-1 rounded-full text-slate-400 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-purple-500">
+         <button onClick={onToggle} className={`p-1 rounded-full text-slate-400 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-purple-500 md:block hidden`}>
           <svg xmlns="http://www.w3.org/2000/svg" className={`h-6 w-6 transition-transform duration-300 ${isExpanded ? '' : 'rotate-180'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
           </svg>
