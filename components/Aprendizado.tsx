@@ -139,8 +139,10 @@ const Aprendizado: React.FC<AprendizadoProps> = ({ projects }) => {
                         </div>
                         <div>
                             <h3 className="font-semibold text-gray-300">Riscos Associados (Matriz Impacto x Probabilidade)</h3>
-                            <div className="mt-4 mx-auto">
-                                <RiskMatrix risks={selectedProject.risks} />
+                            <div className="mt-4 mx-auto overflow-x-auto">
+                                <div className="min-w-[500px]">
+                                    <RiskMatrix risks={selectedProject.risks} />
+                                </div>
                             </div>
                         </div>
                    </div>
