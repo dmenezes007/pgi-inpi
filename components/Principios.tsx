@@ -58,7 +58,7 @@ const Principios: React.FC = () => {
                             <div
                                 onDrop={(e) => handleDrop(e, id)}
                                 onDragOver={(e) => e.preventDefault()}
-                                className={`w-64 h-10 flex-shrink-0 rounded-md border-2 border-dashed transition-colors duration-300 ${completed[id] ? 'border-green-500 bg-green-500/10' : 'border-slate-600 hover:border-purple-500 hover:bg-slate-700/50'}`}
+                                className={`w-full lg:w-64 h-10 flex-shrink-0 rounded-md border-2 border-dashed transition-colors duration-300 ${completed[id] ? 'border-green-500 bg-green-500/10' : 'border-slate-600 hover:border-purple-500 hover:bg-slate-700/50'}`}}
                             >
                                 {completed[id] && (
                                     <div className="flex items-center justify-center h-full text-green-400 font-serif-highlight text-lg">

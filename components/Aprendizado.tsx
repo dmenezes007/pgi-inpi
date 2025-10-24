@@ -5,19 +5,14 @@ interface AprendizadoProps {
     projects: Project[];
 }
 
-const RiskMatrix: React.FC<{ risks: Risk[] }> = ({ risks }) => {
+interface RiskMatrixProps {
+    risks: Risk[];
+    isMobile: boolean;
+}
+
+const RiskMatrix: React.FC<RiskMatrixProps> = ({ risks, isMobile }) => {
     const probabilityMap = { 'Baixa': 1, 'Média': 2, 'Alta': 3 };
     const impactMap = { 'Baixo': 1, 'Médio': 2, 'Alto': 3 };
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-
-    useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth < 768);
-        };
-
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
 
     return (
         <div className={`relative grid grid-cols-3 grid-rows-3 gap-1 p-4 bg-slate-900/50 rounded-lg border border-slate-700 ${isMobile ? 'aspect-auto' : 'aspect-square'}`}>
@@ -77,6 +72,18 @@ const RiskMatrix: React.FC<{ risks: Risk[] }> = ({ risks }) => {
 
 const Aprendizado: React.FC<AprendizadoProps> = ({ projects }) => {
     const [selectedProjectId, setSelectedProjectId] = useState<string | null>(projects.length > 0 ? projects[0].id : null);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        window.addEventListener('resize', handleResize);
+        handleResize(); // Set initial value
+
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
     
     const selectedProject = projects.find(p => p.id === selectedProjectId);
 
@@ -138,7 +145,7 @@ const Aprendizado: React.FC<AprendizadoProps> = ({ projects }) => {
                         <div>
                             <h3 className="font-semibold text-gray-300">Riscos Associados (Matriz Impacto x Probabilidade)</h3>
                             <div className="mt-4 max-w-sm mx-auto">
-                                <RiskMatrix risks={selectedProject.risks} />
+                                <RiskMatrix risks={selectedProject.risks} isMobile={isMobile} />
                             </div>
                         </div>
                    </div>

@@ -32,7 +32,7 @@ const Sidebar: React.FC<SidebarProps> = ({ modules, activeModule, isExpanded, is
         </button>
       </div>
       
-      <nav className="flex-grow px-4">
+      <nav className="flex-grow px-4 overflow-y-auto">
         <ul>
           {modules.map((moduleName) => (
             <li key={moduleName} className="mb-2">
