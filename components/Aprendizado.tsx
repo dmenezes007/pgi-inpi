@@ -24,14 +24,14 @@ const RiskMatrix: React.FC<{ risks: Risk[] }> = ({ risks }) => {
     return (
         <div className={`relative grid grid-cols-3 grid-rows-3 gap-1 p-4 bg-slate-900/50 rounded-lg border border-slate-700 ${isMobile ? 'aspect-auto' : 'aspect-square'}`}>
             {/* Labels */}
-            <div className={`absolute -left-12 top-1/2 -translate-y-1/2 text-sm text-gray-400 -rotate-90 font-semibold tracking-wider ${isMobile ? 'text-xs -left-8' : ''}`}>Impacto</div>
-            <div className={`absolute -bottom-8 left-1/2 -translate-x-1/2 text-sm text-gray-400 font-semibold tracking-wider ${isMobile ? 'text-xs -bottom-4' : ''}`}>Probabilidade</div>
+            <div className={`absolute -left-12 top-1/2 -translate-y-1/2 text-sm text-gray-400 -rotate-90 font-semibold tracking-wider ${isMobile ? 'text-xs -left-6' : ''}`}>Impacto</div>
+            <div className={`absolute -bottom-8 left-1/2 -translate-x-1/2 text-sm text-gray-400 font-semibold tracking-wider ${isMobile ? 'text-xs -bottom-6' : ''}`}>Probabilidade</div>
             
-            <div className={`absolute text-xs text-gray-500 ${isMobile ? 'hidden' : ''}`} style={{ bottom: '16.67%', left: -35, transform: 'translateY(50%)' }}>Baixo</div>
-            <div className={`absolute text-xs text-gray-500 ${isMobile ? 'hidden' : ''}`} style={{ top: '16.67%', left: -30, transform: 'translateY(-50%)' }}>Alto</div>
+            <div className={`absolute text-xs text-gray-500 ${isMobile ? 'bottom-1 left-1/2 -translate-x-1/2' : ''}`} style={isMobile ? {} : { bottom: '16.67%', left: -35, transform: 'translateY(50%)' }}>Baixo</div>
+            <div className={`absolute text-xs text-gray-500 ${isMobile ? 'top-1 left-1/2 -translate-x-1/2' : ''}`} style={isMobile ? {} : { top: '16.67%', left: -30, transform: 'translateY(-50%)' }}>Alto</div>
             
-            <div className={`absolute text-xs text-gray-500 ${isMobile ? 'hidden' : ''}`} style={{ left: '16.67%', bottom: -20, transform: 'translateX(-50%)' }}>Baixa</div>
-            <div className={`absolute text-xs text-gray-500 ${isMobile ? 'hidden' : ''}`} style={{ left: '83.33%', bottom: -20, transform: 'translateX(-50%)' }}>Alta</div>
+            <div className={`absolute text-xs text-gray-500 ${isMobile ? 'bottom-1/2 -translate-y-1/2 left-1' : ''}`} style={isMobile ? {} : { left: '16.67%', bottom: -20, transform: 'translateX(-50%)' }}>Baixa</div>
+            <div className={`absolute text-xs text-gray-500 ${isMobile ? 'bottom-1/2 -translate-y-1/2 right-1' : ''}`} style={isMobile ? {} : { left: '83.33%', bottom: -20, transform: 'translateX(-50%)' }}>Alta</div>
 
             {/* Background colors for 3x3 grid (top-to-bottom, left-to-right) */}
             {/* Top Row (Impacto Alto) */}
@@ -139,10 +139,8 @@ const Aprendizado: React.FC<AprendizadoProps> = ({ projects }) => {
                         </div>
                         <div>
                             <h3 className="font-semibold text-gray-300">Riscos Associados (Matriz Impacto x Probabilidade)</h3>
-                            <div className="mt-4 mx-auto overflow-x-auto">
-                                <div className="min-w-[500px]">
-                                    <RiskMatrix risks={selectedProject.risks} />
-                                </div>
+                            <div className="mt-4 mx-auto">
+                                <RiskMatrix risks={selectedProject.risks} />
                             </div>
                         </div>
                    </div>
