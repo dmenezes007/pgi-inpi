@@ -22,7 +22,7 @@ const RiskMatrix: React.FC<{ risks: Risk[] }> = ({ risks }) => {
     }, []);
 
     return (
-        <div className={`relative grid grid-cols-3 grid-rows-3 gap-1 p-4 bg-slate-900/50 rounded-lg border border-slate-700 ${isMobile ? 'aspect-auto' : 'aspect-square'}`}>
+        <div className={`relative grid grid-cols-3 grid-rows-3 gap-1 p-4 bg-slate-900/50 rounded-lg border border-slate-700 h-full ${isMobile ? 'aspect-auto' : 'aspect-square'}`}>
             {/* Labels */}
             <div className={`absolute -left-12 top-1/2 -translate-y-1/2 text-sm text-gray-400 -rotate-90 font-semibold tracking-wider ${isMobile ? 'text-xs -left-6' : ''}`}>Impacto</div>
             <div className={`absolute -bottom-8 left-1/2 -translate-x-1/2 text-sm text-gray-400 font-semibold tracking-wider ${isMobile ? 'text-xs -bottom-6' : ''}`}>Probabilidade</div>
