@@ -54,7 +54,7 @@ const Principios: React.FC = () => {
             <div className="flex flex-col lg:flex-row gap-8">
                 <div className="flex-grow space-y-4">
                     {principlesData.map(({ id, sentence, keyword }) => (
-                        <div key={id} className="flex items-center gap-4 bg-slate-800 p-4 rounded-lg border border-slate-700 min-h-[60px]">
+                        <div key={id} className="flex flex-col lg:flex-row items-center gap-4 bg-slate-800 p-4 rounded-lg border border-slate-700 min-h-[60px]">
                             <div
                                 onDrop={(e) => handleDrop(e, id)}
                                 onDragOver={(e) => e.preventDefault()}
@@ -67,7 +67,7 @@ const Principios: React.FC = () => {
                                     </div>
                                 )}
                             </div>
-                            <p className="text-gray-300">{sentence}</p>
+                            <p className="text-gray-300 text-center lg:text-left">{sentence}</p>
                         </div>
                     ))}
                 </div>
