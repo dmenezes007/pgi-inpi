@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import LoginPage from './components/LoginPage';
 import Sidebar from './components/Sidebar';
 import MainContent from './components/MainContent';
+import './styles/App.css';
 import { MODULES } from './constants';
 
 const CORRECT_PASSWORD = 'PGI_INPI_2025';
