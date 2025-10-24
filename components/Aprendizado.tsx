@@ -24,8 +24,8 @@ const RiskMatrix: React.FC<{ risks: Risk[] }> = ({ risks }) => {
     return (
         <div className={`relative grid grid-cols-3 grid-rows-3 gap-1 p-4 bg-slate-900/50 rounded-lg border border-slate-700 ${isMobile ? 'h-[300px]' : 'aspect-square h-full'}`}>
             {/* Labels */}
-            <div className={`absolute -left-12 top-1/2 -translate-y-1/2 text-sm text-gray-400 -rotate-90 font-semibold tracking-wider ${isMobile ? 'text-xs -left-6' : ''}`}>Impacto</div>
-            <div className={`absolute -bottom-8 left-1/2 -translate-x-1/2 text-sm text-gray-400 font-semibold tracking-wider ${isMobile ? 'text-xs -bottom-6' : ''}`}>Probabilidade</div>
+            <div className={`absolute -left-12 top-1/2 -translate-y-1/2 text-sm text-gray-400 -rotate-90 font-semibold tracking-wider ${isMobile ? 'text-xs -left-4' : ''}`}>Impacto</div>
+            <div className={`absolute -bottom-8 left-1/2 -translate-x-1/2 text-sm text-gray-400 font-semibold tracking-wider ${isMobile ? 'text-xs -bottom-4' : ''}`}>Probabilidade</div>
             
             <div className={`absolute text-xs text-gray-500 ${isMobile ? 'bottom-1 left-1/2 -translate-x-1/2' : ''}`} style={isMobile ? {} : { bottom: '16.67%', left: -35, transform: 'translateY(50%)' }}>Baixo</div>
             <div className={`absolute text-xs text-gray-500 ${isMobile ? 'top-1 left-1/2 -translate-x-1/2' : ''}`} style={isMobile ? {} : { top: '16.67%', left: -30, transform: 'translateY(-50%)' }}>Alto</div>
