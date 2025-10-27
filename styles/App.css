@@ -4,7 +4,6 @@
   height: 100vh;
   background-color: #0f172a; /* slate-900 */
   color: white;
-  font-family: sans-serif;
   overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
