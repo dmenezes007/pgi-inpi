@@ -48,7 +48,7 @@ const Governanca: React.FC = () => {
                 <div className="py-6">
                     {activeTab === 'atribuicoes' && (
                         <div className="space-y-3">
-                             <h3 className="text-lg font-semibold text-gray-300 mb-4">Caberá ao Comitê de Governança Interno (CGI):</h3>
+                             <h3 className="text-lg font-semibold text-gray-300 mb-4">Caberá ao Comitê de Governança Interna (CGI):</h3>
                              {atribuicoes.map((item, index) => (
                                 <div key={index} className="flex items-start p-3 bg-slate-800 rounded-md">
                                     <svg className="w-5 h-5 mr-3 mt-1 flex-shrink-0 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
