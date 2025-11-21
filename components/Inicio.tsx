@@ -24,9 +24,9 @@ const Inicio: React.FC<InicioProps> = ({ onModuleSelect }) => {
         {otherModules.map(moduleName => (
           <ModuleCard key={moduleName} moduleName={moduleName} onModuleSelect={onModuleSelect} />
         ))}
-        <div className="flex items-center justify-center p-6">
-          <p className="text-sm text-slate-500">© 2025 INPI</p>
-        </div>
+      </div>
+      <div className="flex items-center justify-center p-6">
+        <p className="text-sm text-slate-500">© 2025 INPI</p>
       </div>
     </div>
   );

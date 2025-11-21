@@ -11,7 +11,7 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ modules, activeModule, isExpanded, isMobileOpen, onModuleSelect, onToggle }) => {
-  const sidebarClasses = `sidebar bg-slate-800 flex flex-col shadow-lg transition-all duration-300 ease-in-out ${
+  const sidebarClasses = `sidebar bg-slate-800 flex flex-col shadow-lg transition-all duration-300 ease-in-out h-screen sticky top-0 ${
     isMobileOpen ? 'expanded' : ''
   } ${
     isExpanded ? 'w-64' : 'w-20'

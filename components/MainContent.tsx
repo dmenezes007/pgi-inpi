@@ -62,8 +62,8 @@ const MainContent: React.FC<MainContentProps> = ({ activeModule, onModuleSelect,
   };
 
   return (
-    <main className="flex-1 p-4 sm:p-8 overflow-y-auto bg-slate-900">
-      <div>
+    <main className="flex-1 p-4 sm:p-8 overflow-y-auto">
+      <div className="max-w-full mx-auto">
         {renderModule()}
       </div>
     </main>

@@ -23,7 +23,7 @@ const Desenvolvimento: React.FC<DesenvolvimentoProps> = ({ projects }) => {
             </div>
 
             <div className="mb-8">
-                <select id="project-select" onChange={handleSelectProject} defaultValue="" className="w-full max-w-lg px-3 py-2 text-white bg-slate-700 border border-slate-600 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500">
+                <select id="project-select" onChange={handleSelectProject} defaultValue="" className="w-full px-3 py-2 text-white bg-slate-700 border border-slate-600 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500">
                     <option value="" disabled>Selecione a Ação ou Projeto</option>
                     {projects.map(p => (
                         <option key={p.id} value={p.id}>{p.title}</option>
