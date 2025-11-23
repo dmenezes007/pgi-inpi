@@ -52,7 +52,7 @@
 }
 
 .intense-glow {
-  filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.7))
-          drop-shadow(0 0 10px rgba(0, 255, 255, 0.5))
-          drop-shadow(0 0 20px rgba(0, 255, 255, 0.3));
+  filter: drop-shadow(0 0 5px rgba(168, 85, 247, 0.7))
+          drop-shadow(0 0 10px rgba(168, 85, 247, 0.5))
+          drop-shadow(0 0 20px rgba(168, 85, 247, 0.3));
 }
