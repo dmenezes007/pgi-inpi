@@ -52,7 +52,10 @@
 }
 
 .intense-glow {
-  filter: drop-shadow(0 0 5px rgba(168, 85, 247, 0.7))
-          drop-shadow(0 0 10px rgba(168, 85, 247, 0.5))
-          drop-shadow(0 0 20px rgba(168, 85, 247, 0.3));
+  filter: drop-shadow(0 0 3px rgba(168, 85, 247, 0.6))
+          drop-shadow(0 0 8px rgba(168, 85, 247, 0.4));
+}
+
+.custom-gradient-purple {
+  background-image: linear-gradient(to top right, rgba(168, 85, 247, 0.2), #0f172a);
 }

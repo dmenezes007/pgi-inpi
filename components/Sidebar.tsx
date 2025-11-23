@@ -19,7 +19,7 @@ const Sidebar: React.FC<SidebarProps> = ({ modules, activeModule, isExpanded, is
 
   return (
     <aside className={sidebarClasses}>
-      <div className={`p-6 pt-16 flex items-center ${isExpanded ? 'justify-between' : 'justify-center'}`}>
+      <div className={`p-6 flex items-center ${isExpanded ? 'justify-between' : 'justify-center'}`}>
         {isExpanded && (
           <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-purple-400">
             PGI

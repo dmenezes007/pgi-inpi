@@ -264,7 +264,7 @@ function App() {
         onModuleSelect={handleModuleSelect}
         onToggle={toggleSidebar}
       />
-      <div className="main-content" onClick={() => {
+      <div className="main-content custom-gradient-purple" onClick={() => {
         if (isMobileSidebarOpen) {
           setIsMobileSidebarOpen(false);
         }
