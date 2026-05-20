@@ -40,13 +40,13 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
             </div>
             <div>
               <p className="font-extrabold tracking-tight leading-none">PGI</p>
-              <p className="text-xs text-slate-500 leading-none mt-1">Portal da Gestao da Inovacao - INPI</p>
+              <p className="text-xs text-slate-500 leading-none mt-1">Portal da Gestão da Inovação - INPI</p>
             </div>
           </a>
 
           <nav className="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-600">
             <a href="#contexto" className="hover:text-slate-900 transition-colors">Contexto</a>
-            <a href="#modulos" className="hover:text-slate-900 transition-colors">Modulos</a>
+            <a href="#modulos" className="hover:text-slate-900 transition-colors">Módulos</a>
             <a href="#projetos" className="hover:text-slate-900 transition-colors">Projetos</a>
             <a href="#acesso" className="hover:text-slate-900 transition-colors">Acesso</a>
           </nav>
@@ -68,21 +68,21 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
           </div>
 
           <h1 className="mt-6 text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.06] max-w-5xl">
-            Portal da Gestao da Inovacao do INPI
+            Portal da Gestão da Inovação do INPI
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-brand-violet to-brand-cyan">
-              diretrizes metodologicas, governanca e execucao institucional em um unico ambiente
+              diretrizes metodológicas, governança e execução institucional em um único ambiente
             </span>
           </h1>
 
           <p className="mt-6 max-w-3xl text-lg text-slate-600 leading-relaxed">
             O PGI consolida a proposta da CGRH e da Academia de Propriedade Intelectual,
-            Inovacao e Desenvolvimento para reconhecer a inovacao como pilar estrategico da
-            transformacao organizacional do INPI.
+            Inovação e Desenvolvimento para reconhecer a inovação como pilar estratégico da
+            transformação organizacional do INPI.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
             <a href="#modulos" className="px-8 py-4 rounded-full bg-slate-950 text-white font-semibold shadow-lg shadow-slate-900/20">
-              Explorar modulos
+              Explorar módulos
             </a>
             <a href="#acesso" className="px-8 py-4 rounded-full glass-premium font-semibold text-center">
               Acesso restrito
@@ -91,11 +91,11 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
 
           <div className="mt-14 grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="glass-premium rounded-2xl p-5">
-              <p className="text-xs uppercase tracking-wider text-slate-500">Modulos ativos</p>
+              <p className="text-xs uppercase tracking-wider text-slate-500">Módulos ativos</p>
               <p className="text-3xl font-extrabold mt-2">{MODULES.length}</p>
             </div>
             <div className="glass-premium rounded-2xl p-5">
-              <p className="text-xs uppercase tracking-wider text-slate-500">Projetos estrategicos</p>
+              <p className="text-xs uppercase tracking-wider text-slate-500">Projetos estratégicos</p>
               <p className="text-3xl font-extrabold mt-2">{projects.length}</p>
             </div>
             <div className="glass-premium rounded-2xl p-5">
@@ -104,7 +104,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
             </div>
             <div className="glass-premium rounded-2xl p-5">
               <p className="text-xs uppercase tracking-wider text-slate-500">Foco</p>
-              <p className="text-lg font-bold mt-3">Valor publico e eficiencia institucional</p>
+              <p className="text-lg font-bold mt-3">Valor público e eficiência institucional</p>
             </div>
           </div>
         </div>
@@ -113,26 +113,26 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
       <section id="contexto" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight max-w-4xl">
-            O PGI integra capacidades tecnicas e gerenciais para fortalecer a politica de inovacao
-            na administracao publica federal.
+            O PGI integra capacidades técnicas e gerenciais para fortalecer a política de inovação
+            na administração pública federal.
           </h2>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
             <article className="rounded-2xl border border-slate-200 p-7 bg-slate-50/60">
-              <h3 className="text-xl font-bold">Direcionamento estrategico</h3>
+              <h3 className="text-xl font-bold">Direcionamento estratégico</h3>
               <p className="mt-3 text-slate-600 leading-relaxed">
-                Alinha iniciativas de inovacao aos objetivos do planejamento institucional,
-                com priorizacao de resultados finalisticos para os servicos do INPI.
+                Alinha iniciativas de inovação aos objetivos do planejamento institucional,
+                com priorização de resultados finalísticos para os serviços do INPI.
               </p>
             </article>
             <article className="rounded-2xl border border-slate-200 p-7 bg-slate-50/60">
               <h3 className="text-xl font-bold">Metodologia aplicada</h3>
               <p className="mt-3 text-slate-600 leading-relaxed">
-                Estrutura o ciclo de ideacao, desenvolvimento, implantacao, mensuracao e aprendizado,
-                com orientacao para melhoria continua e gestao do conhecimento.
+                Estrutura o ciclo de ideação, desenvolvimento, implantação, mensuração e aprendizado,
+                com orientação para melhoria contínua e gestão do conhecimento.
               </p>
             </article>
             <article className="rounded-2xl border border-slate-200 p-7 bg-slate-50/60">
-              <h3 className="text-xl font-bold">Governanca e transparencia</h3>
+              <h3 className="text-xl font-bold">Governança e transparência</h3>
               <p className="mt-3 text-slate-600 leading-relaxed">
                 Consolida riscos, recursos, indicadores e cronogramas para acompanhamento executivo,
                 com apoio das unidades DIRPA, DIRMA, CGTI, CQUAL e CGRH.
@@ -140,7 +140,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
             </article>
           </div>
           <div className="mt-10 text-center">
-            <a href="#acesso" className={sectionCtaClass}>Acessar aplicacao completa</a>
+            <a href="#acesso" className={sectionCtaClass}>Acessar aplicação completa</a>
           </div>
         </div>
       </section>
@@ -149,7 +149,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-3xl">
             <p className="text-sm font-bold uppercase tracking-wider text-brand-accent">Arquitetura do portal</p>
-            <h2 className="mt-3 text-3xl md:text-5xl font-extrabold tracking-tight">Modulos que estruturam a jornada de gestao da inovacao</h2>
+            <h2 className="mt-3 text-3xl md:text-5xl font-extrabold tracking-tight">Módulos que estruturam a jornada de gestão da inovação</h2>
           </div>
 
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -160,7 +160,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
             ))}
           </div>
           <div className="mt-10 text-center">
-            <a href="#acesso" className={sectionCtaClass}>Acessar aplicacao completa</a>
+            <a href="#acesso" className={sectionCtaClass}>Acessar aplicação completa</a>
           </div>
         </div>
       </section>
@@ -169,7 +169,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-3xl">
             <p className="text-sm font-bold uppercase tracking-wider text-brand-violet">Base de projetos</p>
-            <h2 className="mt-3 text-3xl md:text-5xl font-extrabold tracking-tight">Portifolio estrategico priorizado no PGI</h2>
+            <h2 className="mt-3 text-3xl md:text-5xl font-extrabold tracking-tight">Portfólio estratégico priorizado no PGI</h2>
           </div>
 
           <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -183,7 +183,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
             ))}
           </div>
           <div className="mt-10 text-center">
-            <a href="#acesso" className={sectionCtaClass}>Acessar aplicacao completa</a>
+            <a href="#acesso" className={sectionCtaClass}>Acessar aplicação completa</a>
           </div>
         </div>
       </section>
@@ -194,8 +194,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
         <div className="max-w-3xl mx-auto px-6 relative z-10 text-center">
           <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight">Acesso restrito ao ambiente interno do PGI</h2>
           <p className="mt-4 text-slate-300">
-            Utilize a credencial institucional para acessar o ambiente interno com conteudos metodologicos,
-            modulos tematicos e acompanhamento de projetos estrategicos.
+            Utilize a credencial institucional para acessar o ambiente interno com conteúdos metodológicos,
+            módulos temáticos e acompanhamento de projetos estratégicos.
           </p>
 
           <form onSubmit={handleSubmit} className="mt-10 glass-dark rounded-3xl p-7 md:p-10 border border-white/10 text-left max-w-xl mx-auto">
