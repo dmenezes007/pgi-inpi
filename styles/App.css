@@ -240,3 +240,8 @@ body {
     display: none;
   }
 }
+
+/* Ajuste de hover para garantir contraste adequado nos módulos */
+.group:hover .text-slate-900 {
+  color: #ffffff !important; /* Garante legibilidade em fundos escuros */
+}
