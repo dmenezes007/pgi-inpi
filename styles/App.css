@@ -8,6 +8,26 @@
   --brand-cyan: #06b6d4;
 }
 
+.bg-brand-light {
+  background-color: var(--brand-light);
+}
+
+.bg-brand-accent {
+  background-color: var(--brand-accent);
+}
+
+.text-brand-accent {
+  color: var(--brand-accent);
+}
+
+.text-brand-violet {
+  color: var(--brand-violet);
+}
+
+.text-brand-cyan {
+  color: var(--brand-cyan);
+}
+
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
   background: var(--brand-light);
@@ -39,6 +59,28 @@ body {
 .font-serif-highlight {
   font-family: 'Playfair Display', serif;
   font-style: italic;
+}
+
+.grid-bg {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+}
+
+.ambient-glow {
+  filter: blur(140px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(1deg); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }
 
 .glass-premium {
