@@ -7,7 +7,7 @@ const mainDefinitions = [
     },
     {
         id: 'ii',
-        text: 'a disposição das competências institucionais para estimular a <span class="text-purple-400 font-serif-highlight">proposição sistemática de ideias</span>, criando uma cultura que favoreça a <span class="text-purple-400 font-serif-highlight">geração de valor</span>, o <span class="text-purple-400 font-serif-highlight">aprendizado organizacional</span> e a modernização de métodos e técnicas de desenvolvimento dos serviços prestado pelo INPI, de forma <span class="text-purple-400 font-serif-highlight">coletiva e em parceria</span>; e'
+        text: 'a disposição das competências institucionais para estimular a <span class="text-purple-400 font-serif-highlight">proposição sistemática de ideias</span>, criando uma cultura que favoreça a <span class="text-purple-400 font-serif-highlight">geração de valor</span>, o <span class="text-purple-400 font-serif-highlight">aprendizado organizacional</span> e a modernização de métodos e técnicas de desenvolvimento dos serviços prestados pelo INPI, de forma <span class="text-purple-400 font-serif-highlight">coletiva e em parceria</span>; e'
     },
     {
         id: 'iii',

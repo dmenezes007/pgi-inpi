@@ -49,7 +49,7 @@ const Principios: React.FC = () => {
     return (
         <div>
             <h1 className="text-4xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-purple-400">Princípios</h1>
-            <p className="text-gray-400 mb-8">Arraste a palavra-chave para completar o princípio correspondente.</p>
+            <p className="text-gray-400 mb-8">Associe cada palavra-chave ao respectivo princípio orientador da Política de Gestão da Inovação.</p>
 
             <div className="flex flex-col lg:flex-row gap-8">
                 <div className="flex-grow space-y-4">
@@ -88,8 +88,8 @@ const Principios: React.FC = () => {
                         ))}
                          {isAllCompleted && (
                             <div className="text-center text-green-400 p-4 bg-green-500/10 rounded-md">
-                                <p className="font-bold">Parabéns!</p>
-                                <p className="text-sm">Você completou todos os princípios.</p>
+                                <p className="font-bold">Atividade concluída.</p>
+                                <p className="text-sm">Todos os princípios foram corretamente associados.</p>
                             </div>
                          )}
                     </div>

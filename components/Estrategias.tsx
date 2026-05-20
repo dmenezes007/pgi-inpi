@@ -23,14 +23,14 @@ const Estrategias: React.FC = () => {
       </h1>
        <div className="bg-slate-800 p-6 rounded-lg shadow-lg mb-10 border border-slate-700">
           <p className="text-lg leading-relaxed text-gray-300">
-              Descubra as diretrizes que orientam a atuação dos gestores e o desenvolvimento de competências para a inovação. Estes são os pilares que conectam as ações de inovação à missão do INPI.
+            Esta seção apresenta diretrizes para a atuação gerencial e para o desenvolvimento de competências em inovação, conectando iniciativas institucionais ao planejamento estratégico e à missão do INPI.
           </p>
       </div>
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="bg-slate-800 p-6 rounded-lg border border-slate-700">
           <h2 className="text-2xl font-bold text-purple-400 mb-4">Atuação dos Gestores</h2>
-          <p className="text-sm text-gray-400 mb-4">Gestores de todos os níveis devem atuar proativamente no fomento à inovação, seguindo as premissas:</p>
+          <p className="text-sm text-gray-400 mb-4">A atuação de gestores em todos os níveis deve observar as seguintes premissas institucionais:</p>
           <ul className="space-y-3">
             {managerPremises.map((item, index) => (
               <li key={index} className="flex items-start">
@@ -43,7 +43,7 @@ const Estrategias: React.FC = () => {
 
         <div className="bg-slate-800 p-6 rounded-lg border border-slate-700">
           <h2 className="text-2xl font-bold text-purple-400 mb-4">Competências em Inovação</h2>
-          <p className="text-sm text-gray-400 mb-4">A definição e o desenvolvimento das competências orientadas para a inovação serão balizadas em:</p>
+          <p className="text-sm text-gray-400 mb-4">A definição e o desenvolvimento de competências orientadas à inovação devem ser balizados pelos seguintes referenciais:</p>
           <ul className="space-y-3">
             {competencyGuidelines.map((item, index) => (
               <li key={index} className="flex items-start">

@@ -9,11 +9,11 @@ const Documentacao: React.FC = () => {
             </h1>
             <div className="bg-slate-800 p-8 rounded-lg shadow-lg border border-slate-700 space-y-6">
                 <p className="text-lg text-gray-300 leading-relaxed">
-                    Agradecemos a todos que participaram do <span className="font-semibold text-white">Design Sprint Institucional</span> e contribuíram para a formulação da proposta da Política de Gestão da Inovação do INPI. Como resultado, compartilhamos abaixo as minutas dos documentos elaborados para apreciação e coleta de novas contribuições.
+                    Registro institucional dos resultados do <span className="font-semibold text-white">Design Sprint Institucional</span>, com disponibilização das minutas elaboradas para apreciação técnica e recebimento de contribuições complementares.
                 </p>
 
                 <div className="space-y-4 pt-4">
-                    <h2 className="text-2xl font-bold text-gray-200 mb-4">Minutas Finais</h2>
+                    <h2 className="text-2xl font-bold text-gray-200 mb-4">Minutas para Apreciação</h2>
                     <a href="https://dmenezes007.github.io/pgi-inpi/files/docs/Minuta%20da%20Pol%C3%ADtica%20de%20Gest%C3%A3o%20da%20Inova%C3%A7%C3%A3o%20do%20INPI.docx" target="_blank" rel="noopener noreferrer" className="flex items-center p-4 bg-slate-700/50 rounded-lg border border-slate-600 hover:border-purple-500 hover:bg-slate-700 transition-all group">
                         <DocIcon />
                         <span className="text-gray-300 group-hover:text-white">Minuta: Política de Gestão da Inovação do INPI</span>
@@ -30,10 +30,10 @@ const Documentacao: React.FC = () => {
 
                 <div className="border-t border-slate-700 pt-6 space-y-4">
                     <p className="text-gray-400 text-base">
-                        Materiais de referência, apresentações e registros fotográficos da metaoficina estão disponíveis em: <a href="https://inpidrive.inpi.gov.br/index.php/s/8O5OUlrufgmof3d" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:underline">Link para o Drive</a>.
+                        Materiais de referência, apresentações e registros da metaoficina estão disponíveis em: <a href="https://inpidrive.inpi.gov.br/index.php/s/8O5OUlrufgmof3d" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:underline">Repositório institucional</a>.
                     </p>
                     <p className="text-gray-400 text-base">
-                        Agradecimento especial aos condutores do Pólen/Fiocruz. Acompanhe a colab em: <a href="https://www.instagram.com/p/DOydE7sjYcF/" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:underline">Post no Instagram</a>.
+                        Registro externo da colaboração com o Pólen/Fiocruz: <a href="https://www.instagram.com/p/DOydE7sjYcF/" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:underline">publicação de referência</a>.
                     </p>
                 </div>
             </div>

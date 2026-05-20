@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import LoginPage from './components/LoginPage';
+import LandingPage from './components/LandingPage';
 import Sidebar from './components/Sidebar';
 import MainContent from './components/MainContent';
 import './styles/App.css';
@@ -214,8 +214,9 @@ function App() {
     if (password === CORRECT_PASSWORD) {
       setIsAuthenticated(true);
       sessionStorage.setItem('isAuthenticated', 'true');
+      return true;
     } else {
-      alert('Senha incorreta');
+      return false;
     }
   };
   
@@ -246,7 +247,7 @@ function App() {
   };
 
   if (!isAuthenticated) {
-    return <LoginPage onLogin={handleLogin} />;
+    return <LandingPage onLogin={handleLogin} projects={projects} />;
   }
 
   return (
