@@ -83,6 +83,27 @@ body {
   animation: float 6s ease-in-out infinite;
 }
 
+@keyframes floatReverse {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(12px) rotate(-1deg); }
+}
+
+.animate-float-reverse {
+  animation: floatReverse 8s ease-in-out infinite;
+}
+
+.landing-root section {
+  scroll-margin-top: 90px;
+}
+
+.landing-root h2 {
+  letter-spacing: -0.02em;
+}
+
+.landing-root .glass-premium:hover {
+  border-color: rgba(148, 163, 184, 0.65);
+}
+
 .glass-premium {
   background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(20px);

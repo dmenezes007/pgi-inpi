@@ -1,6 +1,32 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { MODULES } from '../constants';
 import { Project } from '../App';
+import ModuleIcon from './ModuleIcon';
+
+interface ModuleMeta {
+  desc: string;
+  accentBar: string;
+  iconBg: string;
+  titleColor: string;
+}
+
+const MODULE_META: Record<string, ModuleMeta> = {
+  'Início':         { desc: 'Apresentação do portal e orientação de navegação para todos os perfis de acesso.',                      accentBar: 'from-blue-500',    iconBg: 'group-hover:bg-blue-500',    titleColor: 'group-hover:text-blue-600'    },
+  'Metodologia':    { desc: 'Ciclo estruturado com etapas claras de ideação, desenvolvimento e entrega de soluções.',               accentBar: 'from-violet-500',  iconBg: 'group-hover:bg-violet-500',  titleColor: 'group-hover:text-violet-600'  },
+  'Definições':     { desc: 'Conceitos fundamentais que embasam a política de gestão da inovação no INPI.',                         accentBar: 'from-cyan-500',    iconBg: 'group-hover:bg-cyan-500',    titleColor: 'group-hover:text-cyan-600'    },
+  'Tipologia':      { desc: 'Classificação dos tipos de inovação reconhecidos na abordagem institucional.',                         accentBar: 'from-pink-500',    iconBg: 'group-hover:bg-pink-500',    titleColor: 'group-hover:text-pink-500'    },
+  'Objetivos':      { desc: 'Metas e propósitos que orientam o programa de gestão da inovação institucional.',                      accentBar: 'from-amber-500',   iconBg: 'group-hover:bg-amber-500',   titleColor: 'group-hover:text-amber-600'   },
+  'Princípios':     { desc: 'Valores e diretrizes que guiam as decisões e práticas inovadoras da instituição.',                     accentBar: 'from-emerald-500', iconBg: 'group-hover:bg-emerald-500', titleColor: 'group-hover:text-emerald-600' },
+  'Estímulo':       { desc: 'Mecanismos e ações para fomentar a cultura de inovação entre os servidores do INPI.',                  accentBar: 'from-blue-500',    iconBg: 'group-hover:bg-blue-500',    titleColor: 'group-hover:text-blue-600'    },
+  'Desenvolvimento':{ desc: 'Processo de amadurecimento e estruturação das iniciativas inovadoras priorizadas.',                    accentBar: 'from-violet-500',  iconBg: 'group-hover:bg-violet-500',  titleColor: 'group-hover:text-violet-600'  },
+  'Implantação':    { desc: 'Execução e entrega das soluções desenvolvidas no contexto institucional do INPI.',                     accentBar: 'from-cyan-500',    iconBg: 'group-hover:bg-cyan-500',    titleColor: 'group-hover:text-cyan-600'    },
+  'Mensuração':     { desc: 'Indicadores e métricas para aferir o desempenho e impacto dos projetos de inovação.',                 accentBar: 'from-pink-500',    iconBg: 'group-hover:bg-pink-500',    titleColor: 'group-hover:text-pink-500'    },
+  'Aprendizado':    { desc: 'Gestão do conhecimento e incorporação de lições aprendidas para ciclos futuros.',                      accentBar: 'from-amber-500',   iconBg: 'group-hover:bg-amber-500',   titleColor: 'group-hover:text-amber-600'   },
+  'Sistema':        { desc: 'Infraestrutura e processos que sustentam a operação do programa de inovação.',                         accentBar: 'from-emerald-500', iconBg: 'group-hover:bg-emerald-500', titleColor: 'group-hover:text-emerald-600' },
+  'Governança':     { desc: 'Estrutura decisória, papéis e responsabilidades na condução da inovação institucional.',               accentBar: 'from-blue-500',    iconBg: 'group-hover:bg-blue-500',    titleColor: 'group-hover:text-blue-600'    },
+  'Estratégias':    { desc: 'Diretrizes gerenciais para a atuação e o desenvolvimento de competências em inovação.',                accentBar: 'from-violet-500',  iconBg: 'group-hover:bg-violet-500',  titleColor: 'group-hover:text-violet-600'  },
+  'Documentação':   { desc: 'Minutas, registros e referências institucionais do Design Sprint e do programa PGI.',                  accentBar: 'from-cyan-500',    iconBg: 'group-hover:bg-cyan-500',    titleColor: 'group-hover:text-cyan-600'    },
+};
 
 interface LandingPageProps {
   onLogin: (password: string) => boolean;
@@ -145,6 +171,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
     <div className="landing-root text-slate-900 bg-brand-light min-h-screen overflow-x-hidden relative">
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-tr from-brand-accent/20 to-brand-cyan/10 rounded-full ambient-glow" />
       <div className="absolute top-[700px] right-1/4 w-[600px] h-[600px] bg-gradient-to-br from-brand-violet/15 to-pink-500/5 rounded-full ambient-glow" />
+      <div className="absolute top-[2200px] left-10 w-[700px] h-[700px] bg-brand-cyan/10 rounded-full ambient-glow" />
+      <div className="absolute top-[3600px] right-10 w-[600px] h-[600px] bg-brand-accent/10 rounded-full ambient-glow" />
 
       <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${headerScrolled ? 'glass-premium py-4 shadow-md border-b border-slate-200/80' : 'py-5 border-b border-transparent'}`}>
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -190,7 +218,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
         <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:24px_24px] opacity-60" />
 
         <div className="max-w-7xl mx-auto px-6 pt-20 pb-16 relative z-10">
-          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-white border border-slate-200/80 px-4 py-2 rounded-full text-slate-700">
+          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider bg-white border border-slate-200/80 px-4 py-1.5 rounded-full text-slate-700 shadow-sm">
             Programa institucional
             <span className="w-2 h-2 rounded-full bg-brand-accent animate-pulse" />
           </div>
@@ -202,7 +230,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
             </span>
           </h1>
 
-          <p className="mt-6 max-w-3xl text-lg text-slate-600 leading-relaxed">
+          <p className="mt-6 max-w-3xl text-lg md:text-xl text-slate-600 leading-relaxed font-light">
             O PGI consolida a proposta da CGRH e da Academia de Propriedade Intelectual,
             Inovação e Desenvolvimento para reconhecer a inovação como pilar estratégico da
             transformação organizacional do INPI.
@@ -218,19 +246,19 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
           </div>
 
           <div className="mt-14 grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
-            <div className="glass-premium rounded-2xl p-5">
+            <div className="glass-premium rounded-2xl p-5 shadow-sm">
               <p className="text-xs uppercase tracking-wider text-slate-500">Módulos ativos</p>
               <p className="text-3xl font-extrabold mt-2">{MODULES.length}</p>
             </div>
-            <div className="glass-premium rounded-2xl p-5">
+            <div className="glass-premium rounded-2xl p-5 shadow-sm">
               <p className="text-xs uppercase tracking-wider text-slate-500">Projetos estratégicos</p>
               <p className="text-3xl font-extrabold mt-2">{projects.length}</p>
             </div>
-            <div className="glass-premium rounded-2xl p-5">
+            <div className="glass-premium rounded-2xl p-5 shadow-sm">
               <p className="text-xs uppercase tracking-wider text-slate-500">Horizonte</p>
               <p className="text-3xl font-extrabold mt-2">2025-2026</p>
             </div>
-            <div className="glass-premium rounded-2xl p-5">
+            <div className="glass-premium rounded-2xl p-5 shadow-sm">
               <p className="text-xs uppercase tracking-wider text-slate-500">Foco</p>
               <p className="text-lg font-bold mt-3">Valor público e eficiência institucional</p>
             </div>
@@ -240,7 +268,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
             <div className="absolute -top-12 -left-12 w-48 h-48 bg-brand-accent/20 rounded-full blur-3xl opacity-50" />
             <div className="absolute -bottom-12 -right-12 w-48 h-48 bg-brand-cyan/20 rounded-full blur-3xl opacity-50" />
 
-            <div className="glass-premium rounded-2xl border border-slate-200/80 shadow-2xl overflow-hidden">
+            <div className="glass-premium rounded-2xl border border-slate-200/80 shadow-2xl overflow-hidden hover:shadow-brand-accent/10 transition-all duration-500">
               <div className="border-b border-slate-200/80 px-6 py-4 bg-white/90 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <span className="w-3 h-3 rounded-full bg-rose-400" />
@@ -259,15 +287,15 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
                 {activeTab === 'analytics' && (
                   <div className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                      <div className="bg-white p-6 rounded-xl border border-slate-200/60 shadow-sm">
+                      <div className="bg-white p-6 rounded-xl border border-slate-200/60 shadow-sm hover:shadow-md transition-shadow">
                         <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Projetos monitorados</p>
                         <p className="text-3xl font-bold text-slate-900 tracking-tight mt-3">{projects.length}</p>
                       </div>
-                      <div className="bg-white p-6 rounded-xl border border-slate-200/60 shadow-sm">
+                      <div className="bg-white p-6 rounded-xl border border-slate-200/60 shadow-sm hover:shadow-md transition-shadow">
                         <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Módulos estruturantes</p>
                         <p className="text-3xl font-bold text-slate-900 tracking-tight mt-3">{MODULES.length}</p>
                       </div>
-                      <div className="bg-white p-6 rounded-xl border border-slate-200/60 shadow-sm">
+                      <div className="bg-white p-6 rounded-xl border border-slate-200/60 shadow-sm hover:shadow-md transition-shadow">
                         <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Engajamento interno</p>
                         <p className="text-3xl font-bold text-slate-900 tracking-tight mt-3">87%</p>
                       </div>
@@ -309,39 +337,51 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
         </div>
       </section>
 
-      <section id="contexto" className="py-20 bg-white relative z-10">
+      <section id="contexto" className="py-24 bg-white relative z-10">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight max-w-4xl">
             O PGI integra capacidades técnicas e gerenciais para fortalecer a política de inovação na administração pública federal.
           </h2>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <article className="rounded-2xl border border-slate-200 p-7 bg-slate-50/60"><h3 className="text-xl font-bold">Direcionamento estratégico</h3><p className="mt-3 text-slate-600">Alinha iniciativas ao planejamento institucional e aos serviços do INPI.</p></article>
-            <article className="rounded-2xl border border-slate-200 p-7 bg-slate-50/60"><h3 className="text-xl font-bold">Metodologia aplicada</h3><p className="mt-3 text-slate-600">Estrutura ideação, desenvolvimento, implantação, mensuração e aprendizado contínuo.</p></article>
-            <article className="rounded-2xl border border-slate-200 p-7 bg-slate-50/60"><h3 className="text-xl font-bold">Governança e transparência</h3><p className="mt-3 text-slate-600">Consolida riscos, recursos, indicadores e cronogramas para decisões executivas.</p></article>
+            <article className="rounded-2xl border border-slate-200 p-7 bg-slate-50/60 shadow-sm hover:shadow-lg transition-all"><h3 className="text-xl font-bold">Direcionamento estratégico</h3><p className="mt-3 text-slate-600">Alinha iniciativas ao planejamento institucional e aos serviços do INPI.</p></article>
+            <article className="rounded-2xl border border-slate-200 p-7 bg-slate-50/60 shadow-sm hover:shadow-lg transition-all"><h3 className="text-xl font-bold">Metodologia aplicada</h3><p className="mt-3 text-slate-600">Estrutura ideação, desenvolvimento, implantação, mensuração e aprendizado contínuo.</p></article>
+            <article className="rounded-2xl border border-slate-200 p-7 bg-slate-50/60 shadow-sm hover:shadow-lg transition-all"><h3 className="text-xl font-bold">Governança e transparência</h3><p className="mt-3 text-slate-600">Consolida riscos, recursos, indicadores e cronogramas para decisões executivas.</p></article>
           </div>
           <div className="mt-10 text-center"><a href="#acesso" className={ctaClass}>Acessar aplicação completa</a></div>
         </div>
       </section>
 
-      <section id="modulos" className="py-20 bg-slate-50 relative z-10">
+      <section id="modulos" className="py-24 bg-slate-50 relative z-10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-3xl">
             <p className="text-sm font-bold uppercase tracking-wider text-brand-accent">Arquitetura do portal</p>
             <h2 className="mt-3 text-3xl md:text-5xl font-extrabold tracking-tight">Módulos que estruturam a jornada de gestão da inovação</h2>
           </div>
 
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {MODULES.map((moduleName) => (
-              <div key={moduleName} className="rounded-xl border border-slate-200 bg-white px-5 py-4 font-semibold text-slate-700 hover:border-brand-accent/40 transition-colors">
-                {moduleName}
-              </div>
-            ))}
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {MODULES.map((moduleName) => {
+              const meta = MODULE_META[moduleName] ?? { desc: '', accentBar: 'from-blue-500', iconBg: 'group-hover:bg-blue-500', titleColor: 'group-hover:text-blue-600' };
+              return (
+                <div key={moduleName} className="group relative p-7 rounded-2xl border border-slate-100 bg-slate-50/50 hover:bg-white transition-all duration-300 hover:shadow-xl hover:shadow-slate-100">
+                  {/* colored top accent bar */}
+                  <div className={`absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r ${meta.accentBar} to-transparent rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+                  {/* icon */}
+                  <div className={`w-11 h-11 rounded-xl bg-slate-100 flex items-center justify-center text-slate-600 mb-5 ${meta.iconBg} group-hover:text-white transition-all duration-300`}>
+                    <ModuleIcon moduleName={moduleName} className="h-5 w-5" />
+                  </div>
+                  {/* title */}
+                  <h3 className={`text-base font-bold text-slate-900 mb-2 ${meta.titleColor} transition-colors duration-200`}>{moduleName}</h3>
+                  {/* description */}
+                  <p className="text-sm text-slate-500 leading-relaxed">{meta.desc}</p>
+                </div>
+              );
+            })}
           </div>
           <div className="mt-10 text-center"><a href="#acesso" className={ctaClass}>Acessar aplicação completa</a></div>
         </div>
       </section>
 
-      <section id="projetos" className="py-20 bg-white relative z-10">
+      <section id="projetos" className="py-24 bg-white relative z-10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-3xl">
             <p className="text-sm font-bold uppercase tracking-wider text-brand-violet">Base de projetos</p>
@@ -350,7 +390,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
 
           <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
             {featuredProjects.map((project) => (
-              <article key={project.id} className="rounded-2xl border border-slate-200 bg-slate-50/60 p-6">
+              <article key={project.id} className="rounded-2xl border border-slate-200 bg-slate-50/60 p-6 shadow-sm hover:shadow-lg transition-all">
                 <p className="text-xs font-bold uppercase tracking-wider text-brand-cyan">{project.id}</p>
                 <h3 className="mt-2 text-xl font-bold leading-tight">{project.title}</h3>
                 <p className="mt-3 text-sm text-slate-600 leading-relaxed">{project.scope}</p>
@@ -362,22 +402,22 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
         </div>
       </section>
 
-      <section id="diferenciais" className="py-20 bg-slate-50 relative z-10">
+      <section id="diferenciais" className="py-24 bg-slate-50 relative z-10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <p className="text-sm font-bold uppercase tracking-wider text-brand-violet mb-3">Diferenciais técnicos</p>
             <h2 className="text-4xl md:text-5xl font-extrabold text-slate-950 tracking-tight">O que torna o PGI singular.</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="glass-premium p-8 rounded-2xl border border-slate-200/80"><h3 className="text-lg font-bold mb-2">Governança orientada a dados</h3><p className="text-sm text-slate-500">Indicadores e evidências para priorização, execução e avaliação contínua.</p></div>
-            <div className="glass-premium p-8 rounded-2xl border border-slate-200/80"><h3 className="text-lg font-bold mb-2">Integração institucional</h3><p className="text-sm text-slate-500">Conecta áreas técnicas e gerenciais em um fluxo único de gestão da inovação.</p></div>
-            <div className="glass-premium p-8 rounded-2xl border border-slate-200/80"><h3 className="text-lg font-bold mb-2">Escalabilidade e rastreabilidade</h3><p className="text-sm text-slate-500">Padroniza processos para ampliar resultados e transparência na administração pública.</p></div>
+            <div className="glass-premium p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-lg transition-all"><h3 className="text-lg font-bold mb-2">Governança orientada a dados</h3><p className="text-sm text-slate-500">Indicadores e evidências para priorização, execução e avaliação contínua.</p></div>
+            <div className="glass-premium p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-lg transition-all"><h3 className="text-lg font-bold mb-2">Integração institucional</h3><p className="text-sm text-slate-500">Conecta áreas técnicas e gerenciais em um fluxo único de gestão da inovação.</p></div>
+            <div className="glass-premium p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-lg transition-all"><h3 className="text-lg font-bold mb-2">Escalabilidade e rastreabilidade</h3><p className="text-sm text-slate-500">Padroniza processos para ampliar resultados e transparência na administração pública.</p></div>
           </div>
           <div className="mt-10 text-center"><a href="#acesso" className={ctaClass}>Acessar aplicação completa</a></div>
         </div>
       </section>
 
-      <section id="depoimentos" className="py-20 bg-white relative z-10">
+      <section id="depoimentos" className="py-24 bg-white relative z-10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 gap-6">
             <div className="max-w-xl">
@@ -397,8 +437,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
           <div className="relative overflow-hidden w-full">
             <div className="flex transition-transform duration-500 ease-out gap-8" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
               {testimonialCards.map((item, idx) => (
-                <div key={idx} className="min-w-full bg-slate-50/50 p-8 md:p-12 rounded-2xl border border-slate-100">
-                  <p className="text-lg md:text-xl text-slate-700 italic leading-relaxed mb-8">{item.quote}</p>
+                <div key={idx} className="min-w-full bg-slate-50/50 p-8 md:p-12 rounded-2xl border border-slate-100 shadow-sm">
+                  <p className="text-lg md:text-xl text-slate-700 italic font-serif-highlight leading-relaxed mb-8">{item.quote}</p>
                   <div>
                     <h4 className="font-bold text-slate-900 text-sm">{item.author}</h4>
                     <p className="text-xs text-slate-500">{item.role}</p>
