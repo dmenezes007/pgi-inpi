@@ -250,3 +250,8 @@ body {
 .group:hover {
   background-color: rgba(255, 255, 255, 0.85) !important; /* Fundo claro para contraste */
 }
+
+/* Força a cor de hover no nome do módulo */
+.group:hover .text-slate-900 {
+  color: var(--brand-accent) !important; /* Aplica a cor de destaque */
+}
