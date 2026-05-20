@@ -25,6 +25,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
     setPassword('');
   };
 
+  const sectionCtaClass =
+    'inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold bg-slate-950 text-white shadow-lg shadow-slate-900/20 hover:bg-slate-900 transition-colors';
+
   return (
     <div className="landing-root text-slate-900 bg-brand-light min-h-screen">
       <header className="sticky top-0 z-40 border-b border-slate-200/70 bg-white/80 backdrop-blur-xl">
@@ -136,6 +139,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
               </p>
             </article>
           </div>
+          <div className="mt-10 text-center">
+            <a href="#acesso" className={sectionCtaClass}>Acessar aplicacao completa</a>
+          </div>
         </div>
       </section>
 
@@ -152,6 +158,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
                 {moduleName}
               </div>
             ))}
+          </div>
+          <div className="mt-10 text-center">
+            <a href="#acesso" className={sectionCtaClass}>Acessar aplicacao completa</a>
           </div>
         </div>
       </section>
@@ -172,6 +181,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
                 <p className="mt-3 text-xs font-semibold tracking-wide text-slate-500 uppercase">Acompanhamento por indicadores de desempenho e impacto</p>
               </article>
             ))}
+          </div>
+          <div className="mt-10 text-center">
+            <a href="#acesso" className={sectionCtaClass}>Acessar aplicacao completa</a>
           </div>
         </div>
       </section>
