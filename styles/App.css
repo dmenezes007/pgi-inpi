@@ -144,7 +144,7 @@ body {
 .app-container .text-slate-300,
 .app-container .text-slate-400,
 .app-container .text-slate-500 {
-  color: #334155 !important;
+  color: #334155;
 }
 
 .app-container .border-slate-700,
