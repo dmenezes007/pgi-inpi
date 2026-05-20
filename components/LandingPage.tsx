@@ -40,14 +40,20 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<'analytics' | 'ideas' | 'ai'>('analytics');
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [demoSubmitted, setDemoSubmitted] = useState(false);
-  const [newsletterEmail, setNewsletterEmail] = useState('');
-  const [newsletterSubmitted, setNewsletterSubmitted] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   const featuredProjects = useMemo(() => projects.slice(0, 6), [projects]);
   const ctaClass =
     'inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold bg-slate-950 text-white shadow-lg shadow-slate-900/20 hover:bg-slate-900 transition-colors';
+
+  const SPRINT_PHOTOS = Array.from({ length: 24 }, (_, i) =>
+    `https://dmenezes007.github.io/pgi-inpi/files/imgs/Foto%20%23${String(i + 1).padStart(2, '0')}.jpeg`
+  );
+  const PHOTOS_PER_SLIDE = 4;
+  const photoSlides = Array.from(
+    { length: Math.ceil(SPRINT_PHOTOS.length / PHOTOS_PER_SLIDE) },
+    (_, i) => SPRINT_PHOTOS.slice(i * PHOTOS_PER_SLIDE, (i + 1) * PHOTOS_PER_SLIDE)
+  );
 
   useEffect(() => {
     const onScroll = () => setHeaderScrolled(window.scrollY > 20);
@@ -134,39 +140,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
     setPassword('');
   };
 
-  const handleDemoSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-    setDemoSubmitted(true);
-  };
-
-  const handleNewsletterSubmit = () => {
-    if (!newsletterEmail.trim()) return;
-    setNewsletterSubmitted(true);
-    setNewsletterEmail('');
-    window.setTimeout(() => setNewsletterSubmitted(false), 3000);
-  };
-
-  const testimonialCards = [
-    {
-      quote:
-        '"O PGI ampliou a coordenação interáreas e deu previsibilidade ao acompanhamento do portfólio de inovação."',
-      author: 'Helena Pinheiro',
-      role: 'Gestora de Inovação Institucional',
-    },
-    {
-      quote:
-        '"A estrutura metodológica e os indicadores padronizados elevaram a qualidade das decisões no ciclo de projetos."',
-      author: 'Rodrigo Silva',
-      role: 'Diretor de Tecnologia e Transformação',
-    },
-    {
-      quote:
-        '"Com o portal, conseguimos registrar, priorizar e monitorar iniciativas com transparência e foco em valor público."',
-      author: 'Alice Nunes',
-      role: 'Líder de Estratégia de Produtos',
-    },
-  ];
-
   return (
     <div className="landing-root text-slate-900 bg-brand-light min-h-screen overflow-x-hidden relative">
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-tr from-brand-accent/20 to-brand-cyan/10 rounded-full ambient-glow" />
@@ -176,16 +149,13 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
 
       <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${headerScrolled ? 'glass-premium py-4 shadow-md border-b border-slate-200/80' : 'py-5 border-b border-transparent'}`}>
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          <a href="#hero" className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-accent via-brand-violet to-brand-cyan p-[2px]">
-              <div className="w-full h-full rounded-[10px] bg-white flex items-center justify-center font-bold text-brand-accent">
-                P
-              </div>
-            </div>
-            <div>
-              <p className="font-extrabold tracking-tight leading-none">PGI</p>
-              <p className="text-xs text-slate-500 leading-none mt-1">Portal da Gestão da Inovação - INPI</p>
-            </div>
+          <a href="#hero" className="flex items-center">
+            <img
+              src="https://dmenezes007.github.io/pgi-inpi/files/imgs/logo_inpi_branco_fundo_transparente.png"
+              alt="INPI"
+              className="h-10 w-auto"
+              style={{ filter: 'brightness(0)' }}
+            />
           </a>
 
           <nav className="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-600">
@@ -218,29 +188,35 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
         <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:24px_24px] opacity-60" />
 
         <div className="max-w-7xl mx-auto px-6 pt-20 pb-16 relative z-10">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider bg-white border border-slate-200/80 px-4 py-1.5 rounded-full text-slate-700 shadow-sm">
-            Programa institucional
-            <span className="w-2 h-2 rounded-full bg-brand-accent animate-pulse" />
+          <div className="flex justify-center mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200/80 shadow-sm text-xs font-semibold text-slate-800">
+              <span className="flex h-2 w-2 relative">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-accent opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-accent" />
+              </span>
+              Programa Institucional · INPI
+            </div>
           </div>
 
-          <h1 className="mt-6 text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.06] max-w-5xl">
-            Portal da Gestão da Inovação do INPI
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-brand-violet to-brand-cyan">
-              diretrizes metodológicas, governança e execução institucional em um único ambiente
-            </span>
-          </h1>
+          <div className="text-center max-w-5xl mx-auto mb-10">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.06] mb-6">
+              Orquestre a inovação institucional com método, dados e propósito público.
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-brand-violet to-brand-cyan">
+                Do planejamento à entrega — governança, portfólio e valor público.
+              </span>
+            </h1>
+            <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-light max-w-2xl mx-auto">
+              O PGI consolida a proposta da CGRH e da Academia de Propriedade Intelectual,
+              Inovação e Desenvolvimento para reconhecer a inovação como pilar estratégico da
+              transformação organizacional do INPI.
+            </p>
+          </div>
 
-          <p className="mt-6 max-w-3xl text-lg md:text-xl text-slate-600 leading-relaxed font-light">
-            O PGI consolida a proposta da CGRH e da Academia de Propriedade Intelectual,
-            Inovação e Desenvolvimento para reconhecer a inovação como pilar estratégico da
-            transformação organizacional do INPI.
-          </p>
-
-          <div className="mt-10 flex flex-col sm:flex-row gap-4">
-            <a href="#acesso" className="px-8 py-4 rounded-full bg-slate-950 text-white font-semibold shadow-lg shadow-slate-900/20">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+            <a href="#acesso" className="w-full sm:w-auto px-8 py-4 rounded-full bg-slate-950 text-white font-semibold shadow-xl shadow-slate-950/10 hover:shadow-slate-950/20 text-center flex items-center justify-center gap-3 group">
               Acessar aplicação completa
             </a>
-            <a href="#modulos" className="px-8 py-4 rounded-full glass-premium font-semibold text-center">
+            <a href="#modulos" className="w-full sm:w-auto px-8 py-4 rounded-full glass-premium font-semibold text-center">
               Explorar módulos
             </a>
           </div>
@@ -384,8 +360,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
       <section id="projetos" className="py-24 bg-white relative z-10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-3xl">
-            <p className="text-sm font-bold uppercase tracking-wider text-brand-violet">Base de projetos</p>
-            <h2 className="mt-3 text-3xl md:text-5xl font-extrabold tracking-tight">Portfólio estratégico priorizado no PGI</h2>
+            <p className="text-sm font-bold uppercase tracking-wider text-brand-violet">Base inicial de projetos</p>
+            <h2 className="mt-3 text-3xl md:text-5xl font-extrabold tracking-tight">Modelo de Portfólio de Projetos de Inovação (PA 2025)</h2>
           </div>
 
           <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -394,7 +370,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
                 <p className="text-xs font-bold uppercase tracking-wider text-brand-cyan">{project.id}</p>
                 <h3 className="mt-2 text-xl font-bold leading-tight">{project.title}</h3>
                 <p className="mt-3 text-sm text-slate-600 leading-relaxed">{project.scope}</p>
-                <p className="mt-3 text-xs font-semibold tracking-wide text-slate-500 uppercase">Acompanhamento por indicadores de desempenho e impacto</p>
               </article>
             ))}
           </div>
@@ -422,31 +397,56 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 gap-6">
             <div className="max-w-xl">
               <p className="text-sm font-bold uppercase tracking-wider text-brand-accent mb-3">Percepção de valor</p>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-slate-950 tracking-tight">Reconhecimento da evolução institucional.</h2>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-slate-950 tracking-tight">Oficina de Design Sprint institucional.</h2>
+              <p className="mt-3 text-sm text-slate-500 font-light">Registro fotográfico das sessões de co-criação realizadas no âmbito do PGI/INPI.</p>
             </div>
             <div className="flex gap-2">
-              <button className="w-12 h-12 rounded-full border border-slate-200 hover:bg-slate-50" onClick={() => setCurrentSlide((v) => (v - 1 + testimonialCards.length) % testimonialCards.length)}>
-                ‹
-              </button>
-              <button className="w-12 h-12 rounded-full border border-slate-200 hover:bg-slate-50" onClick={() => setCurrentSlide((v) => (v + 1) % testimonialCards.length)}>
-                ›
-              </button>
+              <button
+                className="w-12 h-12 rounded-full border border-slate-200 hover:bg-slate-50 text-2xl leading-none"
+                onClick={() => setCurrentSlide((v) => (v - 1 + photoSlides.length) % photoSlides.length)}
+                aria-label="Slide anterior"
+              >‹</button>
+              <button
+                className="w-12 h-12 rounded-full border border-slate-200 hover:bg-slate-50 text-2xl leading-none"
+                onClick={() => setCurrentSlide((v) => (v + 1) % photoSlides.length)}
+                aria-label="Próximo slide"
+              >›</button>
             </div>
           </div>
 
-          <div className="relative overflow-hidden w-full">
-            <div className="flex transition-transform duration-500 ease-out gap-8" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-              {testimonialCards.map((item, idx) => (
-                <div key={idx} className="min-w-full bg-slate-50/50 p-8 md:p-12 rounded-2xl border border-slate-100 shadow-sm">
-                  <p className="text-lg md:text-xl text-slate-700 italic font-serif-highlight leading-relaxed mb-8">{item.quote}</p>
-                  <div>
-                    <h4 className="font-bold text-slate-900 text-sm">{item.author}</h4>
-                    <p className="text-xs text-slate-500">{item.role}</p>
-                  </div>
+          <div className="relative overflow-hidden w-full rounded-2xl">
+            <div
+              className="flex transition-transform duration-500 ease-out"
+              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+            >
+              {photoSlides.map((group, slideIdx) => (
+                <div key={slideIdx} className="min-w-full grid grid-cols-2 md:grid-cols-4 gap-4">
+                  {group.map((src, imgIdx) => (
+                    <div key={imgIdx} className="aspect-square overflow-hidden rounded-xl border border-slate-100 shadow-sm bg-slate-100">
+                      <img
+                        src={src}
+                        alt={`Design Sprint INPI — foto ${slideIdx * 4 + imgIdx + 1}`}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                    </div>
+                  ))}
                 </div>
               ))}
             </div>
           </div>
+
+          <div className="mt-5 flex justify-center gap-2">
+            {photoSlides.map((_, i) => (
+              <button
+                key={i}
+                className={`w-2 h-2 rounded-full transition-colors ${i === currentSlide ? 'bg-slate-900' : 'bg-slate-300'}`}
+                onClick={() => setCurrentSlide(i)}
+                aria-label={`Ir para slide ${i + 1}`}
+              />
+            ))}
+          </div>
+
           <div className="mt-10 text-center"><a href="#acesso" className={ctaClass}>Acessar aplicação completa</a></div>
         </div>
       </section>
@@ -484,14 +484,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
             </button>
           </form>
 
-          <form onSubmit={handleDemoSubmit} className="mt-8 glass-dark rounded-3xl p-7 md:p-10 border border-white/10 text-left max-w-xl mx-auto space-y-5">
-            <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Solicitação de apresentação técnica</p>
-            <input type="text" required placeholder="Nome completo" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-accent" />
-            <input type="email" required placeholder="E-mail institucional" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-accent" />
-            <button type="submit" className="w-full py-3.5 bg-white text-slate-950 hover:bg-slate-100 font-bold rounded-xl transition-colors">Enviar solicitação</button>
-            {demoSubmitted && <p className="text-xs text-emerald-300">Solicitação recebida com sucesso.</p>}
-          </form>
-
           <img
             src="https://dmenezes007.github.io/pgi-inpi/files/imgs/logo_inpi_branco_fundo_transparente.png"
             alt="Logo do INPI"
@@ -514,17 +506,13 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin, projects }) => {
           </div>
           <div className="md:col-span-4 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300">Atualizações</h4>
-            <div className="flex gap-2">
-              <input
-                type="email"
-                placeholder="E-mail"
-                value={newsletterEmail}
-                onChange={(e) => setNewsletterEmail(e.target.value)}
-                className="bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-sm w-full focus:outline-none focus:border-brand-accent"
-              />
-              <button type="button" onClick={handleNewsletterSubmit} className="px-4 py-2 bg-white text-slate-950 font-semibold text-sm rounded-xl hover:bg-slate-100 transition-colors">Enviar</button>
-            </div>
-            {newsletterSubmitted && <p className="text-xs text-emerald-400">Inscrição registrada com sucesso.</p>}
+            <p className="text-sm text-slate-400">Envie mensagem para a equipe responsável:</p>
+            <a
+              href="mailto:projetos-pr@inpi.gov.br"
+              className="inline-block text-sm text-brand-accent hover:text-blue-400 transition-colors"
+            >
+              projetos-pr@inpi.gov.br
+            </a>
           </div>
         </div>
         <div className="max-w-7xl mx-auto px-6 text-xs text-slate-500">© 2026 INPI. Todos os direitos reservados.</div>

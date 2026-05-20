@@ -6,7 +6,7 @@ interface ModuleIconProps {
 }
 
 const ModuleIcon: React.FC<ModuleIconProps> = ({ moduleName, className = "h-6 w-6" }) => {
-  const finalClassName = `${className} intense-glow`;
+  const finalClassName = className;
 
   switch (moduleName) {
     case 'Início':
