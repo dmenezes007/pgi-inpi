@@ -245,3 +245,8 @@ body {
 .group:hover .text-slate-900 {
   color: #ffffff !important; /* Garante legibilidade em fundos escuros */
 }
+
+/* Ajuste adicional para hover nos módulos */
+.group:hover {
+  background-color: rgba(255, 255, 255, 0.85) !important; /* Fundo claro para contraste */
+}
