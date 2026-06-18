@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: sgi-sheet-api
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: python sgi_sheet_api_server.py
+    envVars:
+      - key: INPI_SERVER_HOST
+        value: 0.0.0.0
+      - key: INPI_API_BASE_PATH
+        value: /api
+      - key: INPI_CORS_ORIGIN
+        value: '*'
+      - key: INPI_IDEAS_XLSX
+        value: /var/data/inpi_ideas_database.xlsx
+      - key: INPI_UPLOADS_DIR
+        value: /var/data/uploads
+      - key: INPI_MAX_UPLOAD_SIZE_BYTES
+        value: "10485760"
+    disk:
+      name: sgi-data
+      mountPath: /var/data
+      sizeGB: 1
