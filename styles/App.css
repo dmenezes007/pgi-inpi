@@ -429,7 +429,7 @@ body {
 
 .sidebar-footer-wrap {
   padding: 1rem;
-  border-top: 1px solid var(--gov-border);
+  border-top: none;
 }
 
 .sidebar-footer-text {
