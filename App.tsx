@@ -261,7 +261,6 @@ function App() {
             <div>
               <p className="gov-shell-kicker">Portal da Gestão da Inovação</p>
               <h1 className="gov-shell-title">{activeModule}</h1>
-              <p className="gov-shell-description">{activeModuleDescription}</p>
             </div>
           </div>
         </header>
