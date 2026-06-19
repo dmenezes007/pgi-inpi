@@ -190,6 +190,10 @@ body {
   color: var(--gov-text) !important;
 }
 
+.main-content .text-xl.font-semibold.text-slate-900 {
+  color: var(--gov-blue-dark) !important;
+}
+
 .app-container .border-slate-700,
 .app-container .border-slate-600,
 .app-container .border-slate-500 {
