@@ -516,7 +516,7 @@ body {
 
 .gov-shell-title {
   margin: 0;
-  color: var(--gov-blue);
+  color: var(--gov-blue-dark);
   font-size: clamp(2rem, 2vw, 2.2rem);
   font-weight: bold;
   line-height: 1.1;
