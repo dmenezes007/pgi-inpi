@@ -14,23 +14,27 @@ const Sidebar: React.FC<SidebarProps> = ({ modules, activeModule, isExpanded, is
   const sidebarClasses = `sidebar flex flex-col transition-all duration-300 ease-in-out h-screen sticky top-0 ${
     isMobileOpen ? 'expanded' : ''
   } ${
-    isExpanded ? 'w-72' : 'w-24'
+    isExpanded ? 'w-64' : 'w-16'
   }`;
 
   return (
     <aside className={sidebarClasses}>
-      <div className={`sidebar-brand ${isExpanded ? 'justify-between' : 'justify-center'}`}>
-        {isExpanded && (
-          <div>
-            <img
-              src="https://www.gov.br/inpi/pt-br/central-de-conteudo/comunicacao/marca-do-inpi/logo_inpi_azul_fundo_transparente.png"
-              alt="Logomarca do INPI"
-              className="sidebar-logo"
-            />
-          </div>
+      <div className="sidebar-brand">
+        {isExpanded ? (
+          <img
+            src="https://www.gov.br/inpi/pt-br/central-de-conteudo/comunicacao/marca-do-inpi/logo_inpi_azul_fundo_transparente.png"
+            alt="Logomarca do INPI"
+            className="sidebar-logo"
+          />
+        ) : (
+          <img
+            src="https://www.gov.br/inpi/pt-br/central-de-conteudo/comunicacao/marca-do-inpi/logo_inpi_azul_fundo_transparente.png"
+            alt="INPI"
+            className="sidebar-logo-mini"
+          />
         )}
-         <button onClick={onToggle} className="sidebar-toggle md:block hidden" aria-label="Expandir ou recolher menu lateral">
-          <svg xmlns="http://www.w3.org/2000/svg" className={`h-6 w-6 transition-transform duration-300 ${isExpanded ? '' : 'rotate-180'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <button onClick={onToggle} className="sidebar-toggle md:block hidden" aria-label="Expandir ou recolher menu lateral">
+          <svg xmlns="http://www.w3.org/2000/svg" className={`h-5 w-5 transition-transform duration-300 ${isExpanded ? '' : 'rotate-180'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
           </svg>
         </button>
@@ -39,7 +43,7 @@ const Sidebar: React.FC<SidebarProps> = ({ modules, activeModule, isExpanded, is
       <nav className="sidebar-nav">
         <ul>
           {modules.map((moduleName) => (
-            <li key={moduleName} className="mb-2">
+            <li key={moduleName}>
               <a
                 href="#"
                 onClick={(e) => {
@@ -49,20 +53,19 @@ const Sidebar: React.FC<SidebarProps> = ({ modules, activeModule, isExpanded, is
                 className={`sidebar-link ${isExpanded ? 'is-expanded' : 'is-collapsed'} ${activeModule === moduleName ? 'is-active' : ''}`}
                 title={!isExpanded ? moduleName : ''}
               >
-                <ModuleIcon moduleName={moduleName} className="h-5 w-5 flex-shrink-0" />
-                {isExpanded && <span className="ml-4 text-sm font-medium">{moduleName}</span>}
+                <ModuleIcon moduleName={moduleName} className="sidebar-link-icon" />
+                {isExpanded && <span className="sidebar-link-label">{moduleName}</span>}
               </a>
             </li>
           ))}
         </ul>
       </nav>
 
-      <div className="sidebar-footer-wrap">
-        <div className={`sidebar-footer ${isExpanded ? 'is-visible' : ''}`}>
-          <span className="sidebar-footer-line">Padrao Digital</span>
-          <span className="sidebar-footer-line is-strong">Administracao Publica</span>
+      {isExpanded && (
+        <div className="sidebar-footer-wrap">
+          <p className="sidebar-footer-text">Padrão Digital de Governo</p>
         </div>
-      </div>
+      )}
     </aside>
   );
 };
