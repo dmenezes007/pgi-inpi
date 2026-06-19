@@ -22,9 +22,7 @@ const Sidebar: React.FC<SidebarProps> = ({ modules, activeModule, isExpanded, is
       <div className={`sidebar-brand ${isExpanded ? 'justify-between' : 'justify-center'}`}>
         {isExpanded && (
           <div>
-            <p className="sidebar-eyebrow">Portal institucional</p>
             <div className="sidebar-title">INPI</div>
-            <p className="sidebar-subtitle">Gestao da Inovacao</p>
           </div>
         )}
          <button onClick={onToggle} className="sidebar-toggle md:block hidden" aria-label="Expandir ou recolher menu lateral">
@@ -34,8 +32,6 @@ const Sidebar: React.FC<SidebarProps> = ({ modules, activeModule, isExpanded, is
         </button>
       </div>
       
-      <div className={`sidebar-section-label ${isExpanded ? 'is-visible' : ''}`}>Navegacao</div>
-
       <nav className="sidebar-nav">
         <ul>
           {modules.map((moduleName) => (
