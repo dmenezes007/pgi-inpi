@@ -11,9 +11,6 @@ const Inicio: React.FC<InicioProps> = ({ onModuleSelect }) => {
 
   return (
     <div className="space-y-8">
-      <h1 className="text-4xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-purple-400">
-        Início
-      </h1>
       <div className="rounded-3xl border border-slate-200 bg-white/95 p-8 shadow-lg shadow-blue-100/50">
         <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-blue-700">
           INPI
