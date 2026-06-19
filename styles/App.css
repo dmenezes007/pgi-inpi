@@ -180,7 +180,7 @@ body {
 .app-container .text-slate-300,
 .app-container .text-slate-400,
 .app-container .text-slate-500 {
-  color: var(--gov-muted) !important;
+  color: var(--gov-surface) !important;
 }
 
 .app-container .text-slate-900,
