@@ -22,7 +22,11 @@ const Sidebar: React.FC<SidebarProps> = ({ modules, activeModule, isExpanded, is
       <div className={`sidebar-brand ${isExpanded ? 'justify-between' : 'justify-center'}`}>
         {isExpanded && (
           <div>
-            <div className="sidebar-title">INPI</div>
+            <img
+              src="https://www.gov.br/inpi/pt-br/central-de-conteudo/comunicacao/marca-do-inpi/logo_inpi_azul_fundo_transparente.png"
+              alt="Logomarca do INPI"
+              className="sidebar-logo"
+            />
           </div>
         )}
          <button onClick={onToggle} className="sidebar-toggle md:block hidden" aria-label="Expandir ou recolher menu lateral">
