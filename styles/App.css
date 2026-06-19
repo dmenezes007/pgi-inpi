@@ -194,6 +194,10 @@ body {
   color: var(--gov-blue-dark) !important;
 }
 
+.main-content .mt-1.block.text-sm.text-slate-500 {
+  color: var(--gov-blue) !important;
+}
+
 .app-container .border-slate-700,
 .app-container .border-slate-600,
 .app-container .border-slate-500 {
