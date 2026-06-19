@@ -8,6 +8,9 @@
   --gov-blue-light: #d4e5ff;
   --gov-cyan: #00bde3;
   --gov-gold: #ffcd07;
+  --accent-pink: #d82282;
+  --accent-cyan: #24a9db;
+  --accent-gold: #eec71e;
   --gov-text: #1b1b1b;
   --gov-muted: #555555;
   --gov-border: #dfe1e2;
@@ -28,6 +31,11 @@ body,
   overflow-x: hidden;
 }
 
+#root {
+  position: relative;
+  z-index: 1;
+}
+
 *,
 *::before,
 *::after {
@@ -39,6 +47,25 @@ body {
   font-family: 'Rawline', Raleway, sans-serif;
   background: linear-gradient(180deg, #fcfcfc 0%, #f8f8f8 60%, #f1f4f8 100%);
   color: var(--gov-text);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -8vh -6vw auto auto;
+  width: min(46vw, 34rem);
+  height: min(46vw, 34rem);
+  pointer-events: none;
+  opacity: 0.16;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(36, 169, 219, 0.18) 1.1px, transparent 0),
+    radial-gradient(circle at 1px 1px, rgba(216, 34, 130, 0.12) 1.1px, transparent 0),
+    radial-gradient(circle at 1px 1px, rgba(238, 199, 30, 0.1) 1.1px, transparent 0);
+  background-size: 18px 18px, 28px 28px, 42px 42px;
+  background-position: 0 0, 8px 10px, 14px 18px;
+  -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.65) 48%, transparent 80%);
+  mask-image: radial-gradient(circle, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.65) 48%, transparent 80%);
+  z-index: 0;
 }
 
 ::selection {
@@ -497,6 +524,7 @@ body {
 }
 
 .gov-shell-header {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -507,6 +535,17 @@ body {
   box-shadow: 0 1px 6px rgba(0,0,0,.16);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+}
+
+.gov-shell-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(216, 34, 130, 0.18), rgba(36, 169, 219, 0.22) 52%, rgba(238, 199, 30, 0.2));
+  pointer-events: none;
 }
 
 .gov-shell-brand {
@@ -573,6 +612,7 @@ body {
 }
 
 .gov-content-surface {
+  position: relative;
   flex: 1;
   min-height: 0;
   margin: 1.25rem;
@@ -581,6 +621,16 @@ body {
   background: rgba(255, 255, 255, 0.92);
   box-shadow: 0 20px 40px rgba(19, 81, 180, 0.08);
   overflow: hidden;
+}
+
+.gov-content-surface::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(216, 34, 130, 0.72), rgba(36, 169, 219, 0.72) 52%, rgba(238, 199, 30, 0.78));
+  pointer-events: none;
 }
 
 .module-page {
@@ -594,11 +644,24 @@ body {
 }
 
 .module-intro {
+  position: relative;
   border: 1px solid rgba(19, 81, 180, 0.12);
   border-radius: 1.5rem;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(237, 245, 255, 0.9));
   box-shadow: 0 16px 32px rgba(19, 81, 180, 0.08);
   padding: 1.75rem;
+}
+
+.module-intro::before {
+  content: "";
+  position: absolute;
+  left: 1.25rem;
+  top: 0;
+  width: 5.25rem;
+  height: 0.25rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(216, 34, 130, 0.85), rgba(36, 169, 219, 0.85) 52%, rgba(238, 199, 30, 0.88));
+  pointer-events: none;
 }
 
 .module-kicker {
@@ -615,6 +678,16 @@ body {
   letter-spacing: 0.14em;
   padding: 0.45rem 0.9rem;
   text-transform: uppercase;
+}
+
+.module-kicker::before {
+  content: "";
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent-pink), var(--accent-cyan));
+  box-shadow: 0 0 0 3px rgba(216, 34, 130, 0.08);
+  flex: none;
 }
 
 .module-lead {
