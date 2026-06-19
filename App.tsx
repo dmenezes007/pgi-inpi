@@ -244,6 +244,12 @@ function App() {
         onModuleSelect={handleModuleSelect}
         onToggle={toggleSidebar}
       />
+      <button
+        type="button"
+        aria-label="Fechar menu lateral"
+        className={`mobile-backdrop ${isMobileSidebarOpen ? 'is-visible' : ''}`}
+        onClick={() => setIsMobileSidebarOpen(false)}
+      />
       <div className="main-content custom-gradient-purple" onClick={() => {
         if (isMobileSidebarOpen) {
           setIsMobileSidebarOpen(false);
