@@ -257,7 +257,11 @@ function App() {
       }}>
         <header className="gov-shell-header">
           <div className="gov-shell-brand">
-            <div className="gov-shell-mark">INPI</div>
+            <img
+              src="/logo-inovacao.png"
+              alt="Logo da inovação"
+              className="gov-shell-mark"
+            />
             <div>
               <p className="gov-shell-kicker">Portal da Gestão da Inovação</p>
               <h1 className="gov-shell-title">{activeModule}</h1>

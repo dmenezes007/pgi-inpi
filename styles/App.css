@@ -497,18 +497,12 @@ body {
 }
 
 .gov-shell-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 4rem;
+  display: block;
+  width: auto;
   height: 4rem;
-  border-radius: 1rem;
-  background: linear-gradient(135deg, var(--gov-blue-dark), var(--gov-blue));
-  color: #ffffff;
-  font-size: 1.375rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  box-shadow: 0 14px 28px rgba(19, 81, 180, 0.2);
+  max-width: 160px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .gov-shell-kicker {
