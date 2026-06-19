@@ -200,9 +200,12 @@ body::before {
 .app-container .text-slate-100,
 .app-container .text-slate-200,
 .app-container .text-slate-300,
-.app-container .text-slate-400,
-.app-container .text-slate-500 {
+.app-container .text-slate-400 {
   color: var(--gov-surface) !important;
+}
+
+.app-container .text-slate-500 {
+  color: var(--gov-blue) !important;
 }
 
 .app-container .text-slate-900,
@@ -395,7 +398,6 @@ body::before {
   right: 0.75rem;
   z-index: 3;
   background: rgba(255, 255, 255, 0.96);
-  border: 1px solid rgba(19, 81, 180, 0.16);
 }
 
 .sidebar-toggle-floating.is-collapsed {
@@ -508,19 +510,9 @@ body::before {
   display: flex;
   flex-direction: column;
   background:
-    linear-gradient(180deg, rgba(248, 248, 248, 0.96), rgba(237, 245, 255, 0.94)),
-    linear-gradient(135deg, rgba(19, 81, 180, 0.05), rgba(0, 189, 227, 0.04));
+    linear-gradient(180deg, rgba(216, 34, 130, 0.03), rgba(36, 169, 219, 0.05) 52%, rgba(238, 199, 30, 0.06)),
+    linear-gradient(120deg, rgba(255, 255, 255, 0.97), rgba(248, 248, 248, 0.96));
   isolation: isolate;
-}
-
-.main-content::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='120' viewBox='0 0 200 120'%3E%3Cg fill='%231351b4' fill-opacity='0.07' font-family='Rawline,Arial,sans-serif' font-size='28' font-weight='700'%3E%3Ctext x='16' y='42'%3EINPI%3C/text%3E%3Ctext x='104' y='94'%3EINPI%3C/text%3E%3C/g%3E%3C/svg%3E");
-  background-size: 200px 120px;
-  pointer-events: none;
-  z-index: -1;
 }
 
 .main-content img,
