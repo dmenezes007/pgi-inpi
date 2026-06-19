@@ -12,12 +12,12 @@ const objectivesData = [
 const RevealableText: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <span className="group relative inline-block cursor-pointer">
-      <span className="absolute inset-0 bg-purple-500/30 rounded-md blur-sm opacity-100 group-hover:opacity-0 transition-opacity duration-300"></span>
-      <span className="relative opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-purple-400 font-serif-highlight">
+            <span className="absolute inset-0 rounded-md bg-blue-100 blur-sm opacity-100 transition-opacity duration-300 group-hover:opacity-0"></span>
+            <span className="relative opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-blue-700 font-serif-highlight">
         {children}
       </span>
       <span className="absolute inset-0 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
-        <span className="w-full h-0.5 bg-purple-400"></span>
+                <span className="h-0.5 w-full bg-blue-600"></span>
       </span>
     </span>
   );
@@ -36,17 +36,17 @@ const parseText = (text: string): ReactNode[] => {
 
 const Objetivos: React.FC = () => {
     return (
-        <div>
-            <h1 className="text-4xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-purple-400">
+        <div className="module-page">
+            <h1 className="module-title">
                 Objetivos
             </h1>
             <div className="space-y-6">
                 {objectivesData.map((objective, index) => (
-                    <div key={index} className="bg-slate-800 p-6 rounded-lg shadow-lg border border-slate-700 flex items-start space-x-6">
-                        <div className="flex-shrink-0 text-5xl font-serif-highlight text-purple-500/80 -mt-2">
+                    <div key={index} className="module-card flex items-start space-x-6">
+                        <div className="-mt-2 flex-shrink-0 text-5xl font-serif-highlight text-blue-700/80">
                            {String(index + 1).padStart(2, '0')}
                         </div>
-                        <p className="text-gray-300 text-lg leading-loose">
+                        <p className="module-section-text text-lg leading-loose">
                            {parseText(objective.text)}
                         </p>
                     </div>

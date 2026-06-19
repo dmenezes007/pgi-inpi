@@ -14,16 +14,17 @@ const Desenvolvimento: React.FC<DesenvolvimentoProps> = ({ projects }) => {
     };
 
     return (
-        <div>
-            <h1 className="text-4xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-purple-400">Desenvolvimento</h1>
-            <div className="bg-slate-800 p-6 rounded-lg shadow-lg mb-10 border border-slate-700">
-                <p className="text-lg leading-relaxed text-gray-300">
+        <div className="module-page">
+            <h1 className="module-title">Desenvolvimento</h1>
+            <div className="module-intro">
+                <div className="module-kicker">Etapa de maturacao</div>
+                <p className="module-lead">
                     Acompanhe o planejamento detalhado dos projetos de inovação. Selecione uma iniciativa para visualizar seu escopo, recursos e o direcionamento para a fase de prototipagem.
                 </p>
             </div>
 
-            <div className="mb-8">
-                <select id="project-select" onChange={handleSelectProject} defaultValue="" className="w-full px-3 py-2 text-white bg-slate-700 border border-slate-600 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500">
+            <div className="module-select-stack">
+                <select id="project-select" onChange={handleSelectProject} defaultValue="" className="module-form-control">
                     <option value="" disabled>Selecione a Ação ou Projeto</option>
                     {projects.map(p => (
                         <option key={p.id} value={p.id}>{p.title}</option>
@@ -33,22 +34,22 @@ const Desenvolvimento: React.FC<DesenvolvimentoProps> = ({ projects }) => {
 
             {selectedProject ? (
                 <div className="space-y-8 animate-fade-in">
-                    <div className="bg-slate-800 p-6 rounded-lg border border-slate-700">
-                        <h2 className="text-2xl font-bold text-purple-400 mb-3">Escopo do Projeto</h2>
-                        <p className="text-gray-300 leading-relaxed">{selectedProject.scope}</p>
+                    <div className="module-card">
+                        <h2 className="module-section-title">Escopo do Projeto</h2>
+                        <p className="module-section-text">{selectedProject.scope}</p>
                     </div>
-                    <div className="bg-slate-800 p-6 rounded-lg border border-slate-700">
-                        <h2 className="text-2xl font-bold text-purple-400 mb-4">Recursos Exigidos</h2>
-                        <p className="text-gray-300">{selectedProject.resources || "Não especificado."}</p>
+                    <div className="module-card">
+                        <h2 className="module-section-title">Recursos Exigidos</h2>
+                        <p className="module-section-text">{selectedProject.resources || "Não especificado."}</p>
                     </div>
-                    <div className="bg-slate-800 p-6 rounded-lg border border-slate-700">
-                        <h2 className="text-2xl font-bold text-purple-400 mb-4">Direcionamento para Prototipagem</h2>
-                         <p className="text-gray-300">As propostas de inovação deverão ser direcionadas ao <span className="font-semibold text-white">Laboratório de Inovação do INPI</span> para prototipagem, testagem e validação.</p>
+                    <div className="module-card">
+                        <h2 className="module-section-title">Direcionamento para Prototipagem</h2>
+                         <p className="module-section-text">As propostas de inovação deverão ser direcionadas ao <span className="module-highlight">Laboratório de Inovação do INPI</span> para prototipagem, testagem e validação.</p>
                     </div>
                 </div>
             ) : (
-                <div className="text-center py-16 px-6 bg-slate-800 rounded-lg border-2 border-dashed border-slate-700">
-                    <p className="text-gray-400">Selecione um projeto para visualizar os detalhes de desenvolvimento.</p>
+                <div className="module-empty">
+                    <p>Selecione um projeto para visualizar os detalhes de desenvolvimento.</p>
                 </div>
             )}
             <style>{`

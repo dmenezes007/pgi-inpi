@@ -47,32 +47,32 @@ const Principios: React.FC = () => {
     const isAllCompleted = Object.keys(completed).length === principlesData.length;
 
     return (
-        <div>
-            <h1 className="text-4xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-purple-400">Princípios</h1>
-            <p className="text-gray-400 mb-8">Associe cada palavra-chave ao respectivo princípio orientador da Política de Gestão da Inovação.</p>
+        <div className="module-page">
+            <h1 className="module-title">Princípios</h1>
+            <p className="module-meta-text">Associe cada palavra-chave ao respectivo princípio orientador da Política de Gestão da Inovação.</p>
 
             <div className="flex flex-col lg:flex-row gap-8">
                 <div className="flex-grow space-y-4">
                     {principlesData.map(({ id, sentence, keyword }) => (
-                        <div key={id} className="flex flex-col lg:flex-row items-center gap-4 bg-slate-800 p-4 rounded-lg border border-slate-700 min-h-[60px]">
+                        <div key={id} className="module-card flex min-h-[60px] flex-col items-center gap-4 lg:flex-row">
                             <div
                                 onDrop={(e) => handleDrop(e, id)}
                                 onDragOver={(e) => e.preventDefault()}
-                                className={`w-full lg:w-64 h-10 flex-shrink-0 rounded-md border-2 border-dashed transition-colors duration-300 ${completed[id] ? 'border-green-500 bg-green-500/10' : 'border-slate-600 hover:border-purple-500 hover:bg-slate-700/50'}`}
+                                className={`h-10 w-full flex-shrink-0 rounded-md border-2 border-dashed transition-colors duration-300 lg:w-64 ${completed[id] ? 'border-green-500 bg-green-500/10' : 'border-slate-300 hover:border-blue-400 hover:bg-blue-50'}`}
                             >
                                 {completed[id] && (
-                                    <div className="flex items-center justify-center h-full text-green-400 font-serif-highlight text-lg">
+                                    <div className="flex h-full items-center justify-center text-lg text-green-600 font-serif-highlight">
                                         {keyword}
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
                                     </div>
                                 )}
                             </div>
-                            <p className="text-gray-300 text-center lg:text-left">{sentence}</p>
+                            <p className="module-section-text text-center lg:text-left">{sentence}</p>
                         </div>
                     ))}
                 </div>
-                <div className="lg:w-64 flex-shrink-0 bg-slate-800/50 p-4 rounded-lg border border-slate-700 self-start">
-                    <h3 className="text-lg font-semibold mb-4 text-gray-200">Palavras-chave</h3>
+                <div className="module-card self-start lg:w-64 flex-shrink-0">
+                    <h3 className="module-section-title mb-4">Palavras-chave</h3>
                     <div className="space-y-3">
                         {shuffledKeywords.map(({ id, keyword }) => (
                             !completed[id] && (
@@ -80,14 +80,14 @@ const Principios: React.FC = () => {
                                     key={id}
                                     draggable
                                     onDragStart={(e) => handleDragStart(e, id)}
-                                    className="p-3 bg-slate-700 rounded-md cursor-grab active:cursor-grabbing text-center text-purple-200 font-serif-highlight text-lg transition-all hover:bg-purple-600 hover:text-white"
+                                    className="cursor-grab rounded-md border border-slate-200 bg-slate-50 p-3 text-center text-lg text-blue-700 font-serif-highlight transition-all hover:border-blue-300 hover:bg-blue-50 active:cursor-grabbing"
                                 >
                                     {keyword}
                                 </div>
                             )
                         ))}
                          {isAllCompleted && (
-                            <div className="text-center text-green-400 p-4 bg-green-500/10 rounded-md">
+                            <div className="rounded-md bg-green-500/10 p-4 text-center text-green-600">
                                 <p className="font-bold">Atividade concluída.</p>
                                 <p className="text-sm">Todos os princípios foram corretamente associados.</p>
                             </div>

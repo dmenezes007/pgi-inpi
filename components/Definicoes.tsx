@@ -47,9 +47,9 @@ const otherDefinitions = [
 ];
 
 const DefinitionCard = ({ term, concept }: { term: string; concept: string }) => (
-    <div className="bg-slate-800 p-6 rounded-lg shadow-lg border border-slate-700 transition-shadow hover:shadow-purple-500/10">
-        <h3 className="text-xl font-bold text-purple-400 mb-2">{term}</h3>
-        <p className="text-gray-300 leading-relaxed">{concept}</p>
+    <div className="module-card transition-shadow hover:shadow-blue-100">
+        <h3 className="module-section-title">{term}</h3>
+        <p className="module-section-text">{concept}</p>
     </div>
 );
 
@@ -69,24 +69,24 @@ const Definicoes: React.FC = () => {
     }, [searchTerm]);
 
     return (
-        <div>
-            <h1 className="text-4xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-purple-400">
+        <div className="module-page">
+            <h1 className="module-title">
                 Definições
             </h1>
 
              <div className="mb-12">
-                <h2 className="text-2xl font-semibold mb-6 text-gray-300">Inovação é:</h2>
+                <h2 className="module-section-title mb-6">Inovação é:</h2>
                 <div className="space-y-6">
                     {mainDefinitions.map((def, index) => (
-                         <div key={def.id} className="bg-slate-800 p-6 rounded-lg shadow-lg border border-slate-700 flex items-start space-x-4">
-                            <span className="text-xl font-bold text-purple-400">{['I', 'II', 'III'][index]}.</span>
-                            <p className="text-gray-300 leading-relaxed" dangerouslySetInnerHTML={{ __html: def.text }} />
+                         <div key={def.id} className="module-card flex items-start space-x-4">
+                            <span className="text-xl font-bold text-blue-700">{['I', 'II', 'III'][index]}.</span>
+                            <p className="module-section-text" dangerouslySetInnerHTML={{ __html: def.text }} />
                         </div>
                     ))}
                 </div>
             </div>
 
-            <hr className="border-slate-700 my-12" />
+            <hr className="module-divider my-4" />
 
             <div className="mb-8">
                  <div className="relative">
@@ -100,7 +100,7 @@ const Definicoes: React.FC = () => {
                         placeholder="Buscar outros termos..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="block w-full pl-10 pr-3 py-3 text-white bg-slate-800 border border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 placeholder-gray-400"
+                        className="module-form-control block w-full pl-10 pr-3"
                     />
                 </div>
             </div>
@@ -111,8 +111,8 @@ const Definicoes: React.FC = () => {
                         <DefinitionCard key={def.term} term={def.term} concept={def.concept} />
                     ))
                 ) : (
-                    <div className="text-center py-10 px-6 bg-slate-800 rounded-lg border border-slate-700">
-                        <p className="text-gray-400">Nenhum termo encontrado para a busca "<span className="font-semibold text-gray-200">{searchTerm}</span>".</p>
+                    <div className="module-empty">
+                        <p>Nenhum termo encontrado para a busca "<span className="font-semibold text-slate-900">{searchTerm}</span>".</p>
                     </div>
                 )}
             </div>

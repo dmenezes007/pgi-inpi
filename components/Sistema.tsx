@@ -12,22 +12,23 @@ const sgiComponents = [
 
 const Sistema: React.FC = () => {
     return (
-        <div>
-            <h1 className="text-4xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-purple-400">Sistema</h1>
-            <div className="bg-slate-800 p-6 rounded-lg shadow-lg mb-10 border border-slate-700">
-                <p className="text-lg leading-relaxed text-gray-300">
+        <div className="module-page">
+            <h1 className="module-title">Sistema</h1>
+            <div className="module-intro">
+                <div className="module-kicker">Estrutura do SGI</div>
+                <p className="module-lead">
                    Conheça os elementos que compõem o Sistema de Gestão da Inovação (SGI). Cada componente representa um pilar fundamental para apoiar, gerenciar e estimular as atividades de inovação na instituição.
                 </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {sgiComponents.map((item, index) => (
-                    <div key={index} className="group bg-slate-800 p-6 rounded-xl border border-slate-700 transition-all duration-300 hover:border-purple-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-purple-500/10">
+                    <div key={index} className="group module-card transition-all duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-100">
                         <div className="flex items-center mb-4">
                             <div className="text-4xl mr-4 transition-transform duration-300 group-hover:scale-110">{item.icon}</div>
-                            <h2 className="text-xl font-bold text-gray-200">{item.title}</h2>
+                            <h2 className="text-xl font-bold text-slate-900">{item.title}</h2>
                         </div>
-                        <p className="text-gray-400 text-sm leading-relaxed">{item.description}</p>
+                        <p className="module-meta-text leading-relaxed">{item.description}</p>
                     </div>
                 ))}
             </div>

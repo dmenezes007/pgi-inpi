@@ -17,38 +17,39 @@ const competencyGuidelines = [
 
 const Estrategias: React.FC = () => {
   return (
-    <div>
-      <h1 className="text-4xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-purple-400">
+    <div className="module-page">
+      <h1 className="module-title">
         Estratégias
       </h1>
-       <div className="bg-slate-800 p-6 rounded-lg shadow-lg mb-10 border border-slate-700">
-          <p className="text-lg leading-relaxed text-gray-300">
+       <div className="module-intro">
+          <div className="module-kicker">Diretrizes gerenciais</div>
+          <p className="module-lead">
             Esta seção apresenta diretrizes para a atuação gerencial e para o desenvolvimento de competências em inovação, conectando iniciativas institucionais ao planejamento estratégico e à missão do INPI.
           </p>
       </div>
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div className="bg-slate-800 p-6 rounded-lg border border-slate-700">
-          <h2 className="text-2xl font-bold text-purple-400 mb-4">Atuação dos Gestores</h2>
-          <p className="text-sm text-gray-400 mb-4">A atuação de gestores em todos os níveis deve observar as seguintes premissas institucionais:</p>
+        <div className="module-card">
+          <h2 className="module-section-title">Atuação dos Gestores</h2>
+          <p className="module-meta-text mb-4">A atuação de gestores em todos os níveis deve observar as seguintes premissas institucionais:</p>
           <ul className="space-y-3">
             {managerPremises.map((item, index) => (
               <li key={index} className="flex items-start">
-                <svg className="w-5 h-5 mr-3 mt-1 flex-shrink-0 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                <span className="text-gray-300">{item}</span>
+                <svg className="module-list-icon w-5 h-5 mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                <span className="module-section-text">{item}</span>
               </li>
             ))}
           </ul>
         </div>
 
-        <div className="bg-slate-800 p-6 rounded-lg border border-slate-700">
-          <h2 className="text-2xl font-bold text-purple-400 mb-4">Competências em Inovação</h2>
-          <p className="text-sm text-gray-400 mb-4">A definição e o desenvolvimento de competências orientadas à inovação devem ser balizados pelos seguintes referenciais:</p>
+        <div className="module-card">
+          <h2 className="module-section-title">Competências em Inovação</h2>
+          <p className="module-meta-text mb-4">A definição e o desenvolvimento de competências orientadas à inovação devem ser balizados pelos seguintes referenciais:</p>
           <ul className="space-y-3">
             {competencyGuidelines.map((item, index) => (
               <li key={index} className="flex items-start">
-                <svg className="w-5 h-5 mr-3 mt-1 flex-shrink-0 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                 <span className="text-gray-300">{item}</span>
+                <svg className="module-list-icon w-5 h-5 mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                 <span className="module-section-text">{item}</span>
               </li>
             ))}
           </ul>

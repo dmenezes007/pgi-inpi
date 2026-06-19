@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 
 // A simple, reusable accordion item component
 const AccordionItem = ({ title, icon, children, isOpen, onClick }: { title: string; icon: React.ReactNode; children: React.ReactNode; isOpen: boolean; onClick: () => void; }) => (
-  <div className="border-b border-slate-700 last:border-b-0">
+    <div className="border-b border-slate-200 last:border-b-0">
     <h2>
       <button
         type="button"
-        className="flex items-center justify-between w-full p-5 font-medium text-left text-gray-200 hover:bg-slate-700/50 transition-colors duration-200"
+        className="flex w-full items-center justify-between p-5 text-left font-medium text-slate-800 transition-colors duration-200 hover:bg-blue-50"
         onClick={onClick}
         aria-expanded={isOpen}
       >
@@ -19,8 +19,8 @@ const AccordionItem = ({ title, icon, children, isOpen, onClick }: { title: stri
     </h2>
     <div className={`transition-all duration-500 ease-in-out ${isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'} grid`}>
         <div className="overflow-hidden">
-            <div className="p-5 border-t border-slate-700/50">
-                <div className="text-gray-300 space-y-4 leading-relaxed">
+            <div className="border-t border-slate-200/80 p-5">
+                <div className="space-y-4 leading-relaxed text-slate-600">
                     {children}
                 </div>
             </div>
@@ -156,17 +156,18 @@ const Metodologia: React.FC = () => {
 
 
     return (
-        <div>
-            <h1 className="text-4xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-purple-400">
+        <div className="module-page">
+            <h1 className="module-title">
                 Metodologia
             </h1>
-            <div className="bg-slate-800 p-6 rounded-lg shadow-lg mb-10 border border-slate-700">
-                <p className="text-lg leading-relaxed text-gray-300">
-                    A concepção da minuta da <span className="text-purple-400 font-serif-highlight">Política de Gestão da Inovação</span> do INPI foi estruturada a partir de uma metodologia ágil e colaborativa, combinando referenciais estratégicos de gestão com padrões internacionais. O processo foi desenhado para ser participativo, eficiente e alinhado aos objetivos institucionais de transformação.
+            <div className="module-intro">
+                <div className="module-kicker">Metodo e evidencias</div>
+                <p className="module-lead">
+                    A concepção da minuta da <span className="module-highlight font-serif-highlight">Política de Gestão da Inovação</span> do INPI foi estruturada a partir de uma metodologia ágil e colaborativa, combinando referenciais estratégicos de gestão com padrões internacionais. O processo foi desenhado para ser participativo, eficiente e alinhado aos objetivos institucionais de transformação.
                 </p>
             </div>
 
-            <div id="accordion-flush" className="bg-slate-800 rounded-lg border border-slate-700 overflow-hidden">
+            <div id="accordion-flush" className="module-card overflow-hidden p-0">
                 <AccordionItem
                     title="Design Sprint Institucional: Foco e Agilidade"
                     isOpen={openAccordion === 'sprint'}

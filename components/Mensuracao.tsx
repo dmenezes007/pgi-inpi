@@ -6,12 +6,12 @@ interface MensuracaoProps {
 }
 
 const IndicatorCard = ({ title, indicators, icon }: { title: string; indicators: string[]; icon: React.ReactNode }) => (
-    <div className="bg-slate-800/50 p-6 rounded-lg border border-slate-700">
+    <div className="module-card">
         <div className="flex items-center mb-4">
-            <div className="p-2 bg-purple-600/30 text-purple-400 rounded-lg mr-4">{icon}</div>
-            <h3 className="text-xl font-semibold text-gray-200">{title}</h3>
+            <div className="mr-4 rounded-lg bg-blue-50 p-2 text-blue-700">{icon}</div>
+            <h3 className="text-xl font-semibold text-slate-900">{title}</h3>
         </div>
-        <ul className="space-y-2 list-disc list-inside text-gray-300">
+        <ul className="space-y-2 list-disc list-inside text-slate-600">
             {indicators && indicators.length > 0 ? indicators.map((ind, i) => <li key={i}>{ind}</li>) : <li>Nenhum indicador definido.</li>}
         </ul>
     </div>
@@ -26,15 +26,16 @@ const Mensuracao: React.FC<MensuracaoProps> = ({ projects }) => {
     };
 
     return (
-        <div>
-            <h1 className="text-4xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-purple-400">Mensuração</h1>
-            <div className="bg-slate-800 p-6 rounded-lg shadow-lg mb-10 border border-slate-700">
-                <p className="text-lg leading-relaxed text-gray-300">
+        <div className="module-page">
+            <h1 className="module-title">Mensuração</h1>
+            <div className="module-intro">
+                <div className="module-kicker">Indicadores e evidencias</div>
+                <p className="module-lead">
                     Analise o sucesso e o impacto das inovações implementadas. Selecione um projeto para visualizar seus indicadores de desempenho e impacto, e entenda como os resultados são monitorados.
                 </p>
             </div>
-            <div className="mb-8">
-                <select id="project-select" onChange={handleSelectProject} defaultValue="" className="w-full max-w-lg px-3 py-2 text-white bg-slate-700 border border-slate-600 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500">
+            <div className="module-select-stack">
+                <select id="project-select" onChange={handleSelectProject} defaultValue="" className="module-form-control max-w-lg">
                     <option value="" disabled>Selecione a Ação ou Projeto</option>
                     {projects.map(p => (
                         <option key={p.id} value={p.id}>{p.title}</option>
@@ -56,14 +57,14 @@ const Mensuracao: React.FC<MensuracaoProps> = ({ projects }) => {
                             icon={<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>}
                         />
                     </div>
-                    <div className="bg-slate-800 p-6 rounded-lg border border-slate-700">
-                        <h2 className="text-xl font-bold text-purple-400 mb-3">Monitoramento e Reporte</h2>
-                         <p className="text-gray-300">Relatórios de inovações de nível estratégico serão reportados à <span className="font-semibold text-white">Coordenação-Geral de Planejamento e Gestão Estratégica</span>, e as de nível setorial, às respectivas áreas de governança.</p>
+                    <div className="module-card">
+                        <h2 className="module-section-title">Monitoramento e Reporte</h2>
+                         <p className="module-section-text">Relatórios de inovações de nível estratégico serão reportados à <span className="module-highlight">Coordenação-Geral de Planejamento e Gestão Estratégica</span>, e as de nível setorial, às respectivas áreas de governança.</p>
                     </div>
                 </div>
             ) : (
-                <div className="text-center py-16 px-6 bg-slate-800 rounded-lg border-2 border-dashed border-slate-700">
-                    <p className="text-gray-400">Selecione um projeto para visualizar seus indicadores.</p>
+                <div className="module-empty">
+                    <p>Selecione um projeto para visualizar seus indicadores.</p>
                 </div>
             )}
              <style>{`
