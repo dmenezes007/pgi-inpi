@@ -503,7 +503,7 @@ body {
   gap: 1.5rem;
   padding: 1.5rem 1.75rem 1.25rem;
   border-bottom: 1px solid rgba(19, 81, 180, 0.08);
-  background: rgba(255, 255, 255, 0.88) url('/logo-gestao-inovacao.png') 66.67% center / 200% auto no-repeat;
+  background: #ffffffe0 url(/logo-gestao-inovacao.png) right center / 35% auto no-repeat;
   box-shadow: 0 1px 6px rgba(0,0,0,.16);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
