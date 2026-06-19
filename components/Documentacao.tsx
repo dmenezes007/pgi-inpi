@@ -7,16 +7,13 @@ const Documentacao: React.FC = () => {
             <h1 className="module-title">
                 Documentação
             </h1>
+            <div className="module-intro">
+                <div className="module-kicker">REPOSITÓRIO INSTITUCIONAL</div>
+                <p className="module-lead">
+                    Registro institucional dos resultados do <span className="font-semibold text-slate-900">Design Sprint Institucional</span>, com disponibilização das minutas elaboradas para apreciação técnica e recebimento de contribuições complementares.
+                </p>
+            </div>
             <div className="rounded-3xl border border-slate-200 bg-white/95 p-8 shadow-lg shadow-blue-100/50 space-y-8">
-                <div className="space-y-4">
-                    <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-blue-700">
-                        REPOSITÓRIO INSTITUCIONAL
-                    </div>
-                    <p className="text-lg text-slate-700 leading-relaxed">
-                        Registro institucional dos resultados do <span className="font-semibold text-slate-900">Design Sprint Institucional</span>, com disponibilização das minutas elaboradas para apreciação técnica e recebimento de contribuições complementares.
-                    </p>
-                </div>
-
                 <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-6">
                     <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
                         <div>

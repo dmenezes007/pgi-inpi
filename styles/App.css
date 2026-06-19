@@ -442,7 +442,7 @@ body {
 .sidebar-footer-logo {
   display: block;
   width: 100%;
-  max-width: 140px;
+  max-width: 90px;
   height: auto;
   margin: 0 auto;
   object-fit: contain;

@@ -11,11 +11,9 @@ const Inicio: React.FC<InicioProps> = ({ onModuleSelect }) => {
 
   return (
     <div className="space-y-8">
-      <div className="rounded-3xl border border-slate-200 bg-white/95 p-8 shadow-lg shadow-blue-100/50">
-        <div className="mb-5 inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-blue-700">
-          AMBIENTE INSTITUCIONAL
-        </div>
-        <p className="text-lg leading-relaxed text-slate-700">
+      <div className="module-intro">
+        <div className="module-kicker">AMBIENTE INSTITUCIONAL</div>
+        <p className="module-lead">
           O <span className="text-purple-400 font-serif-highlight font-medium">Portal da Gestão da Inovação</span> consolida a proposta institucional da Coordenação-Geral de Recursos Humanos e da Academia de Propriedade Intelectual, Inovação e Desenvolvimento do INPI, reafirmando a <span className="text-purple-400 font-serif-highlight font-medium">inovação como pilar estratégico</span> para a <span className="text-purple-400 font-serif-highlight font-medium">transformação organizacional</span>, a melhoria da prestação de serviços e a geração de valor público.
         </p>
       </div>

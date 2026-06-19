@@ -74,7 +74,10 @@ const Definicoes: React.FC = () => {
                 Definições
             </h1>
 
-            <div className="module-kicker">CONCEITOS E DEFINIÇÕES</div>
+            <div className="module-intro">
+                <div className="module-kicker">CONCEITOS E DEFINIÇÕES</div>
+                <p className="module-lead">Conceitos estruturantes para o entendimento da Política de Gestão da Inovação.</p>
+            </div>
 
              <div className="mb-12">
                 <h2 className="module-section-title mb-6">Inovação é:</h2>

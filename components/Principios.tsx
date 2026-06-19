@@ -49,8 +49,10 @@ const Principios: React.FC = () => {
     return (
         <div className="module-page">
             <h1 className="module-title">Princípios</h1>
-            <div className="module-kicker">PRINCÍPIOS ORIENTADORES</div>
-            <p className="module-meta-text principios-meta-text">Associe cada palavra-chave ao respectivo princípio orientador da Política de Gestão da Inovação.</p>
+            <div className="module-intro">
+                <div className="module-kicker">PRINCÍPIOS ORIENTADORES</div>
+                <p className="module-meta-text principios-meta-text">Associe cada palavra-chave ao respectivo princípio orientador da Política de Gestão da Inovação.</p>
+            </div>
 
             <div className="flex flex-col lg:flex-row gap-8">
                 <div className="space-y-4 lg:w-3/5">
