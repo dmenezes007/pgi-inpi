@@ -17,7 +17,7 @@ const ModuleCard: React.FC<ModuleCardProps> = ({ moduleName, onModuleSelect }) =
            <ModuleIcon moduleName={moduleName} className="h-6 w-6 shrink-0 text-white" />
         </div>
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-700">Modulo</p>
+          <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-700">MÓDULO</p>
           <h3 className="text-xl font-semibold text-slate-900">{moduleName}</h3>
         </div>
       </div>
