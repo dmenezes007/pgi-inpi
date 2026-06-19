@@ -1,12 +1,9 @@
 
-import React, { useState, useEffect } from 'react';
-import LandingPage from './components/LandingPage';
+import React, { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import MainContent from './components/MainContent';
 import './styles/App.css';
 import { MODULES } from './constants';
-
-const CORRECT_PASSWORD = 'PGI_INPI_2025';
 
 export interface Risk {
   description: string;
@@ -197,28 +194,10 @@ initialProjects.sort((a, b) => a.title.localeCompare(b.title));
 
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [activeModule, setActiveModule] = useState(MODULES[0]);
   const [isSidebarExpanded, setIsSidebarExpanded] = useState(true);
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const [projects, setProjects] = useState<Project[]>(initialProjects);
-
-  useEffect(() => {
-    const storedAuth = sessionStorage.getItem('isAuthenticated');
-    if (storedAuth === 'true') {
-      setIsAuthenticated(true);
-    }
-  }, []);
-
-  const handleLogin = (password: string) => {
-    if (password === CORRECT_PASSWORD) {
-      setIsAuthenticated(true);
-      sessionStorage.setItem('isAuthenticated', 'true');
-      return true;
-    } else {
-      return false;
-    }
-  };
   
   const addProject = (newProjectData: Omit<Project, 'id'>) => {
     const newProject: Project = {
@@ -249,10 +228,6 @@ function App() {
   const activeModuleDescription = activeModule === 'Início'
     ? 'Visão geral do programa e acesso aos módulos estruturantes.'
     : `Módulo ativo do Portal da Gestão da Inovação: ${activeModule}.`;
-
-  if (!isAuthenticated) {
-    return <LandingPage onLogin={handleLogin} projects={projects} />;
-  }
 
   return (
     <div className="app-container">
