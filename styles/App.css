@@ -318,7 +318,7 @@ body {
   justify-content: space-between;
   gap: 0.5rem;
   padding: 1.25rem 1rem 1rem;
-  border-bottom: 2px solid var(--gov-blue);
+  border-bottom: none;
   min-height: 5rem;
 }
 
