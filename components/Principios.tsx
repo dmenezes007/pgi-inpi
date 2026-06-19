@@ -49,10 +49,11 @@ const Principios: React.FC = () => {
     return (
         <div className="module-page">
             <h1 className="module-title">Princípios</h1>
-            <p className="module-meta-text">Associe cada palavra-chave ao respectivo princípio orientador da Política de Gestão da Inovação.</p>
+            <div className="module-kicker">PRINCÍPIOS ORIENTADORES</div>
+            <p className="module-meta-text principios-meta-text">Associe cada palavra-chave ao respectivo princípio orientador da Política de Gestão da Inovação.</p>
 
             <div className="flex flex-col lg:flex-row gap-8">
-                <div className="flex-grow space-y-4">
+                <div className="space-y-4 lg:w-3/5">
                     {principlesData.map(({ id, sentence, keyword }) => (
                         <div key={id} className="module-card flex min-h-[60px] flex-col items-center gap-4 lg:flex-row">
                             <div
@@ -71,7 +72,7 @@ const Principios: React.FC = () => {
                         </div>
                     ))}
                 </div>
-                <div className="module-card self-start lg:w-64 flex-shrink-0">
+                <div className="module-card self-start lg:w-2/5 flex-shrink-0">
                     <h3 className="module-section-title mb-4">Palavras-chave</h3>
                     <div className="space-y-3">
                         {shuffledKeywords.map(({ id, keyword }) => (

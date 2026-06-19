@@ -40,6 +40,7 @@ const Objetivos: React.FC = () => {
             <h1 className="module-title">
                 Objetivos
             </h1>
+            <div className="module-kicker">OBJETIVOS INSTITUCIONAIS</div>
             <div className="space-y-6">
                 {objectivesData.map((objective, index) => (
                     <div key={index} className="module-card flex items-start space-x-6">

@@ -63,7 +63,11 @@ const Sidebar: React.FC<SidebarProps> = ({ modules, activeModule, isExpanded, is
 
       {isExpanded && (
         <div className="sidebar-footer-wrap">
-          <p className="sidebar-footer-text">Padrão Digital de Governo</p>
+          <img
+            src="https://barra.sistema.gov.br/v1/assets/govbr.webp"
+            alt="Logomarca gov.br"
+            className="sidebar-footer-logo"
+          />
         </div>
       )}
     </aside>

@@ -161,7 +161,7 @@ const Metodologia: React.FC = () => {
                 Metodologia
             </h1>
             <div className="module-intro">
-                <div className="module-kicker">Metodo e evidencias</div>
+                <div className="module-kicker">MÉTODOS E EVIDÊNCIAS</div>
                 <p className="module-lead">
                     A concepção da minuta da <span className="module-highlight font-serif-highlight">Política de Gestão da Inovação</span> do INPI foi estruturada a partir de uma metodologia ágil e colaborativa, combinando referenciais estratégicos de gestão com padrões internacionais. O processo foi desenhado para ser participativo, eficiente e alinhado aos objetivos institucionais de transformação.
                 </p>

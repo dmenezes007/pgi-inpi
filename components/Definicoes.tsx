@@ -74,6 +74,8 @@ const Definicoes: React.FC = () => {
                 Definições
             </h1>
 
+            <div className="module-kicker">CONCEITOS E DEFINIÇÕES</div>
+
              <div className="mb-12">
                 <h2 className="module-section-title mb-6">Inovação é:</h2>
                 <div className="space-y-6">
@@ -85,8 +87,6 @@ const Definicoes: React.FC = () => {
                     ))}
                 </div>
             </div>
-
-            <hr className="module-divider my-4" />
 
             <div className="mb-8">
                  <div className="relative">

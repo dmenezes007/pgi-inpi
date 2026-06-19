@@ -66,12 +66,12 @@ const Tipologia: React.FC = () => {
                 Tipologia
             </h1>
           <div className="module-intro">
-            <div className="module-kicker">Classificacao institucional</div>
+            <div className="module-kicker">CLASSIFICAÇÃO INSTITUCIONAL</div>
             <p className="module-lead">
               A abordagem de gestão da inovação no INPI considera diferentes <span className="module-highlight font-serif-highlight">tipologias de inovação</span>, estruturadas para maior aderência ao contexto institucional e aos desafios de prestação de serviços públicos.
                 </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {tipologias.map((tipo) => (
                     <FlippingCard key={tipo.title} title={tipo.title} description={tipo.description} icon={tipo.icon} />
                 ))}

@@ -10,7 +10,7 @@ const Documentacao: React.FC = () => {
             <div className="rounded-3xl border border-slate-200 bg-white/95 p-8 shadow-lg shadow-blue-100/50 space-y-8">
                 <div className="space-y-4">
                     <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-blue-700">
-                        Repositorio institucional
+                        REPOSITÓRIO INSTITUCIONAL
                     </div>
                     <p className="text-lg text-slate-700 leading-relaxed">
                         Registro institucional dos resultados do <span className="font-semibold text-slate-900">Design Sprint Institucional</span>, com disponibilização das minutas elaboradas para apreciação técnica e recebimento de contribuições complementares.
@@ -21,7 +21,7 @@ const Documentacao: React.FC = () => {
                     <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
                         <div>
                             <h2 className="text-2xl font-bold text-slate-900">Minutas para apreciação</h2>
-                            <p className="mt-1 text-sm text-slate-600">Documentos centrais para leitura, análise técnica e contribuições complementares.</p>
+                            <p className="mt-1 block text-sm text-slate-500 doc-subtext">Documentos centrais para leitura, análise técnica e contribuições complementares.</p>
                         </div>
                         <span className="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-blue-700">3 documentos ativos</span>
                     </div>

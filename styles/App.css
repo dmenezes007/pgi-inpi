@@ -439,6 +439,15 @@ body {
   text-align: center;
 }
 
+.sidebar-footer-logo {
+  display: block;
+  width: 100%;
+  max-width: 140px;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
 .main-content {
   width: 100%;
   min-width: 0;
@@ -655,6 +664,14 @@ body {
 .module-meta-text {
   color: var(--gov-muted);
   font-size: 0.95rem;
+}
+
+.principios-meta-text {
+  font-size: 1.05rem;
+}
+
+.doc-subtext {
+  color: var(--gov-blue) !important;
 }
 
 .module-pill {

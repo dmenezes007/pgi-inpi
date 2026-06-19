@@ -23,7 +23,7 @@ const Governanca: React.FC = () => {
         <div className="module-page">
             <h1 className="module-title">Governança</h1>
             <div className="module-intro">
-                <div className="module-kicker">Decisao e monitoramento</div>
+                <div className="module-kicker">DECISÃO E MONITORAMENTO</div>
                 <p className="module-lead">
                     Entenda como a inovação é gerenciada e monitorada no mais alto nível estratégico. Explore as atribuições do comitê responsável e os princípios que guiam a tomada de decisão.
                 </p>
