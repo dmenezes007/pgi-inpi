@@ -193,7 +193,6 @@ body::before {
 
 .app-container .text-white,
 .app-container .text-gray-100,
-.app-container .text-gray-200,
 .app-container .text-gray-300,
 .app-container .text-gray-400,
 .app-container .text-purple-200,
@@ -202,6 +201,10 @@ body::before {
 .app-container .text-slate-300,
 .app-container .text-slate-400 {
   color: var(--gov-surface) !important;
+}
+
+.app-container .text-gray-200 {
+  color: var(--gov-blue) !important;
 }
 
 .app-container .text-slate-500 {
