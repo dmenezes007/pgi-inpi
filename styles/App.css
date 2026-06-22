@@ -545,7 +545,7 @@ body::before {
   justify-content: space-between;
   gap: 1.5rem;
   padding: 1.5rem 1.75rem 1.25rem;
-  border-bottom: 1px solid rgba(19, 81, 180, 0.08);
+  border-bottom: 0;
   background: #ffffffe0 url(/logo-gestao-inovacao.png) right top / 35% auto no-repeat;
   box-shadow: 0 1px 6px rgba(0,0,0,.16);
   backdrop-filter: blur(10px);
@@ -553,48 +553,93 @@ body::before {
   overflow: hidden;
 }
 
+.gov-shell-header::before,
 .gov-shell-header::after {
   content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 0.14rem;
-  background: linear-gradient(90deg, transparent 0%, rgba(216, 34, 130, 0.7) 18%, rgba(36, 169, 219, 0.82) 50%, rgba(238, 199, 30, 0.7) 82%, transparent 100%);
-  background-size: 180% 100%;
-  opacity: 0;
-  filter: blur(0.2px) drop-shadow(0 0 5px rgba(36, 169, 219, 0.35)) drop-shadow(0 0 9px rgba(216, 34, 130, 0.18));
+  pointer-events: none;
+}
+
+.gov-shell-header::before {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(216, 34, 130, 0.55) 20%, rgba(36, 169, 219, 0.82) 50%, rgba(238, 199, 30, 0.55) 80%, transparent 100%);
+  background-size: 220% 100%;
+  filter: drop-shadow(0 0 3px rgba(36, 169, 219, 0.26)) drop-shadow(0 0 7px rgba(216, 34, 130, 0.12));
   animation: gov-shell-header-glow 10s ease-in-out infinite;
+}
+
+.gov-shell-header::after {
+  height: 6px;
+  background: linear-gradient(90deg, transparent 0%, rgba(216, 34, 130, 0.22) 20%, rgba(36, 169, 219, 0.34) 50%, rgba(238, 199, 30, 0.22) 80%, transparent 100%);
+  background-size: 220% 100%;
+  filter: blur(7px) drop-shadow(0 0 12px rgba(36, 169, 219, 0.18));
+  opacity: 0;
+  animation: gov-shell-header-halo 10s ease-in-out infinite;
   pointer-events: none;
 }
 
 @keyframes gov-shell-header-glow {
   0% {
-    transform: translateX(-110%);
+    transform: translateX(-120%);
     background-position: 0% 50%;
     opacity: 0;
   }
 
-  10% {
-    opacity: 0.55;
+  8% {
+    opacity: 0.45;
   }
 
-  22% {
-    opacity: 0.82;
+  15% {
+    opacity: 0.92;
   }
 
   50% {
-    transform: translateX(110%);
+    transform: translateX(0%);
     background-position: 100% 50%;
-    opacity: 0.72;
+    opacity: 0.82;
   }
 
-  58% {
+  62% {
     opacity: 0;
   }
 
   100% {
-    transform: translateX(110%);
+    transform: translateX(120%);
+    background-position: 100% 50%;
+    opacity: 0;
+  }
+}
+
+@keyframes gov-shell-header-halo {
+  0% {
+    transform: translateX(-120%);
+    background-position: 0% 50%;
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 0.18;
+  }
+
+  15% {
+    opacity: 0.42;
+  }
+
+  50% {
+    transform: translateX(0%);
+    background-position: 100% 50%;
+    opacity: 0.34;
+  }
+
+  62% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(120%);
     background-position: 100% 50%;
     opacity: 0;
   }
