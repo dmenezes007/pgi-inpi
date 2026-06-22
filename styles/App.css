@@ -559,23 +559,24 @@ body::before {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
   pointer-events: none;
 }
 
 .gov-shell-header::before {
-  height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(216, 34, 130, 0.55) 20%, rgba(36, 169, 219, 0.82) 50%, rgba(238, 199, 30, 0.55) 80%, transparent 100%);
-  background-size: 220% 100%;
-  filter: drop-shadow(0 0 3px rgba(36, 169, 219, 0.26)) drop-shadow(0 0 7px rgba(216, 34, 130, 0.12));
+  width: clamp(14rem, 28vw, 24rem);
+  height: 2px;
+  background: linear-gradient(90deg, rgba(216, 34, 130, 0) 0%, rgba(216, 34, 130, 0.9) 18%, rgba(36, 169, 219, 0.95) 52%, rgba(238, 199, 30, 0.9) 82%, rgba(238, 199, 30, 0) 100%);
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 0 4px rgba(216, 34, 130, 0.42)) drop-shadow(0 0 8px rgba(36, 169, 219, 0.24)) drop-shadow(0 0 10px rgba(238, 199, 30, 0.18));
   animation: gov-shell-header-glow 20s ease-in-out infinite;
 }
 
 .gov-shell-header::after {
-  height: 6px;
-  background: linear-gradient(90deg, transparent 0%, rgba(216, 34, 130, 0.22) 20%, rgba(36, 169, 219, 0.34) 50%, rgba(238, 199, 30, 0.22) 80%, transparent 100%);
-  background-size: 220% 100%;
-  filter: blur(7px) drop-shadow(0 0 12px rgba(36, 169, 219, 0.18));
+  width: clamp(18rem, 34vw, 28rem);
+  height: 10px;
+  background: linear-gradient(90deg, rgba(216, 34, 130, 0) 0%, rgba(216, 34, 130, 0.26) 18%, rgba(36, 169, 219, 0.34) 52%, rgba(238, 199, 30, 0.24) 82%, rgba(238, 199, 30, 0) 100%);
+  background-repeat: no-repeat;
+  filter: blur(6px) drop-shadow(0 0 14px rgba(216, 34, 130, 0.2)) drop-shadow(0 0 12px rgba(36, 169, 219, 0.16));
   opacity: 0;
   animation: gov-shell-header-halo 20s ease-in-out infinite;
   pointer-events: none;
@@ -583,8 +584,7 @@ body::before {
 
 @keyframes gov-shell-header-glow {
   0% {
-    transform: translateX(-120%);
-    background-position: 0% 50%;
+    transform: translateX(-140%);
     opacity: 0;
   }
 
@@ -597,8 +597,7 @@ body::before {
   }
 
   45% {
-    transform: translateX(0%);
-    background-position: 100% 50%;
+    transform: translateX(120%);
     opacity: 0.82;
   }
 
@@ -607,16 +606,14 @@ body::before {
   }
 
   100% {
-    transform: translateX(120%);
-    background-position: 100% 50%;
+    transform: translateX(140%);
     opacity: 0;
   }
 }
 
 @keyframes gov-shell-header-halo {
   0% {
-    transform: translateX(-120%);
-    background-position: 0% 50%;
+    transform: translateX(-140%);
     opacity: 0;
   }
 
@@ -629,8 +626,7 @@ body::before {
   }
 
   45% {
-    transform: translateX(0%);
-    background-position: 100% 50%;
+    transform: translateX(120%);
     opacity: 0.34;
   }
 
@@ -639,8 +635,7 @@ body::before {
   }
 
   100% {
-    transform: translateX(120%);
-    background-position: 100% 50%;
+    transform: translateX(140%);
     opacity: 0;
   }
 }
