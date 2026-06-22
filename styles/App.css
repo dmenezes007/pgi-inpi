@@ -933,7 +933,7 @@ body::before {
 
 @media (max-width: 768px) {
   .app-container {
-    flex-direction: column;
+    flex-direction: row;
   }
 
   .sidebar {
@@ -944,28 +944,44 @@ body::before {
     transition: none;
     z-index: 2;
     height: auto;
-    width: 100%;
+    width: 4.25rem;
+    flex: 0 0 4.25rem;
     box-shadow: 0 8px 22px rgba(19, 81, 180, 0.08);
+    overflow: hidden;
   }
 
   .sidebar-brand {
-    min-height: 4.25rem;
-    padding: 0.85rem 1rem;
+    display: none;
   }
 
   .sidebar-nav {
-    max-height: 42vh;
+    max-height: none;
+    padding-top: 0;
   }
 
   .sidebar-footer-wrap {
-    padding: 0.85rem 1rem 1rem;
+    display: none;
   }
 
   .main-content {
     padding-top: 0;
+    min-width: 0;
+    flex: 1;
   }
 
   .sidebar-toggle {
+    display: none;
+  }
+
+  .sidebar-link {
+    justify-content: center;
+  }
+
+  .sidebar-link-icon {
+    margin: 0;
+  }
+
+  .sidebar-link-label {
     display: none;
   }
 

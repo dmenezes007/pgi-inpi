@@ -217,10 +217,6 @@ function App() {
     setIsSidebarExpanded(!isSidebarExpanded);
   };
 
-  const toggleMobileSidebar = () => {
-    setIsMobileSidebarOpen(!isMobileSidebarOpen);
-  };
-
   const activeModuleDescription = activeModule === 'Início'
     ? 'Visão geral do programa e acesso aos módulos estruturantes.'
     : `Módulo ativo do Portal da Gestão da Inovação: ${activeModule}.`;
