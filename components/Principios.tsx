@@ -75,7 +75,7 @@ const Principios: React.FC = () => {
                     ))}
                 </div>
                 <div className="module-card self-start lg:w-2/5 flex-shrink-0">
-                    <h3 className="module-section-title mb-4">Palavras-chave</h3>
+                    <h3 className="module-section-title mb-4 text-center">Palavras-chave</h3>
                     <div className="space-y-3">
                         {shuffledKeywords.map(({ id, keyword }) => (
                             !completed[id] && (
