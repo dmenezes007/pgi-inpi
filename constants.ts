@@ -5,10 +5,10 @@ export const MODULES = [
   "Tipologia",
   "Objetivos",
   "Princípios",
+  "Sistema",
   "Laboratório",
   "Prêmio",
   "Ferramentas",
-  "Sistema",
   "Governança",
   "Estratégias",
   "Documentação"
