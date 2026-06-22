@@ -6,6 +6,7 @@ import Tipologia from './Tipologia';
 import Objetivos from './Objetivos';
 import Principios from './Principios';
 import Estimulo from './Estimulo';
+import Laboratorio from './Laboratorio';
 import Desenvolvimento from './Desenvolvimento';
 import Implantacao from './Implantacao';
 import Mensuracao from './Mensuracao';
@@ -40,6 +41,8 @@ const MainContent: React.FC<MainContentProps> = ({ activeModule, onModuleSelect,
         return <Principios />;
       case 'Estímulo':
         return <Estimulo addProject={addProject} />;
+      case 'Laboratório':
+        return <Laboratorio />;
       case 'Desenvolvimento':
         return <Desenvolvimento projects={projects} />;
       case 'Implantação':

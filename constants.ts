@@ -6,6 +6,7 @@ export const MODULES = [
   "Objetivos",
   "Princípios",
   "Estímulo",
+  "Laboratório",
   "Desenvolvimento",
   "Implantação",
   "Mensuração",
