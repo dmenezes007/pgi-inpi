@@ -563,22 +563,22 @@ body::before {
 }
 
 .gov-shell-header::before {
-  width: clamp(20rem, 40vw, 34rem);
-  height: 2px;
-  background: linear-gradient(90deg, rgba(216, 34, 130, 0) 0%, rgba(216, 34, 130, 0.9) 18%, rgba(36, 169, 219, 0.95) 52%, rgba(238, 199, 30, 0.9) 82%, rgba(238, 199, 30, 0) 100%);
+  width: clamp(18rem, 36vw, 30rem);
+  height: 1px;
+  background: linear-gradient(90deg, rgba(216, 34, 130, 0) 0%, rgba(216, 34, 130, 0.72) 18%, rgba(36, 169, 219, 0.8) 52%, rgba(238, 199, 30, 0.72) 82%, rgba(238, 199, 30, 0) 100%);
   background-repeat: no-repeat;
-  filter: drop-shadow(0 0 4px rgba(216, 34, 130, 0.42)) drop-shadow(0 0 8px rgba(36, 169, 219, 0.24)) drop-shadow(0 0 10px rgba(238, 199, 30, 0.18));
-  animation: gov-shell-header-glow 35s ease-in-out infinite;
+  filter: drop-shadow(0 0 2px rgba(216, 34, 130, 0.26)) drop-shadow(0 0 5px rgba(36, 169, 219, 0.18)) drop-shadow(0 0 7px rgba(238, 199, 30, 0.12));
+  animation: gov-shell-header-glow 30s ease-in-out infinite;
 }
 
 .gov-shell-header::after {
-  width: clamp(26rem, 50vw, 42rem);
-  height: 10px;
-  background: linear-gradient(90deg, rgba(216, 34, 130, 0) 0%, rgba(216, 34, 130, 0.26) 18%, rgba(36, 169, 219, 0.34) 52%, rgba(238, 199, 30, 0.24) 82%, rgba(238, 199, 30, 0) 100%);
+  width: clamp(22rem, 44vw, 36rem);
+  height: 8px;
+  background: linear-gradient(90deg, rgba(216, 34, 130, 0) 0%, rgba(216, 34, 130, 0.18) 18%, rgba(36, 169, 219, 0.24) 52%, rgba(238, 199, 30, 0.18) 82%, rgba(238, 199, 30, 0) 100%);
   background-repeat: no-repeat;
-  filter: blur(6px) drop-shadow(0 0 14px rgba(216, 34, 130, 0.2)) drop-shadow(0 0 12px rgba(36, 169, 219, 0.16));
+  filter: blur(7px) drop-shadow(0 0 10px rgba(216, 34, 130, 0.14)) drop-shadow(0 0 9px rgba(36, 169, 219, 0.12));
   opacity: 0;
-  animation: gov-shell-header-halo 35s ease-in-out infinite;
+  animation: gov-shell-header-halo 30s ease-in-out infinite;
   pointer-events: none;
 }
 
@@ -596,12 +596,12 @@ body::before {
     opacity: 0.92;
   }
 
-  71.4% {
+  66.7% {
     transform: translateX(120%);
-    opacity: 0.82;
+    opacity: 0.72;
   }
 
-  71.5% {
+  66.8% {
     opacity: 0;
   }
 
@@ -625,12 +625,12 @@ body::before {
     opacity: 0.42;
   }
 
-  71.4% {
+  66.7% {
     transform: translateX(120%);
-    opacity: 0.34;
+    opacity: 0.26;
   }
 
-  71.5% {
+  66.8% {
     opacity: 0;
   }
 
