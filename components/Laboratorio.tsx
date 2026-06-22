@@ -77,58 +77,6 @@ const Laboratorio: React.FC = () => {
         )
       },
       {
-        id: 'premio',
-        title: 'Prêmio de Inovação',
-        subtitle: 'Reconhecimento anual para ideias e resultados comprovados',
-        content: (
-          <div className="space-y-4">
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-              <div className="module-note-box">
-                <p className="module-pill">Subcategoria 1</p>
-                <p className="module-section-text mt-3">
-                  Ideias Inovadoras: propostas em fase inicial ou com menos de um ano de operação.
-                </p>
-              </div>
-              <div className="module-note-box">
-                <p className="module-pill">Subcategoria 2</p>
-                <p className="module-section-text mt-3">
-                  Inovações com Resultados Comprovados: iniciativas maduras com evidências de impacto.
-                </p>
-              </div>
-            </div>
-            <div className="module-surface p-4">
-              <p className="module-meta-text mb-2 font-semibold">Rito anual simplificado</p>
-              <p className="module-section-text">
-                Incentivo à ideação, inscrição, avaliação técnica, seleção de finalistas, pitch e votação do
-                corpo funcional para premiação.
-              </p>
-            </div>
-          </div>
-        )
-      },
-      {
-        id: 'metodos',
-        title: 'Metodologias de Referência',
-        subtitle: 'Conjunto prático para experimentação e entrega de valor',
-        content: (
-          <div className="flex flex-wrap gap-2">
-            {[
-              'Design Thinking',
-              'Design de Serviços',
-              'Linguagem Simples',
-              'Visual Law',
-              'Dataviz',
-              'UX/UI',
-              'Hackathon',
-              'Kanban',
-              'Agile e Scrum'
-            ].map((method) => (
-              <span key={method} className="module-pill">{method}</span>
-            ))}
-          </div>
-        )
-      },
-      {
         id: 'placeholder',
         title: 'Documentos e Downloads',
         subtitle: 'Espaço para materiais normativos e operacionais',
@@ -170,7 +118,7 @@ const Laboratorio: React.FC = () => {
         <div className="module-kicker">LABORATÓRIO DE INOVAÇÃO</div>
         <p className="module-lead">
           O módulo Laboratório organiza, de forma visual e objetiva, os principais elementos da proposta
-          normativa: finalidade, governança, ciclo operacional, prêmio anual e referenciais metodológicos.
+          normativa relacionados à finalidade, governança e operação do ambiente experimental do INPI.
         </p>
       </div>
 

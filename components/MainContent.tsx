@@ -5,12 +5,9 @@ import Definicoes from './Definicoes';
 import Tipologia from './Tipologia';
 import Objetivos from './Objetivos';
 import Principios from './Principios';
-import Estimulo from './Estimulo';
 import Laboratorio from './Laboratorio';
-import Desenvolvimento from './Desenvolvimento';
-import Implantacao from './Implantacao';
-import Mensuracao from './Mensuracao';
-import Aprendizado from './Aprendizado';
+import Premio from './Premio';
+import Ferramentas from './Ferramentas';
 import Sistema from './Sistema';
 import Governanca from './Governanca';
 import Estrategias from './Estrategias';
@@ -39,18 +36,12 @@ const MainContent: React.FC<MainContentProps> = ({ activeModule, onModuleSelect,
         return <Objetivos />;
       case 'Princípios':
         return <Principios />;
-      case 'Estímulo':
-        return <Estimulo addProject={addProject} />;
       case 'Laboratório':
         return <Laboratorio />;
-      case 'Desenvolvimento':
-        return <Desenvolvimento projects={projects} />;
-      case 'Implantação':
-        return <Implantacao projects={projects} />;
-      case 'Mensuração':
-        return <Mensuracao projects={projects} />;
-      case 'Aprendizado':
-        return <Aprendizado projects={projects} />;
+      case 'Prêmio':
+        return <Premio />;
+      case 'Ferramentas':
+        return <Ferramentas />;
       case 'Sistema':
         return <Sistema />;
       case 'Governança':
