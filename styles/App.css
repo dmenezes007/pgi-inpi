@@ -446,6 +446,11 @@ body,
   scrollbar-color: var(--gov-blue) rgba(19, 81, 180, 0.08);
 }
 
+.sidebar-nav::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
 .sidebar-nav::-webkit-scrollbar-thumb {
   background: var(--gov-blue);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.3), 0 0 10px rgba(19, 81, 180, 0.16);
@@ -567,13 +572,29 @@ body,
 }
 
 .main-content::-webkit-scrollbar {
-  width: 2px;
-  height: 2px;
+  width: 10px;
+  height: 10px;
 }
 
-.flex-1.p-4.sm\:p-8.overflow-y-auto::-webkit-scrollbar {
-  width: 2px;
-  height: 2px;
+.main-content-scroll-area {
+  scrollbar-width: thin;
+  scrollbar-color: var(--gov-blue) rgba(19, 81, 180, 0.08);
+}
+
+.main-content-scroll-area::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.main-content-scroll-area::-webkit-scrollbar-track {
+  background: rgba(19, 81, 180, 0.08);
+}
+
+.main-content-scroll-area::-webkit-scrollbar-thumb {
+  background: var(--gov-blue);
+  border: 0;
+  border-radius: 999px;
+  box-shadow: none;
 }
 
 .main-content img,
