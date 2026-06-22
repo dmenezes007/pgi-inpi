@@ -550,6 +550,34 @@ body::before {
   box-shadow: 0 1px 6px rgba(0,0,0,.16);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+.gov-shell-header::after {
+  content: "";
+  position: absolute;
+  left: -30%;
+  right: -30%;
+  bottom: 0;
+  height: 0.25rem;
+  background: linear-gradient(90deg, transparent 0%, var(--accent-pink) 22%, var(--accent-cyan) 50%, var(--accent-gold) 78%, transparent 100%);
+  background-size: 200% 100%;
+  opacity: 0.78;
+  filter: blur(0.35px) drop-shadow(0 0 6px rgba(255, 255, 255, 0.45));
+  animation: gov-shell-header-glow 5s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes gov-shell-header-glow {
+  0% {
+    transform: translateX(-22%);
+    background-position: 0% 50%;
+  }
+
+  100% {
+    transform: translateX(22%);
+    background-position: 200% 50%;
+  }
 }
 
 .gov-shell-brand {
