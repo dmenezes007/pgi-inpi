@@ -5,15 +5,12 @@ interface SidebarProps {
   modules: string[];
   activeModule: string;
   isExpanded: boolean;
-  isMobileOpen: boolean;
   onModuleSelect: (moduleName: string) => void;
   onToggle: () => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ modules, activeModule, isExpanded, isMobileOpen, onModuleSelect, onToggle }) => {
+const Sidebar: React.FC<SidebarProps> = ({ modules, activeModule, isExpanded, onModuleSelect, onToggle }) => {
   const sidebarClasses = `sidebar flex flex-col transition-all duration-300 ease-in-out h-screen sticky top-0 ${
-    isMobileOpen ? 'expanded' : ''
-  } ${
     isExpanded ? 'w-64' : 'w-16'
   }`;
 
@@ -33,7 +30,7 @@ const Sidebar: React.FC<SidebarProps> = ({ modules, activeModule, isExpanded, is
 
       <button
         onClick={onToggle}
-        className={`sidebar-toggle sidebar-toggle-floating md:block hidden ${isExpanded ? 'is-expanded' : 'is-collapsed'}`}
+        className={`sidebar-toggle sidebar-toggle-floating ${isExpanded ? 'is-expanded' : 'is-collapsed'}`}
         aria-label="Expandir ou recolher menu lateral"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className={`h-5 w-5 transition-transform duration-300 ${isExpanded ? '' : 'rotate-180'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

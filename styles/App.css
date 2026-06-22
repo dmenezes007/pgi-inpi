@@ -937,52 +937,36 @@ body::before {
   }
 
   .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
-    z-index: 60;
-    height: 100vh;
-    width: min(86vw, 320px);
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    transition: none;
+    z-index: 2;
+    height: auto;
+    width: 100%;
+    box-shadow: 0 8px 22px rgba(19, 81, 180, 0.08);
   }
 
-  .sidebar.expanded {
-    transform: translateX(0);
+  .sidebar-brand {
+    min-height: 4.25rem;
+    padding: 0.85rem 1rem;
   }
 
-  .mobile-backdrop {
-    display: block;
-    position: fixed;
-    inset: 0;
-    z-index: 50;
-    background: rgba(7, 29, 65, 0.38);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.2s ease;
-    border: 0;
-    padding: 0;
+  .sidebar-nav {
+    max-height: 42vh;
   }
 
-  .mobile-backdrop.is-visible {
-    opacity: 1;
-    pointer-events: auto;
+  .sidebar-footer-wrap {
+    padding: 0.85rem 1rem 1rem;
   }
 
   .main-content {
-    padding-top: 4.35rem;
+    padding-top: 0;
   }
 
-  .hamburger-menu {
-    display: block;
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
-    z-index: 40;
-    background: rgba(255, 255, 255, 0.96);
-    border: 1px solid var(--gov-border);
-    border-radius: 9999px;
-    padding: 0.5rem;
+  .sidebar-toggle {
+    display: none;
   }
 
   .gov-shell-header {
@@ -1093,7 +1077,7 @@ body::before {
 }
 
 @media (min-width: 769px) {
-  .hamburger-menu {
-    display: none;
+  .sidebar-toggle {
+    display: inline-flex;
   }
 }

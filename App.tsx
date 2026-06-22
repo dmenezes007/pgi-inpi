@@ -196,7 +196,6 @@ initialProjects.sort((a, b) => a.title.localeCompare(b.title));
 function App() {
   const [activeModule, setActiveModule] = useState(MODULES[0]);
   const [isSidebarExpanded, setIsSidebarExpanded] = useState(true);
-  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const [projects, setProjects] = useState<Project[]>(initialProjects);
   
   const addProject = (newProjectData: Omit<Project, 'id'>) => {
@@ -212,9 +211,6 @@ function App() {
 
   const handleModuleSelect = (moduleName: string) => {
     setActiveModule(moduleName);
-    if (window.innerWidth < 768) {
-      setIsMobileSidebarOpen(false);
-    }
   };
 
   const toggleSidebar = () => {
@@ -231,30 +227,14 @@ function App() {
 
   return (
     <div className="app-container">
-      <button className="hamburger-menu" onClick={toggleMobileSidebar}>
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 intense-glow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
       <Sidebar
         modules={MODULES}
         activeModule={activeModule}
         isExpanded={isSidebarExpanded}
-        isMobileOpen={isMobileSidebarOpen}
         onModuleSelect={handleModuleSelect}
         onToggle={toggleSidebar}
       />
-      <button
-        type="button"
-        aria-label="Fechar menu lateral"
-        className={`mobile-backdrop ${isMobileSidebarOpen ? 'is-visible' : ''}`}
-        onClick={() => setIsMobileSidebarOpen(false)}
-      />
-      <div className="main-content custom-gradient-purple" onClick={() => {
-        if (isMobileSidebarOpen) {
-          setIsMobileSidebarOpen(false);
-        }
-      }}>
+      <div className="main-content custom-gradient-purple">
         <header className="gov-shell-header">
           <div className="gov-shell-brand">
             <img
