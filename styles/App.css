@@ -568,7 +568,7 @@ body::before {
   background: linear-gradient(90deg, transparent 0%, rgba(216, 34, 130, 0.55) 20%, rgba(36, 169, 219, 0.82) 50%, rgba(238, 199, 30, 0.55) 80%, transparent 100%);
   background-size: 220% 100%;
   filter: drop-shadow(0 0 3px rgba(36, 169, 219, 0.26)) drop-shadow(0 0 7px rgba(216, 34, 130, 0.12));
-  animation: gov-shell-header-glow 10s ease-in-out infinite;
+  animation: gov-shell-header-glow 20s ease-in-out infinite;
 }
 
 .gov-shell-header::after {
@@ -577,7 +577,7 @@ body::before {
   background-size: 220% 100%;
   filter: blur(7px) drop-shadow(0 0 12px rgba(36, 169, 219, 0.18));
   opacity: 0;
-  animation: gov-shell-header-halo 10s ease-in-out infinite;
+  animation: gov-shell-header-halo 20s ease-in-out infinite;
   pointer-events: none;
 }
 
@@ -588,21 +588,21 @@ body::before {
     opacity: 0;
   }
 
-  8% {
+  5% {
     opacity: 0.45;
   }
 
-  15% {
+  10% {
     opacity: 0.92;
   }
 
-  50% {
+  45% {
     transform: translateX(0%);
     background-position: 100% 50%;
     opacity: 0.82;
   }
 
-  62% {
+  50% {
     opacity: 0;
   }
 
@@ -620,21 +620,21 @@ body::before {
     opacity: 0;
   }
 
-  8% {
+  5% {
     opacity: 0.18;
   }
 
-  15% {
+  10% {
     opacity: 0.42;
   }
 
-  50% {
+  45% {
     transform: translateX(0%);
     background-position: 100% 50%;
     opacity: 0.34;
   }
 
-  62% {
+  50% {
     opacity: 0;
   }
 
