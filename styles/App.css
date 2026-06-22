@@ -176,9 +176,11 @@ body::before {
 .app-container {
   display: flex;
   min-height: 100vh;
+  height: 100vh;
   background: linear-gradient(180deg, #f5f6f7 0%, #eef3fb 100%);
   color: var(--gov-text);
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .app-container .bg-slate-900,
@@ -341,7 +343,11 @@ body::before {
 }
 
 .sidebar {
-  position: relative;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  height: 100vh;
+  overflow: hidden;
   box-shadow: 2px 0 8px rgba(19, 81, 180, 0.07);
   border-right: 1px solid var(--gov-border);
   background: #ffffff;
@@ -512,6 +518,9 @@ body::before {
   z-index: 1;
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
   background:
     linear-gradient(180deg, rgba(216, 34, 130, 0.03), rgba(36, 169, 219, 0.05) 52%, rgba(238, 199, 30, 0.06)),
     linear-gradient(120deg, rgba(255, 255, 255, 0.97), rgba(248, 248, 248, 0.96));
@@ -1030,16 +1039,18 @@ body::before {
 @media (max-width: 768px) {
   .app-container {
     flex-direction: row;
+    height: 100vh;
+    overflow-y: hidden;
   }
 
   .sidebar {
-    position: relative;
-    top: auto;
+    position: sticky;
+    top: 0;
     left: auto;
     transform: none;
     transition: none;
     z-index: 2;
-    height: auto;
+    height: 100vh;
     width: 4.25rem;
     flex: 0 0 4.25rem;
     box-shadow: 0 8px 22px rgba(19, 81, 180, 0.08);
@@ -1063,6 +1074,9 @@ body::before {
     padding-top: 0;
     min-width: 0;
     flex: 1;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
   .sidebar-toggle {
