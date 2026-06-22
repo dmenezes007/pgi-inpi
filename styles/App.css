@@ -559,10 +559,16 @@ body,
   height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
+  scrollbar-color: var(--gov-blue) rgba(19, 81, 180, 0.08);
   background:
     linear-gradient(180deg, rgba(216, 34, 130, 0.03), rgba(36, 169, 219, 0.05) 52%, rgba(238, 199, 30, 0.06)),
     linear-gradient(120deg, rgba(255, 255, 255, 0.97), rgba(248, 248, 248, 0.96));
   isolation: isolate;
+}
+
+.main-content::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
 }
 
 .main-content img,
