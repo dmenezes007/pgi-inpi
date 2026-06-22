@@ -15,38 +15,38 @@ const Laboratorio: React.FC = () => {
       {
         id: 'finalidade',
         title: 'Finalidade e Diretrizes',
-        subtitle: 'Escopo institucional e foco em valor publico',
+        subtitle: 'Escopo institucional e foco em valor público',
         content: (
           <div className="space-y-3">
             <p className="module-section-text">
-              O Laboratorio de Inovacao foi desenhado como ambiente institucional de confianca para testar
-              solucoes com seguranca, foco em usuarios e alinhamento ao planejamento estrategico do INPI.
+              O Laboratório de Inovação foi desenhado como ambiente institucional de confiança para testar
+              soluções com segurança, foco em usuários e alinhamento ao planejamento estratégico do INPI.
             </p>
             <ul className="module-list">
-              <li className="module-list-item"><span className="module-list-icon">•</span><span>Centralidade no usuario e melhoria da experiencia dos servicos.</span></li>
-              <li className="module-list-item"><span className="module-list-icon">•</span><span>Experimentacao controlada com prototipagem, testes e validacao.</span></li>
-              <li className="module-list-item"><span className="module-list-icon">•</span><span>Rastreabilidade, transparencia e aprendizagem organizacional continua.</span></li>
+              <li className="module-list-item"><span className="module-list-icon">•</span><span>Centralidade no usuário e melhoria da experiência dos serviços.</span></li>
+              <li className="module-list-item"><span className="module-list-icon">•</span><span>Experimentação controlada com prototipagem, testes e validação.</span></li>
+              <li className="module-list-item"><span className="module-list-icon">•</span><span>Rastreabilidade, transparência e aprendizagem organizacional contínua.</span></li>
             </ul>
           </div>
         )
       },
       {
         id: 'governanca',
-        title: 'Governanca e Operacao',
-        subtitle: 'Papeis complementares entre nivel estrategico e execucao',
+        title: 'Governança e Operação',
+        subtitle: 'Papéis complementares entre nível estratégico e execução',
         content: (
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
             <div className="module-note-box">
-              <p className="module-pill">Comite de Governanca Interna</p>
+              <p className="module-pill">Comitê de Governança Interna</p>
               <p className="module-section-text mt-3">
-                Acompanha direcao macroestrategica, priorizacao do portfolio e conexao com objetivos
+                Acompanha direção macroestratégica, priorização do portfólio e conexão com objetivos
                 institucionais do SGI.
               </p>
             </div>
             <div className="module-note-box">
-              <p className="module-pill">Gerencia Executiva do Laboratorio</p>
+              <p className="module-pill">Gerência Executiva do Laboratório</p>
               <p className="module-section-text mt-3">
-                Coordena triagem, maturacao, prototipagem, articulacao de parceiros, indicadores e relatorio
+                Coordena triagem, maturação, prototipagem, articulação de parceiros, indicadores e relatório
                 anual de resultados.
               </p>
             </div>
@@ -55,18 +55,18 @@ const Laboratorio: React.FC = () => {
       },
       {
         id: 'ciclo',
-        title: 'Ciclo de Inovacao',
-        subtitle: 'Fluxo operacional do laboratorio em sete etapas',
+        title: 'Ciclo de Inovação',
+        subtitle: 'Fluxo operacional do laboratório em sete etapas',
         content: (
           <ol className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
             {[
-              'Estimulo e captacao de ideias',
+              'Estímulo e captação de ideias',
               'Detalhamento das propostas',
-              'Prototipagem, testes e validacao',
-              'Ajustes com escuta dos usuarios',
-              'Implantacao assistida',
-              'Mensuracao e consolidacao de aprendizados',
-              'Ampliacao de escala'
+              'Prototipagem, testes e validação',
+              'Ajustes com escuta dos usuários',
+              'Implantação assistida',
+              'Mensuração e consolidação de aprendizados',
+              'Ampliação de escala'
             ].map((step, index) => (
               <li key={step} className="module-card p-4">
                 <p className="module-meta-text font-semibold">Etapa {index + 1}</p>
@@ -78,7 +78,7 @@ const Laboratorio: React.FC = () => {
       },
       {
         id: 'premio',
-        title: 'Premio de Inovacao',
+        title: 'Prêmio de Inovação',
         subtitle: 'Reconhecimento anual para ideias e resultados comprovados',
         content: (
           <div className="space-y-4">
@@ -86,21 +86,21 @@ const Laboratorio: React.FC = () => {
               <div className="module-note-box">
                 <p className="module-pill">Subcategoria 1</p>
                 <p className="module-section-text mt-3">
-                  Ideias Inovadoras: propostas em fase inicial ou com menos de um ano de operacao.
+                  Ideias Inovadoras: propostas em fase inicial ou com menos de um ano de operação.
                 </p>
               </div>
               <div className="module-note-box">
                 <p className="module-pill">Subcategoria 2</p>
                 <p className="module-section-text mt-3">
-                  Inovacoes com Resultados Comprovados: iniciativas maduras com evidencias de impacto.
+                  Inovações com Resultados Comprovados: iniciativas maduras com evidências de impacto.
                 </p>
               </div>
             </div>
             <div className="module-surface p-4">
               <p className="module-meta-text mb-2 font-semibold">Rito anual simplificado</p>
               <p className="module-section-text">
-                Incentivo a ideacao, inscricao, avaliacao tecnica, selecao de finalistas, pitch e votacao do
-                corpo funcional para premiacao.
+                Incentivo à ideação, inscrição, avaliação técnica, seleção de finalistas, pitch e votação do
+                corpo funcional para premiação.
               </p>
             </div>
           </div>
@@ -108,13 +108,13 @@ const Laboratorio: React.FC = () => {
       },
       {
         id: 'metodos',
-        title: 'Metodologias de Referencia',
-        subtitle: 'Conjunto pratico para experimentacao e entrega de valor',
+        title: 'Metodologias de Referência',
+        subtitle: 'Conjunto prático para experimentação e entrega de valor',
         content: (
           <div className="flex flex-wrap gap-2">
             {[
               'Design Thinking',
-              'Design de Servicos',
+              'Design de Serviços',
               'Linguagem Simples',
               'Visual Law',
               'Dataviz',
@@ -131,18 +131,18 @@ const Laboratorio: React.FC = () => {
       {
         id: 'placeholder',
         title: 'Documentos e Downloads',
-        subtitle: 'Espaco para materiais normativos e operacionais',
+        subtitle: 'Espaço para materiais normativos e operacionais',
         content: (
           <div className="module-note-box">
             <p className="module-section-text">
-              Placeholder reservado para disponibilizacao da Minuta da Politica de Relacionamento do INPI com
-              Fundacoes de Apoio.
+              Placeholder reservado para disponibilização da Minuta da Política de Relacionamento do INPI com
+              Fundações de Apoio.
             </p>
             <div className="mt-4 flex flex-wrap items-center gap-3">
               <button type="button" disabled className="module-button-secondary opacity-60 cursor-not-allowed">
                 Baixar Minuta (placeholder)
               </button>
-              <span className="module-meta-text">Arquivo sera disponibilizado em breve.</span>
+              <span className="module-meta-text">Arquivo será disponibilizado em breve.</span>
             </div>
           </div>
         )
@@ -164,39 +164,39 @@ const Laboratorio: React.FC = () => {
 
   return (
     <div className="module-page">
-      <h1 className="module-title">Laboratorio</h1>
+      <h1 className="module-title">Laboratório</h1>
 
       <div className="module-intro">
-        <div className="module-kicker">LABORATORIO DE INOVACAO</div>
+        <div className="module-kicker">LABORATÓRIO DE INOVAÇÃO</div>
         <p className="module-lead">
-          O modulo Laboratorio organiza, de forma visual e objetiva, os principais elementos da proposta
-          normativa: finalidade, governanca, ciclo operacional, premio anual e referenciais metodologicos.
+          O módulo Laboratório organiza, de forma visual e objetiva, os principais elementos da proposta
+          normativa: finalidade, governança, ciclo operacional, prêmio anual e referenciais metodológicos.
         </p>
       </div>
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         <article className="module-card">
           <p className="module-meta-text">Foco</p>
-          <h3 className="module-section-title mt-2">Valor Publico</h3>
-          <p className="module-section-text">Inovacao aplicada para melhorar gestao, servicos e experiencia do usuario.</p>
+          <h3 className="module-section-title mt-2">Valor Público</h3>
+          <p className="module-section-text">Inovação aplicada para melhorar gestão, serviços e experiência do usuário.</p>
         </article>
         <article className="module-card">
-          <p className="module-meta-text">Abrangencia</p>
+          <p className="module-meta-text">Abrangência</p>
           <h3 className="module-section-title mt-2">Interna e Externa</h3>
           <p className="module-section-text">Projetos conectados aos macroprocessos do INPI e a desafios do ecossistema.</p>
         </article>
         <article className="module-card">
           <p className="module-meta-text">Entrega</p>
-          <h3 className="module-section-title mt-2">Ciclos Continuos</h3>
-          <p className="module-section-text">Ideacao, teste, ajuste, implantacao e escalabilidade com monitoramento.</p>
+          <h3 className="module-section-title mt-2">Ciclos Contínuos</h3>
+          <p className="module-section-text">Ideação, teste, ajuste, implantação e escalabilidade com monitoramento.</p>
         </article>
       </div>
 
       <section className="module-card p-0 overflow-hidden">
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 px-5 py-4">
           <div>
-            <h2 className="module-section-title !mb-0">Painel de Estrutura do Laboratorio</h2>
-            <p className="module-meta-text mt-1">Use os accordions para navegar sem blocos longos de texto.</p>
+            <h2 className="module-section-title !mb-0">Painel de Estrutura do Laboratório</h2>
+            <p className="module-meta-text mt-1">Use os acordeões para navegar sem blocos longos de texto.</p>
           </div>
           <div className="flex gap-2">
             <button type="button" className="module-button-secondary text-sm" onClick={expandAll}>Expandir tudo</button>
