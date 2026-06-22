@@ -571,6 +571,11 @@ body,
   height: 2px;
 }
 
+.flex-1.p-4.sm\:p-8.overflow-y-auto::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+
 .main-content img,
 .main-content video,
 .main-content canvas,
