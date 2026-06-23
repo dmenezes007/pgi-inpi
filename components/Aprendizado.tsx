@@ -118,11 +118,11 @@ const Aprendizado: React.FC<AprendizadoProps> = ({ projects }) => {
                         <h2 className="module-section-title">{selectedProject.title}</h2>
                         <div>
                             <h3 className="module-label">Escopo</h3>
-                            <p className="module-meta-text">{selectedProject.scope}</p>
+                            <p className="mt-0.5 block text-sm text-slate-500 uppercase">{selectedProject.scope}</p>
                         </div>
                          <div>
                             <h3 className="module-label">Recursos Necessários</h3>
-                            <p className="module-meta-text">{selectedProject.resources || "Não especificado."}</p>
+                            <p className="mt-0.5 block text-sm text-slate-500 uppercase">{selectedProject.resources || "Não especificado."}</p>
                         </div>
                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>

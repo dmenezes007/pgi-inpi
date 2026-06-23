@@ -28,7 +28,7 @@ const Sistema: React.FC = () => {
                             <div className="text-4xl mr-4 transition-transform duration-300 group-hover:scale-110">{item.icon}</div>
                             <h2 className="text-xl font-bold text-slate-900">{item.title}</h2>
                         </div>
-                        <p className="module-meta-text leading-relaxed">{item.description}</p>
+                        <p className="mt-0.5 block text-sm text-slate-500 uppercase leading-relaxed">{item.description}</p>
                     </div>
                 ))}
             </div>

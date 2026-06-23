@@ -69,7 +69,7 @@ const Laboratorio: React.FC = () => {
               'Ampliação de escala'
             ].map((step, index) => (
               <li key={step} className="module-card p-4">
-                <p className="module-meta-text font-semibold">Etapa {index + 1}</p>
+                <p className="mt-0.5 block text-sm text-slate-500 uppercase font-semibold">Etapa {index + 1}</p>
                 <p className="module-section-text mt-1">{step}</p>
               </li>
             ))}
@@ -90,7 +90,7 @@ const Laboratorio: React.FC = () => {
               <button type="button" disabled className="module-button-secondary opacity-60 cursor-not-allowed">
                 Baixar Minuta (placeholder)
               </button>
-              <span className="module-meta-text">Arquivo será disponibilizado em breve.</span>
+              <span className="mt-0.5 block text-sm text-slate-500 uppercase">Arquivo será disponibilizado em breve.</span>
             </div>
           </div>
         )
@@ -124,12 +124,12 @@ const Laboratorio: React.FC = () => {
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         <article className="module-card">
-          <p className="module-meta-text">Foco</p>
+          <p className="mt-0.5 block text-sm text-slate-500 uppercase">Foco</p>
           <h3 className="module-section-title mt-2">Valor Público</h3>
           <p className="module-section-text">Inovação aplicada para melhorar gestão, serviços e experiência do usuário.</p>
         </article>
         <article className="module-card">
-          <p className="module-meta-text">Abrangência</p>
+          <p className="mt-0.5 block text-sm text-slate-500 uppercase">Abrangência</p>
           <h3 className="module-section-title mt-2">Interna e Externa</h3>
           <p className="module-section-text">Projetos conectados aos macroprocessos do INPI e a desafios do ecossistema.</p>
         </article>

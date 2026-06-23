@@ -85,7 +85,7 @@ const Banco: React.FC = () => {
 
             {/* O que é o Banco de Ideias */}
             <h2 className="module-section-title mb-6">O que é o Banco de Ideias?</h2>
-            <p className="module-meta-text leading-relaxed mb-8">
+            <p className="mt-0.5 block text-sm text-slate-500 uppercase leading-relaxed mb-8">
                 Instituído pela Política de Gestão da Inovação do INPI (Portaria Normativa nº 57/2026), o Banco de Ideias é definido como um <strong>portfólio diversificado de propostas inovadoras</strong>, caracterizado pela interseção entre diferentes meios e finalidades, organizado de forma consistente para o aproveitamento dos esforços de inovação envidados. A gerência do Laboratório de Inovação é responsável pela sua manutenção, consolidação de indicadores e registro de lições aprendidas.
             </p>
 
@@ -98,7 +98,7 @@ const Banco: React.FC = () => {
                             <div className="text-3xl mr-3 transition-transform duration-300 group-hover:scale-110">{item.icon}</div>
                             <h3 className="text-base font-bold text-slate-900">{item.titulo}</h3>
                         </div>
-                        <p className="module-meta-text leading-relaxed">{item.descricao}</p>
+                        <p className="mt-0.5 block text-sm text-slate-500 uppercase leading-relaxed">{item.descricao}</p>
                     </div>
                 ))}
             </div>
@@ -123,7 +123,7 @@ const Banco: React.FC = () => {
                                 <span className="text-xl">{etapa.icon}</span>
                                 <h3 className="font-bold text-slate-900">{etapa.titulo}</h3>
                             </div>
-                            <p className="module-meta-text leading-relaxed">{etapa.descricao}</p>
+                            <p className="mt-0.5 block text-sm text-slate-500 uppercase leading-relaxed">{etapa.descricao}</p>
                         </div>
                     </div>
                 ))}

@@ -67,7 +67,7 @@ const Premio: React.FC = () => {
               'Votação do corpo funcional e premiação'
             ].map((step, index) => (
               <li key={step} className="module-card p-4">
-                <p className="module-meta-text font-semibold">Fase {index + 1}</p>
+                <p className="mt-0.5 block text-sm text-slate-500 uppercase font-semibold">Fase {index + 1}</p>
                 <p className="module-section-text mt-1">{step}</p>
               </li>
             ))}
@@ -161,17 +161,17 @@ const Premio: React.FC = () => {
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         <article className="module-card">
-          <p className="module-meta-text">Periodicidade</p>
+          <p className="mt-0.5 block text-sm text-slate-500 uppercase">Periodicidade</p>
           <h3 className="module-section-title mt-2">Ciclo Anual</h3>
           <p className="module-section-text">Fluxo contínuo de incentivo, seleção, votação e premiação.</p>
         </article>
         <article className="module-card">
-          <p className="module-meta-text">Gestão</p>
+          <p className="mt-0.5 block text-sm text-slate-500 uppercase">Gestão</p>
           <h3 className="module-section-title mt-2">Laboratório</h3>
           <p className="module-section-text">Coordenação executiva com apoio de banca examinadora.</p>
         </article>
         <article className="module-card">
-          <p className="module-meta-text">Resultado</p>
+          <p className="mt-0.5 block text-sm text-slate-500 uppercase">Resultado</p>
           <h3 className="module-section-title mt-2">Valor Público</h3>
           <p className="module-section-text">Projetos reconhecidos e reaproveitados no Banco de Ideias.</p>
         </article>
@@ -181,7 +181,7 @@ const Premio: React.FC = () => {
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 px-5 py-4">
           <div>
             <h2 className="module-section-title !mb-0">Painel do Prêmio</h2>
-            <p className="module-meta-text mt-1">Navegue pelos acordeões para consultar cada bloco do regulamento.</p>
+            <p className="mt-0.5 block text-sm text-slate-500 uppercase mt-1">Navegue pelos acordeões para consultar cada bloco do regulamento.</p>
           </div>
           <div className="flex gap-2">
             <button type="button" className="module-button-secondary text-sm" onClick={expandAll}>Expandir tudo</button>
