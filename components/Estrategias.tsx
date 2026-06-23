@@ -35,7 +35,7 @@ const Estrategias: React.FC = () => {
           <ul className="space-y-3">
             {managerPremises.map((item, index) => (
               <li key={index} className="flex items-start">
-                <svg className="module-list-icon w-5 h-5 mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                <svg className="module-list-icon w-5 h-5 mr-3 mt-1 flex-shrink-0" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#E8F0FF" stroke="#1351B4" strokeWidth="1.5"/><path d="M6.8 10.1l2.1 2.1 4.3-4.4" stroke="#1351B4" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 <span className="module-section-text">{item}</span>
               </li>
             ))}
@@ -48,7 +48,7 @@ const Estrategias: React.FC = () => {
           <ul className="space-y-3">
             {competencyGuidelines.map((item, index) => (
               <li key={index} className="flex items-start">
-                <svg className="module-list-icon w-5 h-5 mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                <svg className="module-list-icon w-5 h-5 mr-3 mt-1 flex-shrink-0" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#E8F0FF" stroke="#1351B4" strokeWidth="1.5"/><path d="M6.8 10.1l2.1 2.1 4.3-4.4" stroke="#1351B4" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
                  <span className="module-section-text">{item}</span>
               </li>
             ))}
