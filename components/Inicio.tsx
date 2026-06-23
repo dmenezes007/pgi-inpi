@@ -20,7 +20,7 @@ const Inicio: React.FC<InicioProps> = ({ onModuleSelect }) => {
       <div className="flex items-end justify-between gap-4">
         <div>
           <p className="text-sm font-bold uppercase tracking-[0.16em] text-blue-700">Arquitetura do portal</p>
-          <h2 className="mt-2 text-2xl font-semibold text-slate-900">Navegação por módulos</h2>
+          <h2 className="mt-2 text-2xl font-semibold text-slate-900">Navegação por Módulos</h2>
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
