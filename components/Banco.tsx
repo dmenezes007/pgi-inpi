@@ -84,7 +84,7 @@ const Banco: React.FC = () => {
             </div>
 
             {/* O que é o Banco de Ideias */}
-            <h2 className="module-section-title mb-6">O que é o Banco de Ideias?</h2>
+            <h2 className="module-section-title mb-6">O Que é o Banco de Ideias</h2>
             <p className="mt-0.5 block text-sm text-slate-500 uppercase leading-relaxed mb-8">
                 Instituído pela Política de Gestão da Inovação do INPI (Portaria Normativa nº 57/2026), o Banco de Ideias é definido como um <strong>portfólio diversificado de propostas inovadoras</strong>, caracterizado pela interseção entre diferentes meios e finalidades, organizado de forma consistente para o aproveitamento dos esforços de inovação envidados. A gerência do Laboratório de Inovação é responsável pela sua manutenção, consolidação de indicadores e registro de lições aprendidas.
             </p>
