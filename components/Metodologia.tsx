@@ -163,8 +163,29 @@ const Metodologia: React.FC = () => {
             <div className="module-intro">
                 <div className="module-kicker">MÉTODOS E EVIDÊNCIAS</div>
                 <p className="module-lead">
-                    A concepção da minuta da <span className="module-highlight font-serif-highlight">Política de Gestão da Inovação</span> do INPI foi estruturada a partir de uma metodologia ágil e colaborativa, combinando referenciais estratégicos de gestão com padrões internacionais. O processo foi desenhado para ser participativo, eficiente e alinhado aos objetivos institucionais de transformação.
+                    A concepção da <span className="module-highlight font-serif-highlight">Política de Gestão da Inovação</span> do INPI foi estruturada a partir de metodologia ágil e colaborativa, combinando referenciais estratégicos de gestão com padrões internacionais. O processo foi desenhado para ser participativo, eficiente e alinhado aos objetivos institucionais de transformação.
                 </p>
+            </div>
+
+            {/* Box Guia Metodológico */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 p-5 mb-8 rounded-xl border border-purple-200 bg-purple-50">
+                <div className="flex-1">
+                    <p className="text-sm font-semibold text-purple-800 mb-1">Guia Metodológico de Implementação</p>
+                    <p className="text-sm text-purple-700">
+                        Documento de referência que estabelece diretrizes, conceitos, papéis, critérios e procedimentos para orientar todo o ciclo de inovação do INPI — da captação de ideias à ampliação de escala — com unidade conceitual e geração de valor público mensurável.
+                    </p>
+                </div>
+                <a
+                    href="https://dmenezes007.github.io/pgi-inpi/files/docs/guia-motodologico.md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm text-white bg-purple-600 hover:bg-purple-700 transition-colors duration-200 whitespace-nowrap"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                    Acessar o Guia Metodológico
+                </a>
             </div>
 
             <div id="accordion-flush" className="module-card overflow-hidden p-0">
