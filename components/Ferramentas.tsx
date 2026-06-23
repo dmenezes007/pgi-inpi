@@ -9,7 +9,7 @@ type ToolGroup = {
 };
 
 const Ferramentas: React.FC = () => {
-  const [openGroups, setOpenGroups] = useState<string[]>(['design']);
+  const [openGroups, setOpenGroups] = useState<string[]>([]);
 
   const groups = useMemo<ToolGroup[]>(
     () => [
@@ -60,16 +60,11 @@ const Ferramentas: React.FC = () => {
     []
   );
 
-  const groupIds = groups.map((group) => group.id);
-
   const toggleGroup = (groupId: string) => {
     setOpenGroups((current) =>
       current.includes(groupId) ? current.filter((id) => id !== groupId) : [...current, groupId]
     );
   };
-
-  const expandAll = () => setOpenGroups(groupIds);
-  const collapseAll = () => setOpenGroups([]);
 
   return (
     <div className="module-page">
@@ -85,34 +80,23 @@ const Ferramentas: React.FC = () => {
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         <article className="module-card">
-          <p className="module-meta-text">Base</p>
-          <h3 className="module-section-title mt-2">Anexo Normativo</h3>
+          <p className="mt-0.5 block text-sm text-slate-500 uppercase">Base</p>
+          <h3 className="module-section-title mt-2">Lista Exemplificativa</h3>
           <p className="module-section-text">Conjunto de referências para apoiar o SGI de ponta a ponta.</p>
         </article>
         <article className="module-card">
-          <p className="module-meta-text">Uso</p>
+          <p className="mt-0.5 block text-sm text-slate-500 uppercase">Uso</p>
           <h3 className="module-section-title mt-2">Aplicação Modular</h3>
           <p className="module-section-text">Seleção de ferramentas conforme desafio, maturidade e impacto esperado.</p>
         </article>
         <article className="module-card">
-          <p className="module-meta-text">Resultado</p>
+          <p className="mt-0.5 block text-sm text-slate-500 uppercase">Resultado</p>
           <h3 className="module-section-title mt-2">Decisão Melhor</h3>
           <p className="module-section-text">Mais evidências, mais colaboração e maior efetividade na implementação.</p>
         </article>
       </div>
 
       <section className="module-card p-0 overflow-hidden">
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 px-5 py-4">
-          <div>
-            <h2 className="module-section-title !mb-0">Painel de Ferramentas</h2>
-            <p className="module-meta-text mt-1">Explore cada trilha metodológica por meio dos acordeões.</p>
-          </div>
-          <div className="flex gap-2">
-            <button type="button" className="module-button-secondary text-sm" onClick={expandAll}>Expandir tudo</button>
-            <button type="button" className="module-button-secondary text-sm" onClick={collapseAll}>Recolher tudo</button>
-          </div>
-        </div>
-
         <div>
           {groups.map((group) => {
             const isOpen = openGroups.includes(group.id);
