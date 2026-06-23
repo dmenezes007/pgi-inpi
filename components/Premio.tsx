@@ -23,9 +23,9 @@ const Premio: React.FC = () => {
               soluções criativas com impacto institucional, melhoria contínua e valorização profissional.
             </p>
             <ul className="module-list">
-              <li className="module-list-item"><span className="module-list-icon w-5 h-5 mr-3 mt-1 flex-shrink-0">•</span><span>Reconhece entregas com impacto em gestão e serviços.</span></li>
-              <li className="module-list-item"><span className="module-list-icon w-5 h-5 mr-3 mt-1 flex-shrink-0">•</span><span>Estimula participação ativa de servidores e colaboradores.</span></li>
-              <li className="module-list-item"><span className="module-list-icon w-5 h-5 mr-3 mt-1 flex-shrink-0">•</span><span>Fortalece o clima de inovação com visibilidade institucional.</span></li>
+              <li className="module-list-item"><svg className="module-list-icon w-5 h-5 mr-3 mt-1 flex-shrink-0" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#E8F0FF" stroke="#1351B4" strokeWidth="1.5"/><path d="M6.8 10.1l2.1 2.1 4.3-4.4" stroke="#1351B4" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg><span>Reconhece entregas com impacto em gestão e serviços.</span></li>
+              <li className="module-list-item"><svg className="module-list-icon w-5 h-5 mr-3 mt-1 flex-shrink-0" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#E8F0FF" stroke="#1351B4" strokeWidth="1.5"/><path d="M6.8 10.1l2.1 2.1 4.3-4.4" stroke="#1351B4" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg><span>Estimula participação ativa de servidores e colaboradores.</span></li>
+              <li className="module-list-item"><svg className="module-list-icon w-5 h-5 mr-3 mt-1 flex-shrink-0" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#E8F0FF" stroke="#1351B4" strokeWidth="1.5"/><path d="M6.8 10.1l2.1 2.1 4.3-4.4" stroke="#1351B4" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg><span>Fortalece o clima de inovação com visibilidade institucional.</span></li>
             </ul>
           </div>
         )

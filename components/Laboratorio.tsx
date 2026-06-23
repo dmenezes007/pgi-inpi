@@ -23,9 +23,9 @@ const Laboratorio: React.FC = () => {
               soluções com segurança, foco em usuários e alinhamento ao planejamento estratégico do INPI.
             </p>
             <ul className="module-list">
-              <li className="module-list-item"><span className="module-list-icon w-5 h-5 mr-3 mt-1 flex-shrink-0">•</span><span>Centralidade no usuário e melhoria da experiência dos serviços.</span></li>
-              <li className="module-list-item"><span className="module-list-icon w-5 h-5 mr-3 mt-1 flex-shrink-0">•</span><span>Experimentação controlada com prototipagem, testes e validação.</span></li>
-              <li className="module-list-item"><span className="module-list-icon w-5 h-5 mr-3 mt-1 flex-shrink-0">•</span><span>Rastreabilidade, transparência e aprendizagem organizacional contínua.</span></li>
+              <li className="module-list-item"><svg className="module-list-icon w-5 h-5 mr-3 mt-1 flex-shrink-0" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#E8F0FF" stroke="#1351B4" strokeWidth="1.5"/><path d="M6.8 10.1l2.1 2.1 4.3-4.4" stroke="#1351B4" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg><span>Centralidade no usuário e melhoria da experiência dos serviços.</span></li>
+              <li className="module-list-item"><svg className="module-list-icon w-5 h-5 mr-3 mt-1 flex-shrink-0" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#E8F0FF" stroke="#1351B4" strokeWidth="1.5"/><path d="M6.8 10.1l2.1 2.1 4.3-4.4" stroke="#1351B4" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg><span>Experimentação controlada com prototipagem, testes e validação.</span></li>
+              <li className="module-list-item"><svg className="module-list-icon w-5 h-5 mr-3 mt-1 flex-shrink-0" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#E8F0FF" stroke="#1351B4" strokeWidth="1.5"/><path d="M6.8 10.1l2.1 2.1 4.3-4.4" stroke="#1351B4" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg><span>Rastreabilidade, transparência e aprendizagem organizacional contínua.</span></li>
             </ul>
           </div>
         )
