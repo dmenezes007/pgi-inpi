@@ -14,7 +14,7 @@ const Inicio: React.FC<InicioProps> = ({ onModuleSelect }) => {
       <div className="module-intro">
         <div className="module-kicker">AMBIENTE INSTITUCIONAL</div>
         <p className="module-lead">
-          O <span className="text-purple-400 font-serif-highlight font-medium">Portal da Gestão da Inovação</span> consolida a proposta institucional da Coordenação-Geral de Recursos Humanos e da Academia de Propriedade Intelectual, Inovação e Desenvolvimento do INPI, reafirmando a <span className="text-purple-400 font-serif-highlight font-medium">inovação como pilar estratégico</span> para a <span className="text-purple-400 font-serif-highlight font-medium">transformação organizacional</span>, a melhoria da prestação de serviços e a geração de valor público.
+          O <span className="text-purple-400 font-serif-highlight font-medium">Portal da Gestão da Inovação</span> consolida a proposta institucional desenvolvida pela Gerência Executiva de Projetos da Presidência do INPI, reafirmando a <span className="text-purple-400 font-serif-highlight font-medium">inovação como pilar estratégico</span> para a <span className="text-purple-400 font-serif-highlight font-medium">transformação organizacional</span>, a melhoria da prestação de serviços e a geração de valor público.
         </p>
       </div>
       <div className="flex items-end justify-between gap-4">
