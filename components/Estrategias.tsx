@@ -31,7 +31,7 @@ const Estrategias: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="module-card">
           <h2 className="module-section-title">Atuação dos Gestores</h2>
-          <p className="mt-0.5 block text-sm text-slate-500 uppercase mb-4">A atuação de gestores em todos os níveis deve observar as seguintes premissas institucionais:</p>
+          <p className="module-section-text mt-0.5 mb-4">A atuação de gestores em todos os níveis deve observar as seguintes premissas institucionais:</p>
           <ul className="space-y-3">
             {managerPremises.map((item, index) => (
               <li key={index} className="flex items-start">
@@ -44,7 +44,7 @@ const Estrategias: React.FC = () => {
 
         <div className="module-card">
           <h2 className="module-section-title">Competências em Inovação</h2>
-          <p className="mt-0.5 block text-sm text-slate-500 uppercase mb-4">A definição e o desenvolvimento de competências orientadas à inovação devem ser balizados pelos seguintes referenciais:</p>
+          <p className="module-section-text mt-0.5 mb-4">A definição e o desenvolvimento de competências orientadas à inovação devem ser balizados pelos seguintes referenciais:</p>
           <ul className="space-y-3">
             {competencyGuidelines.map((item, index) => (
               <li key={index} className="flex items-start">
