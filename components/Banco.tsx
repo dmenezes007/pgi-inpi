@@ -84,13 +84,13 @@ const Banco: React.FC = () => {
             </div>
 
             {/* O que é o Banco de Ideias */}
-            <h2 className="module-section-title mb-6">O Que é o Banco de Ideias</h2>
+            <h2 className="module-section-title">O Que é o Banco de Ideias</h2>
             <p className="module-meta-text leading-relaxed mb-8">
                 Instituído pela Política de Gestão da Inovação do INPI (Portaria Normativa nº 57/2026), o Banco de Ideias é definido como um <strong>portfólio diversificado de propostas inovadoras</strong>, caracterizado pela interseção entre diferentes meios e finalidades, organizado de forma consistente para o aproveitamento dos esforços de inovação envidados. A gerência do Laboratório de Inovação é responsável pela sua manutenção, consolidação de indicadores e registro de lições aprendidas.
             </p>
 
             {/* Destaques */}
-            <h2 className="module-section-title mb-6">Características Essenciais</h2>
+            <h2 className="module-section-title">Características Essenciais</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
                 {destaques.map((item, index) => (
                     <div key={index} className="group module-card transition-all duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-100">
@@ -104,7 +104,7 @@ const Banco: React.FC = () => {
             </div>
 
             {/* Fluxo */}
-            <h2 className="module-section-title mb-6">Como Funciona</h2>
+            <h2 className="module-section-title">Como Funciona</h2>
             <div className="relative flex flex-col gap-0 mb-4">
                 {etapas.map((etapa, index) => (
                     <div key={index} className="flex gap-5 items-stretch">
