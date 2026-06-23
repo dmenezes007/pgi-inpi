@@ -78,8 +78,8 @@ const Ferramentas: React.FC = () => {
       <div className="module-intro">
         <div className="module-kicker">METODOLOGIAS E PRÁTICAS</div>
         <p className="module-lead">
-          Este módulo organiza o Anexo de metodologias, práticas e abordagens de inovação em trilhas temáticas,
-          facilitando consulta rápida e aplicação prática no contexto do INPI.
+          Metodologias, práticas e abordagens de inovação em trilhas temáticas, facilitando consulta rápida e
+          aplicação prática no contexto do INPI.
         </p>
       </div>
 

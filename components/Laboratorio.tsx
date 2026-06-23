@@ -117,8 +117,8 @@ const Laboratorio: React.FC = () => {
       <div className="module-intro">
         <div className="module-kicker">LABORATÓRIO DE INOVAÇÃO</div>
         <p className="module-lead">
-          O módulo Laboratório organiza, de forma visual e objetiva, os principais elementos da proposta
-          normativa relacionados à finalidade, governança e operação do ambiente experimental do INPI.
+          Organização visual e objetiva dos principais elementos relacionados à finalidade, governança e
+          operação do ambiente experimental do INPI.
         </p>
       </div>
 

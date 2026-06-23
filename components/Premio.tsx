@@ -154,8 +154,8 @@ const Premio: React.FC = () => {
       <div className="module-intro">
         <div className="module-kicker">PRÊMIO DE INOVAÇÃO</div>
         <p className="module-lead">
-          Este módulo consolida o funcionamento do Prêmio de Inovação do INPI em linguagem objetiva, com
-          foco em critérios, governança do ciclo anual e mecanismos de reconhecimento institucional.
+          Consolidação do funcionamento do Prêmio de Inovação do INPI em linguagem objetiva, com foco em
+          critérios, governança do ciclo anual e mecanismos de reconhecimento institucional.
         </p>
       </div>
 

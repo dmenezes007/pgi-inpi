@@ -24,7 +24,7 @@ const Estrategias: React.FC = () => {
        <div className="module-intro">
           <div className="module-kicker">Diretrizes gerenciais</div>
           <p className="module-lead">
-            Esta seção apresenta diretrizes para a atuação gerencial e para o desenvolvimento de competências em inovação, conectando iniciativas institucionais ao planejamento estratégico e à missão do INPI.
+            Apresentação das diretrizes para a atuação gerencial e para o desenvolvimento de competências em inovação, conectando iniciativas institucionais ao planejamento estratégico e à missão do INPI.
           </p>
       </div>
       
