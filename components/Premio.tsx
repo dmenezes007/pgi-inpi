@@ -8,7 +8,7 @@ type PremioSection = {
 };
 
 const Premio: React.FC = () => {
-  const [openSections, setOpenSections] = useState<string[]>(['estrutura']);
+  const [openSections, setOpenSections] = useState<string[]>([]);
 
   const sections = useMemo<PremioSection[]>(
     () => [
@@ -178,17 +178,6 @@ const Premio: React.FC = () => {
       </div>
 
       <section className="module-card p-0 overflow-hidden">
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 px-5 py-4">
-          <div>
-            <h2 className="module-section-title !mb-0">Painel do Prêmio</h2>
-            <p className="mt-0.5 block text-sm text-slate-500 uppercase mt-1">Navegue pelos acordeões para consultar cada bloco do regulamento.</p>
-          </div>
-          <div className="flex gap-2">
-            <button type="button" className="module-button-secondary text-sm" onClick={expandAll}>Expandir tudo</button>
-            <button type="button" className="module-button-secondary text-sm" onClick={collapseAll}>Recolher tudo</button>
-          </div>
-        </div>
-
         <div>
           {sections.map((section) => {
             const isOpen = openSections.includes(section.id);
