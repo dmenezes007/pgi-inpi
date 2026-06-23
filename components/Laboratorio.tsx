@@ -23,9 +23,9 @@ const Laboratorio: React.FC = () => {
               soluções com segurança, foco em usuários e alinhamento ao planejamento estratégico do INPI.
             </p>
             <ul className="module-list">
-              <li className="module-list-item"><span className="module-list-icon">•</span><span>Centralidade no usuário e melhoria da experiência dos serviços.</span></li>
-              <li className="module-list-item"><span className="module-list-icon">•</span><span>Experimentação controlada com prototipagem, testes e validação.</span></li>
-              <li className="module-list-item"><span className="module-list-icon">•</span><span>Rastreabilidade, transparência e aprendizagem organizacional contínua.</span></li>
+              <li className="module-list-item"><span className="module-list-icon w-5 h-5 mr-3 mt-1 flex-shrink-0">•</span><span>Centralidade no usuário e melhoria da experiência dos serviços.</span></li>
+              <li className="module-list-item"><span className="module-list-icon w-5 h-5 mr-3 mt-1 flex-shrink-0">•</span><span>Experimentação controlada com prototipagem, testes e validação.</span></li>
+              <li className="module-list-item"><span className="module-list-icon w-5 h-5 mr-3 mt-1 flex-shrink-0">•</span><span>Rastreabilidade, transparência e aprendizagem organizacional contínua.</span></li>
             </ul>
           </div>
         )

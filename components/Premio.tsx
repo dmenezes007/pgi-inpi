@@ -23,9 +23,9 @@ const Premio: React.FC = () => {
               soluções criativas com impacto institucional, melhoria contínua e valorização profissional.
             </p>
             <ul className="module-list">
-              <li className="module-list-item"><span className="module-list-icon">•</span><span>Reconhece entregas com impacto em gestão e serviços.</span></li>
-              <li className="module-list-item"><span className="module-list-icon">•</span><span>Estimula participação ativa de servidores e colaboradores.</span></li>
-              <li className="module-list-item"><span className="module-list-icon">•</span><span>Fortalece o clima de inovação com visibilidade institucional.</span></li>
+              <li className="module-list-item"><span className="module-list-icon w-5 h-5 mr-3 mt-1 flex-shrink-0">•</span><span>Reconhece entregas com impacto em gestão e serviços.</span></li>
+              <li className="module-list-item"><span className="module-list-icon w-5 h-5 mr-3 mt-1 flex-shrink-0">•</span><span>Estimula participação ativa de servidores e colaboradores.</span></li>
+              <li className="module-list-item"><span className="module-list-icon w-5 h-5 mr-3 mt-1 flex-shrink-0">•</span><span>Fortalece o clima de inovação com visibilidade institucional.</span></li>
             </ul>
           </div>
         )
