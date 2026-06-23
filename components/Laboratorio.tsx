@@ -134,7 +134,7 @@ const Laboratorio: React.FC = () => {
           <p className="module-section-text">Projetos conectados aos macroprocessos do INPI e a desafios do ecossistema.</p>
         </article>
         <article className="module-card">
-          <p className="module-meta-text">Entrega</p>
+          <p className="mt-0.5 block text-sm text-slate-500 uppercase">Entrega</p>
           <h3 className="module-section-title mt-2">Ciclos Contínuos</h3>
           <p className="module-section-text">Ideação, teste, ajuste, implantação e escalabilidade com monitoramento.</p>
         </article>
