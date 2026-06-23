@@ -255,6 +255,14 @@ body,
   color: var(--gov-blue) !important;
 }
 
+.text-3xl.font-bold.text-center.mb-8.text-gray-300 {
+  color: rgb(29 78 216 / var(--tw-text-opacity, 1)) !important;
+}
+
+.flex.items-center.p-3.w-full.text-sm.font-medium.text-left.rounded-lg.cursor-pointer.transition-all.duration-200.text-gray-300.bg-slate-700\/50.hover\:bg-slate-700 {
+  color: #334155 !important;
+}
+
 .app-container .border-slate-700,
 .app-container .border-slate-600,
 .app-container .border-slate-500 {
