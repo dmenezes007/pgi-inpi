@@ -120,6 +120,10 @@ body,
   color: var(--brand-accent);
 }
 
+.gov-blue-text-important {
+  color: var(--gov-blue) !important;
+}
+
 .text-brand-violet {
   color: var(--brand-violet);
 }

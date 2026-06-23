@@ -81,7 +81,7 @@ const Premio: React.FC = () => {
         content: (
           <div className="overflow-x-auto">
             <table className="w-full text-sm text-left text-gray-400">
-              <thead className="text-xs uppercase bg-slate-700 text-gray-300">
+              <thead className="text-xs uppercase bg-slate-700 text-gray-300 gov-blue-text-important">
                 <tr>
                   <th className="px-4 py-3">Critério</th>
                   <th className="px-4 py-3">Foco da análise</th>

@@ -208,7 +208,7 @@ const Metodologia: React.FC = () => {
                     <h3 className="text-xl font-semibold text-gray-200 mt-6 mb-4">Agenda da Metaoficina</h3>
                     <div className="overflow-x-auto relative shadow-md sm:rounded-lg border border-slate-700">
                         <table className="w-full text-sm text-left methodology-table">
-                            <thead className="text-xs text-gray-300 uppercase bg-slate-700">
+                            <thead className="text-xs text-gray-300 uppercase bg-slate-700 gov-blue-text-important">
                                 <tr>
                                     <th scope="col" className="px-6 py-3">Dia</th>
                                     <th scope="col" className="px-6 py-3">Data</th>
