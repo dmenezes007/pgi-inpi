@@ -80,7 +80,7 @@ const Definicoes: React.FC = () => {
             </div>
 
              <div className="mb-12">
-                <h2 className="module-section-title mb-6">Inovação é:</h2>
+                <h2 className="module-section-title mb-6">Inovação é</h2>
                 <div className="space-y-6">
                     {mainDefinitions.map((def, index) => (
                          <div key={def.id} className="module-card flex items-start space-x-4">
