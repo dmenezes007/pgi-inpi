@@ -8,7 +8,7 @@ import Principios from './Principios';
 import Laboratorio from './Laboratorio';
 import Premio from './Premio';
 import Ferramentas from './Ferramentas';
-import Sistema from './Sistema';
+import Banco from './Banco';
 import Governanca from './Governanca';
 import Estrategias from './Estrategias';
 import Documentacao from './Documentacao';
@@ -42,8 +42,8 @@ const MainContent: React.FC<MainContentProps> = ({ activeModule, onModuleSelect,
         return <Premio />;
       case 'Ferramentas':
         return <Ferramentas />;
-      case 'Sistema':
-        return <Sistema />;
+      case 'Banco':
+        return <Banco />;
       case 'Governança':
         return <Governanca />;
       case 'Estratégias':

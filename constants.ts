@@ -5,7 +5,7 @@ export const MODULES = [
   "Tipologia",
   "Objetivos",
   "Princípios",
-  "Sistema",
+  "Banco",
   "Laboratório",
   "Prêmio",
   "Ferramentas",
