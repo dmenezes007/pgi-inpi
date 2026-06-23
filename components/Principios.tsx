@@ -4,10 +4,9 @@ const principlesData = [
   { id: 'p1', keyword: 'geração de ideias', sentence: 'incentivar a proposição sistemática de ideias e soluções inovadoras dentro do INPI' },
   { id: 'p2', keyword: 'ambiente favorável', sentence: 'criar um espaço que estimule a experimentação controlada, o aprendizado contínuo e a tolerância ao erro' },
   { id: 'p3', keyword: 'liderança atuante', sentence: 'garantir que a liderança atue ativamente no fomento da inovação e a inclua nas estratégias do Instituto' },
-  { id: 'p4', keyword: 'desenvolvimento de competências', sentence: 'definir e aprimorar as habilidades e conhecimentos voltados para a inovação em todos os níveis do Instituto' },
+  { id: 'p4', keyword: 'desenvolvimento de competências', sentence: 'identificar e aprimorar habilidades e conhecimentos necessários para a inovação em todos os níveis do Instituto, exercendo o pensamento crítico e a flexibilidade cognitiva' },
   { id: 'p5', keyword: 'colaboração', sentence: 'incentivar o trabalho em rede de inovação para a coordenação de esforços, cocriação, criatividade, experimentação e o compartilhamento de boas práticas' },
-  { id: 'p6', keyword: 'tolerância ao erro', sentence: 'aceitar as iniciativas de inovação mal sucedidas, compreendendo o erro como parte do processo de experimentação e aprendizado, a partir do gerenciamento dos riscos de forma controlada' },
-  { id: 'p7', keyword: 'desenvolvimento humano', sentence: 'promover novas habilidades de servidores e colaboradores do INPI que lhes permitam adquirir conhecimentos necessários às novas competências para solução de problemas complexos, pensamento crítico e flexibilidade cognitiva' }
+  { id: 'p6', keyword: 'tolerância ao erro', sentence: 'aceitar as iniciativas de inovação mal sucedidas, compreendendo o erro como parte do processo de experimentação e aprendizado, a partir do gerenciamento dos riscos de forma controlada' }
 ];
 
 const shuffleArray = (array: any[]) => {
