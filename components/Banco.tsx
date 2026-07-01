@@ -356,6 +356,13 @@ const formatDate = (raw: string): string => {
 
 const makeId = (): string => `banco-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 
+const ListMarker: React.FC = () => (
+  <svg className="module-list-icon w-5 h-5 mr-3 mt-1 flex-shrink-0" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle cx="10" cy="10" r="9" fill="#E8F0FF" stroke="#1351B4" strokeWidth="1.5"></circle>
+    <path d="M6.8 10.1l2.1 2.1 4.3-4.4" stroke="#1351B4" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"></path>
+  </svg>
+);
+
 const Banco: React.FC = () => {
   const DETAIL_PAGE_SIZE = 6;
 
@@ -910,14 +917,26 @@ const Banco: React.FC = () => {
                             </div>
                           </div>
 
-                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
                             <div>
                               <p className="text-xs uppercase font-semibold text-slate-500 mb-2">Integrantes</p>
-                              <ul className="list-disc pl-5 text-sm text-slate-700 space-y-1">
-                                {row.integrantes.length > 0 ? row.integrantes.map((item, idx) => <li key={`${row.id}-integrante-${idx}`}>{item}</li>) : <li>-</li>}
+                              <ul className="text-sm text-slate-700 space-y-1">
+                                {row.integrantes.length > 0 ? (
+                                  row.integrantes.map((item, idx) => (
+                                    <li key={`${row.id}-integrante-${idx}`} className="flex items-start">
+                                      <ListMarker />
+                                      <span>{item}</span>
+                                    </li>
+                                  ))
+                                ) : (
+                                  <li className="flex items-start">
+                                    <ListMarker />
+                                    <span>-</span>
+                                  </li>
+                                )}
                               </ul>
                             </div>
-                            <div>
+                            <div className="lg:col-span-2">
                               <p className="text-xs uppercase font-semibold text-slate-500 mb-2">Etapas, prazos e responsáveis</p>
                               <div className="space-y-2">
                                 {visibleEtapas.length > 0 ? (
@@ -973,11 +992,23 @@ const Banco: React.FC = () => {
                           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
                             <div>
                               <p className="text-xs uppercase font-semibold text-slate-500 mb-2">Recursos Estimados</p>
-                              <ul className="list-disc pl-5 text-sm text-slate-700 space-y-1">
-                                {row.recursos.length > 0 ? row.recursos.map((item, idx) => <li key={`${row.id}-recurso-${idx}`}>{item}</li>) : <li>-</li>}
+                              <ul className="text-sm text-slate-700 space-y-1">
+                                {row.recursos.length > 0 ? (
+                                  row.recursos.map((item, idx) => (
+                                    <li key={`${row.id}-recurso-${idx}`} className="flex items-start">
+                                      <ListMarker />
+                                      <span>{item}</span>
+                                    </li>
+                                  ))
+                                ) : (
+                                  <li className="flex items-start">
+                                    <ListMarker />
+                                    <span>-</span>
+                                  </li>
+                                )}
                               </ul>
                             </div>
-                            <div>
+                            <div className="lg:col-span-2">
                               <p className="text-xs uppercase font-semibold text-slate-500 mb-2">Riscos e Medidas de Mitigação</p>
                               <div className="space-y-2">
                                 {row.riscos.length > 0 ? (
@@ -995,23 +1026,38 @@ const Banco: React.FC = () => {
                                 )}
                               </div>
                             </div>
-                            <div>
-                              <p className="text-xs uppercase font-semibold text-slate-500 mb-2">Indicadores de Impacto</p>
-                              <ul className="list-disc pl-5 text-sm text-slate-700 space-y-1">
-                                {row.indicadores.length > 0 ? row.indicadores.map((item, idx) => <li key={`${row.id}-indicador-${idx}`}>{item}</li>) : <li>-</li>}
-                              </ul>
-                            </div>
                           </div>
 
-                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                            <div>
+                              <p className="text-xs uppercase font-semibold text-slate-500 mb-2">Indicadores de Impacto</p>
+                              <ul className="text-sm text-slate-700 space-y-1">
+                                {row.indicadores.length > 0 ? (
+                                  row.indicadores.map((item, idx) => (
+                                    <li key={`${row.id}-indicador-${idx}`} className="flex items-start">
+                                      <ListMarker />
+                                      <span>{item}</span>
+                                    </li>
+                                  ))
+                                ) : (
+                                  <li className="flex items-start">
+                                    <ListMarker />
+                                    <span>-</span>
+                                  </li>
+                                )}
+                              </ul>
+                            </div>
                             <div>
                               <p className="text-xs uppercase font-semibold text-slate-500 mb-2">Anexos</p>
-                              <ul className="list-disc pl-5 text-sm text-slate-700 space-y-1">
-                                <li>—</li>
+                              <ul className="text-sm text-slate-700 space-y-1">
+                                <li className="flex items-start">
+                                  <ListMarker />
+                                  <span>—</span>
+                                </li>
                               </ul>
                             </div>
                             <div className="space-y-2">
-                              <p className="rounded-md border border-amber-200 bg-amber-50 px-2 py-1 text-xs font-medium text-amber-800">
+                              <p className="rounded-md border border-purple-200 bg-purple-50 px-2 py-1 text-xs font-medium text-purple-800">
                                 Campo restrito ao Laboratório de Inovação do INPI.
                               </p>
                               <Select

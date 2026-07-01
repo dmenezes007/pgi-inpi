@@ -77,6 +77,7 @@ const Documentacao: React.FC = () => {
                 </div>
 
                 <div className="space-y-4">
+                    <h2 className="text-2xl font-bold text-slate-900">Normas Estruturantes da Gestão da Inovação</h2>
                     <a href="https://dmenezes007.github.io/pgi-inpi/files/docs/Minuta%20da%20Pol%C3%ADtica%20de%20Gest%C3%A3o%20da%20Inova%C3%A7%C3%A3o%20do%20INPI.docx" target="_blank" rel="noopener noreferrer" className="group flex items-center rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-md">
                         <DocIcon />
                         <div>
