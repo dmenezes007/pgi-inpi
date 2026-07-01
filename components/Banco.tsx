@@ -357,7 +357,7 @@ const formatDate = (raw: string): string => {
 const makeId = (): string => `banco-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 
 const ListMarker: React.FC = () => (
-  <svg className="module-list-icon w-5 h-5 mr-3 mt-1 flex-shrink-0" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <svg className="module-list-icon w-5 h-5 mr-3 flex-shrink-0" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <circle cx="10" cy="10" r="9" fill="#E8F0FF" stroke="#1351B4" strokeWidth="1.5"></circle>
     <path d="M6.8 10.1l2.1 2.1 4.3-4.4" stroke="#1351B4" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"></path>
   </svg>
@@ -739,7 +739,7 @@ const Banco: React.FC = () => {
   };
 
   return (
-    <div className="module-page space-y-6">
+    <div className="module-page">
       <h1 className="module-title">Banco de Ideias</h1>
 
       <div className="module-intro">
@@ -748,6 +748,8 @@ const Banco: React.FC = () => {
           Ambiente para registro, análise e acompanhamento de propostas inovadoras do INPI, com persistência em planilha e atualização periódica no mesmo padrão transacional dos módulos Mapa e Detentores.
         </p>
       </div>
+
+      <div className="space-y-6 mt-6">
 
       <div className="module-card overflow-x-auto">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
@@ -1374,6 +1376,7 @@ const Banco: React.FC = () => {
           <p className="text-sm font-medium">Carregando o Banco de Ideias com sincronização de planilha. Este processo pode levar alguns segundos.</p>
         </div>
       )}
+      </div>
     </div>
   );
 };
