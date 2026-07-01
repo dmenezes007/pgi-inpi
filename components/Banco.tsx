@@ -35,7 +35,7 @@ interface IdeaRow {
 const STORAGE_KEY = 'pgi_banco_ideias_v2';
 const BANCO_SOURCE = 'pgi-inpi-banco';
 const REMOTE_POLL_MS = 20000;
-const DEFAULT_GSHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxXSylB3TI48-MLsXh-LGSA-7dhUwnnyCzZShmV9Ji1JeKBe14Uhg9jnzsz_uRKz79A/exec';
+const DEFAULT_GSHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxbjt2xeyeRdnLWyodl_pLLWnYIKzurdqKSLHeoXfskMtrW3rNHSzQw14BPxiuWqpaG/exec';
 const STATUS_OPTIONS: IdeaStatus[] = ['Enviada', 'Em análise', 'Selecionada', 'Em execução', 'Implementada', 'Arquivada'];
 
 const EIXO_OPTIONS = [
