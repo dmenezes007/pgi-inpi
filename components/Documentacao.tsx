@@ -10,17 +10,69 @@ const Documentacao: React.FC = () => {
             <div className="module-intro">
                 <div className="module-kicker">REPOSITÓRIO INSTITUCIONAL</div>
                 <p className="module-lead">
-                    Registro institucional dos resultados do <span className="font-semibold text-slate-900">Design Sprint Institucional</span>, com disponibilização das minutas elaboradas para apreciação técnica e recebimento de contribuições complementares.
+                    Registro institucional dos documentos de referência ou de suporte ao desenvolvimento do processo de gestão da inovação no âmbito institucional.
                 </p>
             </div>
             <div className="rounded-3xl border border-slate-200 bg-white/95 p-8 shadow-lg shadow-blue-100/50 space-y-8">
                 <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-6">
-                    <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-                        <div>
-                            <h2 className="text-2xl font-bold text-slate-900">Minutas para apreciação</h2>
-                            <p className="mt-1 block text-sm text-slate-500 doc-subtext">Documentos centrais para leitura, análise técnica e contribuições complementares.</p>
+                    <div className="space-y-6">
+                        <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                            <div>
+                                <h2 className="text-2xl font-bold text-slate-900">Estrutura do Processo de Gestão da Inovação</h2>
+                                <p className="mt-1 block text-sm text-slate-500 doc-subtext">Representação da árvore de processo para orientação dos instrumentos e módulos operacionais.</p>
+                            </div>
+                            <span className="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-blue-700">Processo de Nível 3 ativo</span>
                         </div>
-                        <span className="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-blue-700">3 documentos ativos</span>
+
+                        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+                            <div className="rounded-xl border border-blue-100 bg-white p-4">
+                                <p className="text-xs font-semibold uppercase tracking-wide text-blue-700">Tipo de Processo</p>
+                                <p className="mt-1 text-sm font-semibold text-slate-800">Gestão</p>
+                            </div>
+                            <div className="rounded-xl border border-blue-100 bg-white p-4">
+                                <p className="text-xs font-semibold uppercase tracking-wide text-blue-700">Macroprocesso</p>
+                                <p className="mt-1 text-sm font-semibold text-slate-800">Desenvolvimento e Transformação Organizacional</p>
+                            </div>
+                            <div className="rounded-xl border border-blue-100 bg-white p-4">
+                                <p className="text-xs font-semibold uppercase tracking-wide text-blue-700">Processo de Nível 2</p>
+                                <p className="mt-1 text-sm font-semibold text-slate-800">Gestão da Inovação e do Conhecimento</p>
+                            </div>
+                            <div className="rounded-xl border border-blue-100 bg-white p-4">
+                                <p className="text-xs font-semibold uppercase tracking-wide text-blue-700">Processo de Nível 3</p>
+                                <p className="mt-1 text-sm font-semibold text-slate-800">Gestão da Inovação</p>
+                            </div>
+                        </div>
+
+                        <div className="rounded-xl border border-blue-200 bg-gradient-to-r from-blue-50 to-cyan-50 p-5">
+                            <p className="text-xs font-semibold uppercase tracking-wide text-blue-800">Objetivo do Processo de Nível 3</p>
+                            <p className="mt-2 text-sm leading-relaxed text-slate-700">
+                                Fomentar e gerenciar a inovação institucional de forma sistemática, coordenando o ciclo de identificação,
+                                desenvolvimento, implantação e medição de novas soluções, visando a modernização de processos, a melhoria
+                                dos serviços prestados e o fortalecimento da cultura intraempreendedora no INPI.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 className="text-lg font-semibold text-slate-900 mb-3">Processos de Nível 4</h3>
+                            <div className="grid gap-3 md:grid-cols-2">
+                                <article className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                                    <h4 className="text-sm font-semibold text-blue-800">4.1 Estímulo à Inovação</h4>
+                                    <p className="mt-2 text-sm leading-relaxed text-slate-700"><span className="font-semibold">Objetivo:</span> promover cultura de intraempreendedorismo e captar ideias, dores e oportunidades de aprimoramento ou concepção de processos, produtos e serviços, alimentando o funil de inovação institucional com critérios de priorização.</p>
+                                </article>
+                                <article className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                                    <h4 className="text-sm font-semibold text-blue-800">4.2 Desenvolvimento da Inovação</h4>
+                                    <p className="mt-2 text-sm leading-relaxed text-slate-700"><span className="font-semibold">Objetivo:</span> converter ideias priorizadas em pilotos, protótipos ou soluções viáveis, com definição de requisitos, riscos, recursos, cronograma e responsáveis.</p>
+                                </article>
+                                <article className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                                    <h4 className="text-sm font-semibold text-blue-800">4.3 Implantação da Inovação</h4>
+                                    <p className="mt-2 text-sm leading-relaxed text-slate-700"><span className="font-semibold">Objetivo:</span> executar, escalar e integrar soluções validadas aos processos rotineiros do INPI, com gestão da mudança, capacitação e governança de adoção.</p>
+                                </article>
+                                <article className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                                    <h4 className="text-sm font-semibold text-blue-800">4.4 Medição da Inovação</h4>
+                                    <p className="mt-2 text-sm leading-relaxed text-slate-700"><span className="font-semibold">Objetivo:</span> monitorar desempenho e impacto das iniciativas, avaliar retorno institucional e econômico, e retroalimentar novos ciclos com aprendizagem baseada em evidências.</p>
+                                </article>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -48,14 +100,6 @@ const Documentacao: React.FC = () => {
                     </a>
                 </div>
 
-                <div className="grid gap-4 border-t border-slate-200 pt-6 md:grid-cols-2">
-                    <p className="rounded-2xl border border-slate-200 bg-slate-50/80 p-5 text-base text-slate-600">
-                        Materiais de referência, apresentações e registros da metaoficina estão disponíveis em: <a href="https://inpidrive.inpi.gov.br/index.php/s/8O5OUlrufgmof3d" target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-700 hover:underline">Repositório institucional</a>.
-                    </p>
-                    <p className="rounded-2xl border border-slate-200 bg-slate-50/80 p-5 text-base text-slate-600">
-                        Registro externo da colaboração com o Pólen/Fiocruz: <a href="https://www.instagram.com/p/DOydE7sjYcF/" target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-700 hover:underline">publicação de referência</a>.
-                    </p>
-                </div>
             </div>
         </div>
     );
