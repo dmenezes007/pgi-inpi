@@ -32,11 +32,24 @@ interface IdeaRow {
   source: 'manual' | 'example';
 }
 
+interface PlanItem {
+  etapa: string;
+  prazo: string;
+  responsavel: string;
+}
+
+interface RiskItem {
+  risco: string;
+  mitigacao: string;
+}
+
 const STORAGE_KEY = 'pgi_banco_ideias_v2';
 const BANCO_SOURCE = 'pgi-inpi-banco';
 const REMOTE_POLL_MS = 20000;
 const DEFAULT_GSHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxbjt2xeyeRdnLWyodl_pLLWnYIKzurdqKSLHeoXfskMtrW3rNHSzQw14BPxiuWqpaG/exec';
 const STATUS_OPTIONS: IdeaStatus[] = ['Enviada', 'Em análise', 'Selecionada', 'Em execução', 'Implementada', 'Arquivada'];
+const PLAN_SEPARATOR = '|||';
+const RISK_SEPARATOR = '|||';
 
 const EIXO_OPTIONS = [
   '1. Fortalecimento Institucional e Governança',
@@ -237,6 +250,43 @@ const parseStringArray = (value: unknown): string[] => {
     .filter(Boolean);
 };
 
+const parsePlanItem = (value: string): PlanItem => {
+  const parts = value.split(PLAN_SEPARATOR).map((item) => item.trim());
+  if (parts.length >= 3) {
+    return {
+      etapa: parts[0],
+      prazo: parts[1],
+      responsavel: parts.slice(2).join(PLAN_SEPARATOR),
+    };
+  }
+
+  return {
+    etapa: value.trim(),
+    prazo: '-',
+    responsavel: '-',
+  };
+};
+
+const serializePlanItem = (item: PlanItem): string =>
+  `${item.etapa.trim()}${PLAN_SEPARATOR}${item.prazo.trim()}${PLAN_SEPARATOR}${item.responsavel.trim()}`;
+
+const parseRiskItem = (value: string): RiskItem => {
+  const parts = value.split(RISK_SEPARATOR).map((item) => item.trim());
+  if (parts.length >= 2) {
+    return {
+      risco: parts[0],
+      mitigacao: parts.slice(1).join(RISK_SEPARATOR),
+    };
+  }
+
+  return {
+    risco: value.trim(),
+    mitigacao: '-',
+  };
+};
+
+const serializeRiskItem = (item: RiskItem): string => `${item.risco.trim()}${RISK_SEPARATOR}${item.mitigacao.trim()}`;
+
 const parseStatus = (value: string): IdeaStatus => {
   const found = STATUS_OPTIONS.find((item) => normalizeKey(item) === normalizeKey(value));
   return found || 'Enviada';
@@ -332,10 +382,11 @@ const Banco: React.FC = () => {
   const [problema, setProblema] = useState('');
   const [justificativa, setJustificativa] = useState('');
   const [escopo, setEscopo] = useState('');
-  const [etapas, setEtapas] = useState<string[]>(['']);
+  const [planoExecucao, setPlanoExecucao] = useState<PlanItem[]>([{ etapa: '', prazo: '', responsavel: '' }]);
   const [recursos, setRecursos] = useState<string[]>(['']);
-  const [riscos, setRiscos] = useState<string[]>(['']);
+  const [riscosMitigacoes, setRiscosMitigacoes] = useState<RiskItem[]>([{ risco: '', mitigacao: '' }]);
   const [indicadores, setIndicadores] = useState<string[]>(['']);
+  const [likeFxByIdea, setLikeFxByIdea] = useState<Record<string, number>>({});
 
   const [statusDrafts, setStatusDrafts] = useState<Record<string, IdeaStatus>>({});
   const [justificativasStatus, setJustificativasStatus] = useState<Record<string, string>>({});
@@ -454,7 +505,7 @@ const Banco: React.FC = () => {
 
       setSaveMessage(successMessage);
     } catch {
-      setSaveMessage('Falha ao salvar na planilha. Os dados permanecem salvos localmente.');
+      setSaveMessage('Falha ao salvar na planilha neste momento. Os dados foram preservados localmente. Verifique o endpoint e tente novamente.');
     } finally {
       setIsSaving(false);
     }
@@ -469,10 +520,10 @@ const Banco: React.FC = () => {
     if (!problema.trim()) return 'Preencha o campo Descrição do Problema.';
     if (!justificativa.trim()) return 'Preencha o campo Justificativa.';
     if (!escopo.trim()) return 'Preencha o campo Escopo.';
-    if (etapas.some((item) => !item.trim())) return 'Preencha todos os campos de Etapas, prazos e responsáveis.';
-    if (recursos.some((item) => !item.trim())) return 'Preencha todos os campos de Recursos estimados.';
-    if (riscos.some((item) => !item.trim())) return 'Preencha todos os campos de Riscos e mitigação.';
-    if (indicadores.some((item) => !item.trim())) return 'Preencha todos os campos de Indicadores de impacto.';
+    if (planoExecucao.some((item) => !item.etapa.trim() || !item.prazo.trim() || !item.responsavel.trim())) return 'Preencha Etapa, Prazo e Responsável em cada linha do plano.';
+    if (recursos.some((item) => !item.trim())) return 'Preencha todos os campos de Recursos Estimados.';
+    if (riscosMitigacoes.some((item) => !item.risco.trim() || !item.mitigacao.trim())) return 'Preencha Risco e Medidas de Mitigação em cada linha.';
+    if (indicadores.some((item) => !item.trim())) return 'Preencha todos os campos de Indicadores de Impacto.';
     return null;
   };
 
@@ -485,9 +536,9 @@ const Banco: React.FC = () => {
     setProblema('');
     setJustificativa('');
     setEscopo('');
-    setEtapas(['']);
+    setPlanoExecucao([{ etapa: '', prazo: '', responsavel: '' }]);
     setRecursos(['']);
-    setRiscos(['']);
+    setRiscosMitigacoes([{ risco: '', mitigacao: '' }]);
     setIndicadores(['']);
   };
 
@@ -512,9 +563,9 @@ const Banco: React.FC = () => {
       justificativa: justificativa.trim(),
       escopo: escopo.trim(),
       integrantes: integrantes.map((item) => item.trim()).filter(Boolean),
-      etapas: etapas.map((item) => item.trim()).filter(Boolean),
+      etapas: planoExecucao.map((item) => serializePlanItem(item)).filter(Boolean),
       recursos: recursos.map((item) => item.trim()).filter(Boolean),
-      riscos: riscos.map((item) => item.trim()).filter(Boolean),
+      riscos: riscosMitigacoes.map((item) => serializeRiskItem(item)).filter(Boolean),
       indicadores: indicadores.map((item) => item.trim()).filter(Boolean),
       anexos: [],
       status: 'Enviada',
@@ -556,6 +607,16 @@ const Banco: React.FC = () => {
   };
 
   const likeIdea = async (id: string) => {
+    setLikeFxByIdea((prev) => ({ ...prev, [id]: Date.now() }));
+    window.setTimeout(() => {
+      setLikeFxByIdea((prev) => {
+        if (!prev[id]) return prev;
+        const next = { ...prev };
+        delete next[id];
+        return next;
+      });
+    }, 700);
+
     const nextRows = rows.map((row) => {
       if (row.id !== id) return row;
       return {
@@ -569,13 +630,13 @@ const Banco: React.FC = () => {
 
   const downloadCsv = () => {
     const exportRows = filtered.map((row) => ({
-      TITULO_DA_PROPOSTA: row.titulo,
-      NOME_COMPLETO_DO_PROPONENTE: row.autor,
-      EMAIL_INSTITUCIONAL: row.email,
-      EIXO_ESTRATEGICO_PRINCIPAL: row.categoria,
-      STATUS: row.status,
-      CURTIDAS: row.likes,
-      ATUALIZACAO: formatDate(row.timestamp),
+      Titulo_da_Proposta: row.titulo,
+      Proponente: row.autor,
+      E_mail_Institucional: row.email,
+      Eixo_Estrategico_Principal: row.categoria,
+      Status: row.status,
+      Curtidas: row.likes,
+      Atualizacao: formatDate(row.timestamp),
     }));
 
     const csv = Papa.unparse(exportRows);
@@ -593,13 +654,13 @@ const Banco: React.FC = () => {
 
   const downloadXlsx = () => {
     const exportRows = filtered.map((row) => ({
-      TITULO_DA_PROPOSTA: row.titulo,
-      NOME_COMPLETO_DO_PROPONENTE: row.autor,
-      EMAIL_INSTITUCIONAL: row.email,
-      EIXO_ESTRATEGICO_PRINCIPAL: row.categoria,
-      STATUS: row.status,
-      CURTIDAS: row.likes,
-      ATUALIZACAO: formatDate(row.timestamp),
+      Titulo_da_Proposta: row.titulo,
+      Proponente: row.autor,
+      E_mail_Institucional: row.email,
+      Eixo_Estrategico_Principal: row.categoria,
+      Status: row.status,
+      Curtidas: row.likes,
+      Atualizacao: formatDate(row.timestamp),
     }));
 
     const worksheet = XLSX.utils.json_to_sheet(exportRows);
@@ -767,13 +828,13 @@ const Banco: React.FC = () => {
         <table className="w-full text-sm">
           <thead className="bg-slate-50 text-slate-700">
             <tr>
-              <th className="text-left px-4 py-3">TÍTULO DA PROPOSTA</th>
-              <th className="text-left px-4 py-3">NOME COMPLETO DO PROPONENTE</th>
-              <th className="text-left px-4 py-3">E-MAIL INSTITUCIONAL</th>
-              <th className="text-left px-4 py-3">EIXO ESTRATÉGICO PRINCIPAL</th>
-              <th className="text-left px-4 py-3">STATUS</th>
-              <th className="text-left px-4 py-3">CURTIDAS</th>
-              <th className="text-left px-4 py-3">ATUALIZAÇÃO</th>
+              <th className="text-left px-4 py-3">Título da Proposta</th>
+              <th className="text-left px-4 py-3">Proponente</th>
+              <th className="text-left px-4 py-3">E-mail Institucional</th>
+              <th className="text-left px-4 py-3">Eixo Estratégico Principal</th>
+              <th className="text-left px-4 py-3">Status</th>
+              <th className="text-left px-4 py-3">Curtidas</th>
+              <th className="text-left px-4 py-3">Atualização</th>
             </tr>
           </thead>
           <tbody>
@@ -857,10 +918,23 @@ const Banco: React.FC = () => {
                               </ul>
                             </div>
                             <div>
-                              <p className="text-xs uppercase font-semibold text-slate-500 mb-2">Etapas</p>
-                              <ul className="list-disc pl-5 text-sm text-slate-700 space-y-1">
-                                {visibleEtapas.length > 0 ? visibleEtapas.map((item, idx) => <li key={`${row.id}-etapa-${idx}`}>{item}</li>) : <li>-</li>}
-                              </ul>
+                              <p className="text-xs uppercase font-semibold text-slate-500 mb-2">Etapas, prazos e responsáveis</p>
+                              <div className="space-y-2">
+                                {visibleEtapas.length > 0 ? (
+                                  visibleEtapas.map((item, idx) => {
+                                    const parsed = parsePlanItem(item);
+                                    return (
+                                      <div key={`${row.id}-etapa-${idx}`} className="grid grid-cols-1 md:grid-cols-3 gap-2 rounded border border-slate-200 p-2 text-sm text-slate-700">
+                                        <p><span className="font-semibold">Etapa:</span> {parsed.etapa || '-'}</p>
+                                        <p><span className="font-semibold">Prazo:</span> {parsed.prazo || '-'}</p>
+                                        <p><span className="font-semibold">Responsável:</span> {parsed.responsavel || '-'}</p>
+                                      </div>
+                                    );
+                                  })
+                                ) : (
+                                  <p className="text-sm text-slate-700">-</p>
+                                )}
+                              </div>
                               <div className="mt-2 flex gap-2">
                                 {hasMoreEtapas && (
                                   <button
@@ -898,19 +972,31 @@ const Banco: React.FC = () => {
 
                           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
                             <div>
-                              <p className="text-xs uppercase font-semibold text-slate-500 mb-2">Recursos</p>
+                              <p className="text-xs uppercase font-semibold text-slate-500 mb-2">Recursos Estimados</p>
                               <ul className="list-disc pl-5 text-sm text-slate-700 space-y-1">
                                 {row.recursos.length > 0 ? row.recursos.map((item, idx) => <li key={`${row.id}-recurso-${idx}`}>{item}</li>) : <li>-</li>}
                               </ul>
                             </div>
                             <div>
-                              <p className="text-xs uppercase font-semibold text-slate-500 mb-2">Riscos e mitigação</p>
-                              <ul className="list-disc pl-5 text-sm text-slate-700 space-y-1">
-                                {row.riscos.length > 0 ? row.riscos.map((item, idx) => <li key={`${row.id}-risco-${idx}`}>{item}</li>) : <li>-</li>}
-                              </ul>
+                              <p className="text-xs uppercase font-semibold text-slate-500 mb-2">Riscos e Medidas de Mitigação</p>
+                              <div className="space-y-2">
+                                {row.riscos.length > 0 ? (
+                                  row.riscos.map((item, idx) => {
+                                    const parsed = parseRiskItem(item);
+                                    return (
+                                      <div key={`${row.id}-risco-${idx}`} className="grid grid-cols-1 md:grid-cols-2 gap-2 rounded border border-slate-200 p-2 text-sm text-slate-700">
+                                        <p><span className="font-semibold">Risco:</span> {parsed.risco || '-'}</p>
+                                        <p><span className="font-semibold">Medida de Mitigação:</span> {parsed.mitigacao || '-'}</p>
+                                      </div>
+                                    );
+                                  })
+                                ) : (
+                                  <p className="text-sm text-slate-700">-</p>
+                                )}
+                              </div>
                             </div>
                             <div>
-                              <p className="text-xs uppercase font-semibold text-slate-500 mb-2">Indicadores de impacto</p>
+                              <p className="text-xs uppercase font-semibold text-slate-500 mb-2">Indicadores de Impacto</p>
                               <ul className="list-disc pl-5 text-sm text-slate-700 space-y-1">
                                 {row.indicadores.length > 0 ? row.indicadores.map((item, idx) => <li key={`${row.id}-indicador-${idx}`}>{item}</li>) : <li>-</li>}
                               </ul>
@@ -925,6 +1011,9 @@ const Banco: React.FC = () => {
                               </ul>
                             </div>
                             <div className="space-y-2">
+                              <p className="rounded-md border border-amber-200 bg-amber-50 px-2 py-1 text-xs font-medium text-amber-800">
+                                Campo restrito ao Laboratório de Inovação do INPI.
+                              </p>
                               <Select
                                 instanceId={`banco-status-${row.id}`}
                                 classNamePrefix="tecnica-select"
@@ -965,9 +1054,16 @@ const Banco: React.FC = () => {
                                     event.stopPropagation();
                                     likeIdea(row.id);
                                   }}
-                                  className="px-3 py-1 rounded-md text-xs font-semibold text-blue-700 border border-blue-200 hover:bg-blue-50"
+                                  className="relative px-3 py-1 rounded-md text-xs font-semibold text-blue-700 border border-blue-200 hover:bg-blue-50"
                                 >
                                   Curtir
+                                  {likeFxByIdea[row.id] && (
+                                    <span className="pointer-events-none absolute inset-0">
+                                      <span className="absolute -top-1 left-1/2 -translate-x-1/2 text-amber-400 animate-ping">✦</span>
+                                      <span className="absolute top-1 right-2 text-amber-500 animate-pulse">✧</span>
+                                      <span className="absolute top-1 left-2 text-yellow-400 animate-pulse">✦</span>
+                                    </span>
+                                  )}
                                 </button>
                               </div>
                             </div>
@@ -1036,20 +1132,20 @@ const Banco: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">NOME COMPLETO DO PROPONENTE</label>
+            <label className="block text-sm font-medium text-slate-700 mb-1">Proponente</label>
             <input value={autor} onChange={(event) => setAutor(event.target.value)} className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm" />
           </div>
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">E-MAIL INSTITUCIONAL</label>
+            <label className="block text-sm font-medium text-slate-700 mb-1">E-mail Institucional</label>
             <input value={email} onChange={(event) => setEmail(event.target.value)} className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm" />
           </div>
           <div className="md:col-span-2">
-            <label className="block text-sm font-medium text-slate-700 mb-1">TÍTULO DA PROPOSTA</label>
+            <label className="block text-sm font-medium text-slate-700 mb-1">Título da Proposta</label>
             <input maxLength={100} value={titulo} onChange={(event) => setTitulo(event.target.value)} className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm" />
             <p className="text-xs text-slate-500 mt-1">{`${titulo.length} / 100`}</p>
           </div>
           <div className="md:col-span-2">
-            <label className="block text-sm font-medium text-slate-700 mb-1">EIXO ESTRATÉGICO PRINCIPAL</label>
+            <label className="block text-sm font-medium text-slate-700 mb-1">Eixo Estratégico Principal</label>
             <Select
               instanceId="banco-form-categoria"
               classNamePrefix="tecnica-select"
@@ -1104,19 +1200,54 @@ const Banco: React.FC = () => {
         </div>
 
         <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <div className="space-y-3">
-            <label className="block text-sm font-medium text-slate-700">Etapas, prazos e responsáveis</label>
-            {etapas.map((item, index) => (
-              <div key={`etapa-${index}`} className="flex gap-2">
-                <input value={item} onChange={(event) => updateDynamicField(setEtapas, index, event.target.value)} className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm" />
-                <button type="button" onClick={() => removeDynamicField(setEtapas, index)} className="px-3 py-2 rounded border border-slate-300 text-slate-700 hover:bg-slate-100">-</button>
+          <div className="space-y-3 lg:col-span-2">
+            <label className="block text-sm font-medium text-slate-700">Etapas, Prazos e Responsáveis</label>
+            {planoExecucao.map((item, index) => (
+              <div key={`plano-${index}`} className="grid grid-cols-1 md:grid-cols-[1.3fr_1fr_1.2fr_auto] gap-2 items-start">
+                <input
+                  value={item.etapa}
+                  onChange={(event) =>
+                    setPlanoExecucao((prev) => prev.map((line, idx) => (idx === index ? { ...line, etapa: event.target.value } : line)))
+                  }
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm"
+                  placeholder="Etapa"
+                />
+                <input
+                  value={item.prazo}
+                  onChange={(event) =>
+                    setPlanoExecucao((prev) => prev.map((line, idx) => (idx === index ? { ...line, prazo: event.target.value } : line)))
+                  }
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm"
+                  placeholder="Prazo"
+                />
+                <input
+                  value={item.responsavel}
+                  onChange={(event) =>
+                    setPlanoExecucao((prev) => prev.map((line, idx) => (idx === index ? { ...line, responsavel: event.target.value } : line)))
+                  }
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm"
+                  placeholder="Responsável"
+                />
+                <button
+                  type="button"
+                  onClick={() => setPlanoExecucao((prev) => (prev.length > 1 ? prev.filter((_, idx) => idx !== index) : prev))}
+                  className="px-3 py-2 rounded border border-slate-300 text-slate-700 hover:bg-slate-100"
+                >
+                  -
+                </button>
               </div>
             ))}
-            <button type="button" onClick={() => addDynamicField(setEtapas)} className="px-3 py-2 rounded border border-blue-300 text-blue-700 hover:bg-blue-50 text-sm font-semibold">Adicionar etapa</button>
+            <button
+              type="button"
+              onClick={() => setPlanoExecucao((prev) => [...prev, { etapa: '', prazo: '', responsavel: '' }])}
+              className="px-3 py-2 rounded border border-blue-300 text-blue-700 hover:bg-blue-50 text-sm font-semibold"
+            >
+              Adicionar linha do plano
+            </button>
           </div>
 
           <div className="space-y-3">
-            <label className="block text-sm font-medium text-slate-700">Recursos estimados</label>
+            <label className="block text-sm font-medium text-slate-700">Recursos Estimados</label>
             {recursos.map((item, index) => (
               <div key={`recurso-${index}`} className="flex gap-2">
                 <input value={item} onChange={(event) => updateDynamicField(setRecursos, index, event.target.value)} className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm" />
@@ -1127,18 +1258,45 @@ const Banco: React.FC = () => {
           </div>
 
           <div className="space-y-3">
-            <label className="block text-sm font-medium text-slate-700">Riscos e mitigação</label>
-            {riscos.map((item, index) => (
-              <div key={`risco-${index}`} className="flex gap-2">
-                <input value={item} onChange={(event) => updateDynamicField(setRiscos, index, event.target.value)} className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm" />
-                <button type="button" onClick={() => removeDynamicField(setRiscos, index)} className="px-3 py-2 rounded border border-slate-300 text-slate-700 hover:bg-slate-100">-</button>
+            <label className="block text-sm font-medium text-slate-700">Riscos e Medidas de Mitigação</label>
+            {riscosMitigacoes.map((item, index) => (
+              <div key={`risco-${index}`} className="grid grid-cols-1 md:grid-cols-[1fr_1fr_auto] gap-2 items-start">
+                <input
+                  value={item.risco}
+                  onChange={(event) =>
+                    setRiscosMitigacoes((prev) => prev.map((line, idx) => (idx === index ? { ...line, risco: event.target.value } : line)))
+                  }
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm"
+                  placeholder="Risco"
+                />
+                <input
+                  value={item.mitigacao}
+                  onChange={(event) =>
+                    setRiscosMitigacoes((prev) => prev.map((line, idx) => (idx === index ? { ...line, mitigacao: event.target.value } : line)))
+                  }
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm"
+                  placeholder="Medidas de Mitigação"
+                />
+                <button
+                  type="button"
+                  onClick={() => setRiscosMitigacoes((prev) => (prev.length > 1 ? prev.filter((_, idx) => idx !== index) : prev))}
+                  className="px-3 py-2 rounded border border-slate-300 text-slate-700 hover:bg-slate-100"
+                >
+                  -
+                </button>
               </div>
             ))}
-            <button type="button" onClick={() => addDynamicField(setRiscos)} className="px-3 py-2 rounded border border-blue-300 text-blue-700 hover:bg-blue-50 text-sm font-semibold">Adicionar risco/mitigação</button>
+            <button
+              type="button"
+              onClick={() => setRiscosMitigacoes((prev) => [...prev, { risco: '', mitigacao: '' }])}
+              className="px-3 py-2 rounded border border-blue-300 text-blue-700 hover:bg-blue-50 text-sm font-semibold"
+            >
+              Adicionar risco/mitigação
+            </button>
           </div>
 
           <div className="space-y-3">
-            <label className="block text-sm font-medium text-slate-700">Indicadores de impacto</label>
+            <label className="block text-sm font-medium text-slate-700">Indicadores de Impacto</label>
             {indicadores.map((item, index) => (
               <div key={`indicador-${index}`} className="flex gap-2">
                 <input value={item} onChange={(event) => updateDynamicField(setIndicadores, index, event.target.value)} className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm" />
