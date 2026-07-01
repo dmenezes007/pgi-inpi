@@ -1,6 +1,8 @@
 import React, { useDeferredValue, useEffect, useMemo, useState } from 'react';
 import CreatableSelect from 'react-select/creatable';
 import Select, { SingleValue } from 'react-select';
+import Papa from 'papaparse';
+import * as XLSX from 'xlsx';
 
 type IdeaStatus = 'Enviada' | 'Em análise' | 'Selecionada' | 'Em execução' | 'Implementada' | 'Arquivada';
 
@@ -565,6 +567,47 @@ const Banco: React.FC = () => {
     await saveToSheet(nextRows, 'Curtida registrada com sucesso na planilha.');
   };
 
+  const downloadCsv = () => {
+    const exportRows = filtered.map((row) => ({
+      TITULO_DA_PROPOSTA: row.titulo,
+      NOME_COMPLETO_DO_PROPONENTE: row.autor,
+      EMAIL_INSTITUCIONAL: row.email,
+      EIXO_ESTRATEGICO_PRINCIPAL: row.categoria,
+      STATUS: row.status,
+      CURTIDAS: row.likes,
+      ATUALIZACAO: formatDate(row.timestamp),
+    }));
+
+    const csv = Papa.unparse(exportRows);
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.download = 'banco-ideias.csv';
+    anchor.style.display = 'none';
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+    window.setTimeout(() => URL.revokeObjectURL(url), 0);
+  };
+
+  const downloadXlsx = () => {
+    const exportRows = filtered.map((row) => ({
+      TITULO_DA_PROPOSTA: row.titulo,
+      NOME_COMPLETO_DO_PROPONENTE: row.autor,
+      EMAIL_INSTITUCIONAL: row.email,
+      EIXO_ESTRATEGICO_PRINCIPAL: row.categoria,
+      STATUS: row.status,
+      CURTIDAS: row.likes,
+      ATUALIZACAO: formatDate(row.timestamp),
+    }));
+
+    const worksheet = XLSX.utils.json_to_sheet(exportRows);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'BancoIdeias');
+    XLSX.writeFile(workbook, 'banco-ideias.xlsx');
+  };
+
   const tituloOptions = useMemo(() => {
     const unique = Array.from(new Set(rows.map((row) => row.titulo).filter(Boolean)));
     return unique.sort((a, b) => a.localeCompare(b, 'pt-BR')).map(toOption);
@@ -639,7 +682,25 @@ const Banco: React.FC = () => {
       </div>
 
       <div className="module-card overflow-x-auto">
-        <h2 className="module-section-title">Ideias Registradas</h2>
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+          <h2 className="module-section-title">Ideias Registradas</h2>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={downloadCsv}
+              className="px-3 py-1.5 rounded-md text-xs font-semibold text-blue-700 border border-blue-200 hover:bg-blue-50"
+            >
+              Download CSV
+            </button>
+            <button
+              type="button"
+              onClick={downloadXlsx}
+              className="px-3 py-1.5 rounded-md text-xs font-semibold text-blue-700 border border-blue-200 hover:bg-blue-50"
+            >
+              Download XLSX
+            </button>
+          </div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3 mb-4">
           <CreatableSelect
@@ -706,11 +767,13 @@ const Banco: React.FC = () => {
         <table className="w-full text-sm">
           <thead className="bg-slate-50 text-slate-700">
             <tr>
-              <th className="text-left px-4 py-3">Proposta</th>
-              <th className="text-left px-4 py-3">Eixo</th>
-              <th className="text-left px-4 py-3">Status</th>
-              <th className="text-left px-4 py-3">Curtidas</th>
-              <th className="text-left px-4 py-3">Atualização</th>
+              <th className="text-left px-4 py-3">TÍTULO DA PROPOSTA</th>
+              <th className="text-left px-4 py-3">NOME COMPLETO DO PROPONENTE</th>
+              <th className="text-left px-4 py-3">E-MAIL INSTITUCIONAL</th>
+              <th className="text-left px-4 py-3">EIXO ESTRATÉGICO PRINCIPAL</th>
+              <th className="text-left px-4 py-3">STATUS</th>
+              <th className="text-left px-4 py-3">CURTIDAS</th>
+              <th className="text-left px-4 py-3">ATUALIZAÇÃO</th>
             </tr>
           </thead>
           <tbody>
@@ -740,6 +803,8 @@ const Banco: React.FC = () => {
                         </span>
                       </span>
                     </td>
+                    <td className="px-4 py-3 text-slate-700">{row.autor || '-'}</td>
+                    <td className="px-4 py-3 text-slate-700">{row.email || '-'}</td>
                     <td className="px-4 py-3 text-slate-700">{row.categoria || '-'}</td>
                     <td className="px-4 py-3">
                       <span className={`inline-flex items-center rounded-full border px-2 py-1 text-xs font-semibold ${statusBadgeClass(row.status)}`}>
@@ -752,12 +817,16 @@ const Banco: React.FC = () => {
 
                   {expanded && (
                     <tr className="border-t border-slate-100 bg-slate-50/50">
-                      <td colSpan={5} className="px-4 py-4">
+                      <td colSpan={7} className="px-4 py-4">
                         <div className="overflow-x-auto rounded-lg border border-slate-200 bg-white p-4 space-y-4">
-                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
                             <div>
-                              <p className="text-xs uppercase font-semibold text-slate-500 mb-1">Autor e contato</p>
-                              <p className="text-sm text-slate-700">{row.autor || '-'} · {row.email || '-'}</p>
+                              <p className="text-xs uppercase font-semibold text-slate-500 mb-1">AUTOR</p>
+                              <p className="text-sm text-slate-700">{row.autor || '-'}</p>
+                            </div>
+                            <div>
+                              <p className="text-xs uppercase font-semibold text-slate-500 mb-1">CONTATO</p>
+                              <p className="text-sm text-slate-700">{row.email || '-'}</p>
                             </div>
                             <div>
                               <p className="text-xs uppercase font-semibold text-slate-500 mb-1">Origem</p>
@@ -852,7 +921,7 @@ const Banco: React.FC = () => {
                             <div>
                               <p className="text-xs uppercase font-semibold text-slate-500 mb-2">Anexos</p>
                               <ul className="list-disc pl-5 text-sm text-slate-700 space-y-1">
-                                {row.anexos.length > 0 ? row.anexos.map((item, idx) => <li key={`${row.id}-anexo-${idx}`}>{item}</li>) : <li>Sem anexos informados.</li>}
+                                <li>—</li>
                               </ul>
                             </div>
                             <div className="space-y-2">
@@ -913,7 +982,7 @@ const Banco: React.FC = () => {
 
             {pagedRows.length === 0 && (
               <tr>
-                <td colSpan={5} className="px-4 py-6 text-center text-slate-500">
+                <td colSpan={7} className="px-4 py-6 text-center text-slate-500">
                   Sem registros para os filtros atuais.
                 </td>
               </tr>
@@ -967,20 +1036,20 @@ const Banco: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">Nome Completo do Proponente</label>
+            <label className="block text-sm font-medium text-slate-700 mb-1">NOME COMPLETO DO PROPONENTE</label>
             <input value={autor} onChange={(event) => setAutor(event.target.value)} className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm" />
           </div>
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">E-mail Institucional</label>
+            <label className="block text-sm font-medium text-slate-700 mb-1">E-MAIL INSTITUCIONAL</label>
             <input value={email} onChange={(event) => setEmail(event.target.value)} className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm" />
           </div>
           <div className="md:col-span-2">
-            <label className="block text-sm font-medium text-slate-700 mb-1">Título da Proposta</label>
+            <label className="block text-sm font-medium text-slate-700 mb-1">TÍTULO DA PROPOSTA</label>
             <input maxLength={100} value={titulo} onChange={(event) => setTitulo(event.target.value)} className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm" />
             <p className="text-xs text-slate-500 mt-1">{`${titulo.length} / 100`}</p>
           </div>
           <div className="md:col-span-2">
-            <label className="block text-sm font-medium text-slate-700 mb-1">Eixo Estratégico Principal</label>
+            <label className="block text-sm font-medium text-slate-700 mb-1">EIXO ESTRATÉGICO PRINCIPAL</label>
             <Select
               instanceId="banco-form-categoria"
               classNamePrefix="tecnica-select"
