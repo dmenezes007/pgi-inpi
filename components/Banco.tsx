@@ -743,7 +743,7 @@ const Banco: React.FC = () => {
       <h1 className="module-title">Banco de Ideias</h1>
 
       <div className="module-intro">
-        <div className="module-kicker">PORTFÓLIO TRANSACIONAL DE PROPOSTAS</div>
+        <div className="module-kicker">PORTFÓLIO TRANSACIONAL DE IDEIAS</div>
         <p className="module-lead">
           Ambiente para registro, análise e acompanhamento de propostas inovadoras do INPI, com persistência em planilha e atualização periódica no mesmo padrão transacional dos módulos Mapa e Detentores.
         </p>
