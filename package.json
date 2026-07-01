@@ -14,7 +14,8 @@
     "@fortawesome/react-fontawesome": "^3.3.1",
     "papaparse": "^5.5.3",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-select": "^5.10.2"
   },
   "devDependencies": {
     "@types/node": "^20.14.0",
