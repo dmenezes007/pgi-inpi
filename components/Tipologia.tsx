@@ -41,7 +41,7 @@ const tipologias = [
 ];
 
 const FlippingCard = ({ title, description, icon }: { title: string; description: string; icon: React.ReactNode }) => (
-  <div className="group h-72 w-full [perspective:1000px]">
+  <div className="group h-[30rem] w-full [perspective:1000px]">
     <div className="relative h-full w-full rounded-xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
       {/* Front */}
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 rounded-xl border border-slate-200 bg-white p-6 shadow-sm [backface-visibility:hidden]">
@@ -50,7 +50,7 @@ const FlippingCard = ({ title, description, icon }: { title: string; description
       </div>
       {/* Back */}
       <div className="absolute inset-0 rounded-xl border border-blue-200 bg-blue-50 p-6 [transform:rotateY(180deg)] [backface-visibility:hidden]">
-        <div className="flex flex-col items-center justify-center h-full text-center">
+        <div className="flex h-full flex-col items-center overflow-y-auto text-center">
             <h4 className="mb-2 text-xl font-semibold text-blue-700">{title}</h4>
             <p className="text-sm leading-relaxed text-slate-600">{description}</p>
         </div>
